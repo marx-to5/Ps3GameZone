@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PS3 Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            background-color: black;
+        }
+
+        .background-section {
+            position: relative;
+            width: 100%;
+        }
+
+        .bg-img {
+            display: block;
+            width: 100%;
+            max-height: calc(1080px - 40px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .download-button {
+            position: absolute;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .size-btn1 {
+            width: 180px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .size-btn2 {
+            width: 160px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .size-btn3-group {
+            width: 140px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .size-back-btn {
+            width: 50px;
+            height: 15px;
+            line-height: 15px;
+            font-size: 12px;
+        }
+
+        .size-info-btn {
+            width: 100px;
+            height: 16px;
+            line-height: 16px;
+        }
+
+        .download-button:hover {
+            transform: scale(1.05);
+        }
+
+        .letter-btn {
+            position: absolute;
+            border: 2px solid white;
+            border-radius: 12px;
+            background: transparent;
+            width: 55px;
+            height: 55px;
+            display: block;
+        }
+
+        .ax-btn, .axh-btn {
+            position: absolute;
+            background: transparent;
+            border: 2px solid #fff;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            font-size: 17px;
+            user-select: none;
+        }
+
+        .sub-download-btn {
+            position: absolute;
+            background: #282828;
+            color: white;
+            border: 2px solid #fff;
+            border-radius: 16px;
+            font-size: 18px;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%,0);
+            width: 220px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .sub-back-btn {
+            position: absolute;
+            background: transparent;
+            color: white;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            font-size: 12px;
+            left: 3%;
+            top: 593px;
+            width: 50px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            transform: translateX(-50%);
+        }
+
+        .btn1 {
+            top: 420px;
+            left: 460px;
+        }
+
+        .btn2 {
+            top: 535px;
+            left: 460px;
+        }
+
+        .btn3 {
+            top: 493px;
+            left: 120px;
+        }
+
+        .btn4 {
+            top: 180px;
+            left: 120px;
+        }
+
+        .btn5 {
+            top: 245px;
+            left: 120px;
+        }
+
+        .btn6 {
+            top: 310px;
+            left: 120px;
+        }
+
+        .btn7 {
+            top: 370px;
+            left: 120px;
+        }
+
+        .btn8 {
+            top: 430px;
+            left: 120px;
+        }
+
+        .btn-back {
+            top: 593px;
+            left: 3%;
+            transform: translateX(-50%);
+        }
+
+        .btn-info {
+            top: 593px;
+            left: 15px;
+        }
+
+        #btnA, #btnAh, #btnA7, #btnA8 {
+            left: 54px;
+            top: 180px;
+        }
+
+        #btnB, #btnBh, #btnB7, #btnB8 {
+            left: 187px;
+            top: 180px;
+        }
+
+        #btnC, #btnCh, #btnC7, #btnC8 {
+            left: 322px;
+            top: 180px;
+        }
+
+        #btnD, #btnDh, #btnD7, #btnD8 {
+            left: 455px;
+            top: 180px;
+        }
+
+        #btnE, #btnEh, #btnE7, #btnE8 {
+            left: 590px;
+            top: 180px;
+        }
+
+        #btnF, #btnFh, #btnF7, #btnF8 {
+            left: 723px;
+            top: 180px;
+        }
+
+        #btnG, #btnGh, #btnG7, #btnG8 {
+            left: 857px;
+            top: 180px;
+        }
+
+        #btnH, #btnHh, #btnH7, #btnH8 {
+            left: 990px;
+            top: 180px;
+        }
+
+        #btnI, #btnIh, #btnI7, #btnI8 {
+            left: 54px;
+            top: 335px;
+        }
+
+        #btnJ, #btnJh, #btnJ7, #btnJ8 {
+            left: 187px;
+            top: 335px;
+        }
+
+        #btnK, #btnKh, #btnK7, #btnK8 {
+            left: 322px;
+            top: 335px;
+        }
+
+        #btnL, #btnLh, #btnL7, #btnL8 {
+            left: 455px;
+            top: 335px;
+        }
+
+        #btnM, #btnMh, #btnM7, #btnM8 {
+            left: 590px;
+            top: 335px;
+        }
+
+        #btnN, #btnNh, #btnN7, #btnN8 {
+            left: 723px;
+            top: 335px;
+        }
+
+        #btnO, #btnOh, #btnO7, #btnO8 {
+            left: 857px;
+            top: 335px;
+        }
+
+        #btnP, #btnPh, #btnP7, #btnP8 {
+            left: 990px;
+            top: 335px;
+        }
+
+        #btnQ, #btnQh, #btnQ7, #btnQ8 {
+            left: 57px;
+            top: 492px;
+        }
+
+        #btnR, #btnRh, #btnR7, #btnR8 {
+            left: 190px;
+            top: 492px;
+        }
+
+        #btnS, #btnSh, #btnS7, #btnS8 {
+            left: 325px;
+            top: 492px;
+        }
+
+        #btnT, #btnTh, #btnT7, #btnT8 {
+            left: 458px;
+            top: 492px;
+        }
+
+        #btnU, #btnUh, #btnU7, #btnU8 {
+            left: 593px;
+            top: 492px;
+        }
+
+        #btnV, #btnVh, #btnV7, #btnV8 {
+            left: 726px;
+            top: 492px;
+        }
+
+        #btnW, #btnWh, #btnW7, #btnW8 {
+            left: 860px;
+            top: 492px;
+        }
+
+        #btnX, #btnXh, #btnX7, #btnX8 {
+            left: 993px;
+            top: 492px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-section" id="main-bg-section">
+        <!-- الخلفيات -->
+        <img id="bg1" src="1.png" class="bg-img">
+        <img id="bg2" src="2.png" class="bg-img hidden">
+        <img id="bg3" src="3.png" class="bg-img hidden">
+        <img id="bg4" src="4.png" class="bg-img hidden">
+        <img id="bg5" src="5.png" class="bg-img hidden">
+        <!-- أزرار خلفية 5.png (A-X) -->
+        <div id="container-letters" style="position:absolute;width:100%;top:0;left:0;z-index:2;display:none;">
+            <a href="#" class="letter-btn" id="btnA" onclick="showLetterBG(0);return false;"></a>
+            <a href="#" class="letter-btn" id="btnB" onclick="showLetterBG(1);return false;"></a>
+            <a href="#" class="letter-btn" id="btnC" onclick="showLetterBG(2);return false;"></a>
+            <a href="#" class="letter-btn" id="btnD" onclick="showLetterBG(3);return false;"></a>
+            <a href="#" class="letter-btn" id="btnE" onclick="showLetterBG(4);return false;"></a>
+            <a href="#" class="letter-btn" id="btnF" onclick="showLetterBG(5);return false;"></a>
+            <a href="#" class="letter-btn" id="btnG" onclick="showLetterBG(6);return false;"></a>
+            <a href="#" class="letter-btn" id="btnH" onclick="showLetterBG(7);return false;"></a>
+            <a href="#" class="letter-btn" id="btnI" onclick="showLetterBG(8);return false;"></a>
+            <a href="#" class="letter-btn" id="btnJ" onclick="showLetterBG(9);return false;"></a>
+            <a href="#" class="letter-btn" id="btnK" onclick="showLetterBG(10);return false;"></a>
+            <a href="#" class="letter-btn" id="btnL" onclick="showLetterBG(11);return false;"></a>
+            <a href="#" class="letter-btn" id="btnM" onclick="showLetterBG(12);return false;"></a>
+            <a href="#" class="letter-btn" id="btnN" onclick="showLetterBG(13);return false;"></a>
+            <a href="#" class="letter-btn" id="btnO" onclick="showLetterBG(14);return false;"></a>
+            <a href="#" class="letter-btn" id="btnP" onclick="showLetterBG(15);return false;"></a>
+            <a href="#" class="letter-btn" id="btnQ" onclick="showLetterBG(16);return false;"></a>
+            <a href="#" class="letter-btn" id="btnR" onclick="showLetterBG(17);return false;"></a>
+            <a href="#" class="letter-btn" id="btnS" onclick="showLetterBG(18);return false;"></a>
+            <a href="#" class="letter-btn" id="btnT" onclick="showLetterBG(19);return false;"></a>
+            <a href="#" class="letter-btn" id="btnU" onclick="showLetterBG(20);return false;"></a>
+            <a href="#" class="letter-btn" id="btnV" onclick="showLetterBG(21);return false;"></a>
+            <a href="#" class="letter-btn" id="btnW" onclick="showLetterBG(22);return false;"></a>
+            <a href="#" class="letter-btn" id="btnX" onclick="showLetterBG(23);return false;"></a>
+        </div>
+        <img id="bg6" src="6.png" class="bg-img hidden">
+        <!-- أزرار خلفية 6.png (A-X) -->
+        <div id="container-letters-h" style="position:absolute;width:100%;top:0;left:0;z-index:2;display:none;">
+            <a href="#" class="letter-btn" id="btnAh" onclick="showLetterBGh(0);return false;"></a>
+            <a href="#" class="letter-btn" id="btnBh" onclick="showLetterBGh(1);return false;"></a>
+            <a href="#" class="letter-btn" id="btnCh" onclick="showLetterBGh(2);return false;"></a>
+            <a href="#" class="letter-btn" id="btnDh" onclick="showLetterBGh(3);return false;"></a>
+            <a href="#" class="letter-btn" id="btnEh" onclick="showLetterBGh(4);return false;"></a>
+            <a href="#" class="letter-btn" id="btnFh" onclick="showLetterBGh(5);return false;"></a>
+            <a href="#" class="letter-btn" id="btnGh" onclick="showLetterBGh(6);return false;"></a>
+            <a href="#" class="letter-btn" id="btnHh" onclick="showLetterBGh(7);return false;"></a>
+            <a href="#" class="letter-btn" id="btnIh" onclick="showLetterBGh(8);return false;"></a>
+            <a href="#" class="letter-btn" id="btnJh" onclick="showLetterBGh(9);return false;"></a>
+            <a href="#" class="letter-btn" id="btnKh" onclick="showLetterBGh(10);return false;"></a>
+            <a href="#" class="letter-btn" id="btnLh" onclick="showLetterBGh(11);return false;"></a>
+            <a href="#" class="letter-btn" id="btnMh" onclick="showLetterBGh(12);return false;"></a>
+            <a href="#" class="letter-btn" id="btnNh" onclick="showLetterBGh(13);return false;"></a>
+            <a href="#" class="letter-btn" id="btnOh" onclick="showLetterBGh(14);return false;"></a>
+            <a href="#" class="letter-btn" id="btnPh" onclick="showLetterBGh(15);return false;"></a>
+            <a href="#" class="letter-btn" id="btnQh" onclick="showLetterBGh(16);return false;"></a>
+            <a href="#" class="letter-btn" id="btnRh" onclick="showLetterBGh(17);return false;"></a>
+            <a href="#" class="letter-btn" id="btnSh" onclick="showLetterBGh(18);return false;"></a>
+            <a href="#" class="letter-btn" id="btnTh" onclick="showLetterBGh(19);return false;"></a>
+            <a href="#" class="letter-btn" id="btnUh" onclick="showLetterBGh(20);return false;"></a>
+            <a href="#" class="letter-btn" id="btnVh" onclick="showLetterBGh(21);return false;"></a>
+            <a href="#" class="letter-btn" id="btnWh" onclick="showLetterBGh(22);return false;"></a>
+            <a href="#" class="letter-btn" id="btnXh" onclick="showLetterBGh(23);return false;"></a>
+        </div>
+        <img id="bg7" src="7.png" class="bg-img hidden">
+        <div id="container-letters-7" style="position:absolute;width:100%;top:0;left:0;z-index:2;display:none;">
+            <a href="#" class="letter-btn" id="btnB7" onclick="showLetterBG7('B');return false;"></a>
+            <a href="#" class="letter-btn" id="btnF7" onclick="showLetterBG7('F');return false;"></a>
+            <a href="#" class="letter-btn" id="btnG7" onclick="showLetterBG7('G');return false;"></a>
+            <a href="#" class="letter-btn" id="btnI7" onclick="showLetterBG7('I');return false;"></a>
+            <a href="#" class="letter-btn" id="btnN7" onclick="showLetterBG7('N');return false;"></a>
+            <a href="#" class="letter-btn" id="btnV7" onclick="showLetterBG7('V');return false;"></a>
+            <a href="#" class="letter-btn" id="btnW7" onclick="showLetterBG7('W');return false;"></a>
+        </div>
+        <img id="bg8" src="8.png" class="bg-img hidden">
+        <div id="container-letters-8" style="position:absolute;width:100%;top:0;left:0;z-index:2;display:none;">
+            <a href="#" class="letter-btn" id="btnA8" onclick="showLetterBG8('A');return false;"></a>
+            <a href="#" class="letter-btn" id="btnC8" onclick="showLetterBG8('C');return false;"></a>
+            <a href="#" class="letter-btn" id="btnF8" onclick="showLetterBG8('F');return false;"></a>
+            <a href="#" class="letter-btn" id="btnM8" onclick="showLetterBG8('M');return false;"></a>
+            <a href="#" class="letter-btn" id="btnP8" onclick="showLetterBG8('P');return false;"></a>
+            <a href="#" class="letter-btn" id="btnR8" onclick="showLetterBG8('R');return false;"></a>
+            <a href="#" class="letter-btn" id="btnU8" onclick="showLetterBG8('U');return false;"></a>
+        </div>
+        <img id="bg9" src="9.png" class="bg-img hidden">
+        <img id="bg10" src="10.png" class="bg-img hidden">
+        <!-- الخلفيات A-X -->
+        <img id="bgA" src="A.png" class="bg-img hidden">
+        <img id="bgB" src="B.png" class="bg-img hidden">
+        <img id="bgC" src="C.png" class="bg-img hidden">
+        <img id="bgD" src="D.png" class="bg-img hidden">
+        <img id="bgE" src="E.png" class="bg-img hidden">
+        <img id="bgF" src="F.png" class="bg-img hidden">
+        <img id="bgG" src="G.png" class="bg-img hidden">
+        <img id="bgH" src="H.png" class="bg-img hidden">
+        <img id="bgI" src="I.png" class="bg-img hidden">
+        <img id="bgJ" src="J.png" class="bg-img hidden">
+        <img id="bgK" src="K.png" class="bg-img hidden">
+        <img id="bgL" src="L.png" class="bg-img hidden">
+        <img id="bgM" src="M.png" class="bg-img hidden">
+        <img id="bgN" src="N.png" class="bg-img hidden">
+        <img id="bgO" src="O.png" class="bg-img hidden">
+        <img id="bgP" src="P.png" class="bg-img hidden">
+        <img id="bgQ" src="Q.png" class="bg-img hidden">
+        <img id="bgR" src="R.png" class="bg-img hidden">
+        <img id="bgS" src="S.png" class="bg-img hidden">
+        <img id="bgT" src="T.png" class="bg-img hidden">
+        <img id="bgU" src="U.png" class="bg-img hidden">
+        <img id="bgV" src="V.png" class="bg-img hidden">
+        <img id="bgW" src="W.png" class="bg-img hidden">
+        <img id="bgX" src="X.png" class="bg-img hidden">
+        <!-- الخلفيات Ah-Xh -->
+        <img id="bgAh" src="Ah.png" class="bg-img hidden">
+        <img id="bgBh" src="Bh.png" class="bg-img hidden">
+        <img id="bgCh" src="Ch.png" class="bg-img hidden">
+        <img id="bgDh" src="Dh.png" class="bg-img hidden">
+        <img id="bgEh" src="Eh.png" class="bg-img hidden">
+        <img id="bgFh" src="Fh.png" class="bg-img hidden">
+        <img id="bgGh" src="Gh.png" class="bg-img hidden">
+        <img id="bgHh" src="Hh.png" class="bg-img hidden">
+        <img id="bgIh" src="Ih.png" class="bg-img hidden">
+        <img id="bgJh" src="Jh.png" class="bg-img hidden">
+        <img id="bgKh" src="Kh.png" class="bg-img hidden">
+        <img id="bgLh" src="Lh.png" class="bg-img hidden">
+        <img id="bgMh" src="Mh.png" class="bg-img hidden">
+        <img id="bgNh" src="Nh.png" class="bg-img hidden">
+        <img id="bgOh" src="Oh.png" class="bg-img hidden">
+        <img id="bgPh" src="Ph.png" class="bg-img hidden">
+        <img id="bgQh" src="Qh.png" class="bg-img hidden">
+        <img id="bgRh" src="Rh.png" class="bg-img hidden">
+        <img id="bgSh" src="Sh.png" class="bg-img hidden">
+        <img id="bgTh" src="Th.png" class="bg-img hidden">
+        <img id="bgUh" src="Uh.png" class="bg-img hidden">
+        <img id="bgVh" src="Vh.png" class="bg-img hidden">
+        <img id="bgWh" src="Wh.png" class="bg-img hidden">
+        <img id="bgXh" src="Xh.png" class="bg-img hidden">
+        <!-- الخلفيات A1-X1 -->
+        <img id="bgA1" src="A1.png" class="bg-img hidden">
+        <img id="bgA2" src="A2.png" class="bg-img hidden">
+        <img id="bgA3" src="A3.png" class="bg-img hidden">
+        <img id="bgA4" src="A4.png" class="bg-img hidden">
+        <img id="bgA5" src="A5.png" class="bg-img hidden">
+        <img id="bgA6" src="A6.png" class="bg-img hidden">
+        <img id="bgA7" src="A7.png" class="bg-img hidden">
+        <img id="bgA8" src="A8.png" class="bg-img hidden">
+        <img id="bgA9" src="A9.png" class="bg-img hidden">
+        <img id="bgA10" src="A10.png" class="bg-img hidden">
+        <img id="bgA11" src="A11.png" class="bg-img hidden">
+        <img id="bgA12" src="A12.png" class="bg-img hidden">
+        <img id="bgA13" src="A13.png" class="bg-img hidden">
+        <img id="bgA14" src="A14.png" class="bg-img hidden">
+        <img id="bgA15" src="A15.png" class="bg-img hidden">
+        <img id="bgB1" src="B1.png" class="bg-img hidden">
+        <img id="bgB2" src="B2.png" class="bg-img hidden">
+        <img id="bgB3" src="B3.png" class="bg-img hidden">
+        <img id="bgB4" src="B4.png" class="bg-img hidden">
+        <img id="bgB5" src="B5.png" class="bg-img hidden">
+        <img id="bgB6" src="B6.png" class="bg-img hidden">
+        <img id="bgB7" src="B7.png" class="bg-img hidden">
+        <img id="bgB8" src="B8.png" class="bg-img hidden">
+        <img id="bgB9" src="B9.png" class="bg-img hidden">
+        <img id="bgB10" src="B10.png" class="bg-img hidden">
+        <img id="bgB11" src="B11.png" class="bg-img hidden">
+        <img id="bgB12" src="B12.png" class="bg-img hidden">
+        <img id="bgB13" src="B13.png" class="bg-img hidden">
+        <img id="bgB14" src="B14.png" class="bg-img hidden">
+        <img id="bgB15" src="B15.png" class="bg-img hidden">
+        <img id="bgC1" src="C1.png" class="bg-img hidden">
+        <img id="bgC2" src="C2.png" class="bg-img hidden">
+        <img id="bgC3" src="C3.png" class="bg-img hidden">
+        <img id="bgC4" src="C4.png" class="bg-img hidden">
+        <img id="bgC5" src="C5.png" class="bg-img hidden">
+        <img id="bgC6" src="C6.png" class="bg-img hidden">
+        <img id="bgC7" src="C7.png" class="bg-img hidden">
+        <img id="bgC8" src="C8.png" class="bg-img hidden">
+        <img id="bgC9" src="C9.png" class="bg-img hidden">
+        <img id="bgC10" src="C10.png" class="bg-img hidden">
+        <img id="bgC11" src="C11.png" class="bg-img hidden">
+        <img id="bgC12" src="C12.png" class="bg-img hidden">
+        <img id="bgC13" src="C13.png" class="bg-img hidden">
+        <img id="bgC14" src="C14.png" class="bg-img hidden">
+        <img id="bgC15" src="C15.png" class="bg-img hidden">
+        <img id="bgD1" src="D1.png" class="bg-img hidden">
+        <img id="bgD2" src="D2.png" class="bg-img hidden">
+        <img id="bgD3" src="D3.png" class="bg-img hidden">
+        <img id="bgD4" src="D4.png" class="bg-img hidden">
+        <img id="bgD5" src="D5.png" class="bg-img hidden">
+        <img id="bgD6" src="D6.png" class="bg-img hidden">
+        <img id="bgD7" src="D7.png" class="bg-img hidden">
+        <img id="bgD8" src="D8.png" class="bg-img hidden">
+        <img id="bgD9" src="D9.png" class="bg-img hidden">
+        <img id="bgD10" src="D10.png" class="bg-img hidden">
+        <img id="bgD11" src="D11.png" class="bg-img hidden">
+        <img id="bgD12" src="D12.png" class="bg-img hidden">
+        <img id="bgD13" src="D13.png" class="bg-img hidden">
+        <img id="bgD14" src="D14.png" class="bg-img hidden">
+        <img id="bgD15" src="D15.png" class="bg-img hidden">
+        <img id="bgE1" src="E1.png" class="bg-img hidden">
+        <img id="bgE2" src="E2.png" class="bg-img hidden">
+        <img id="bgE3" src="E3.png" class="bg-img hidden">
+        <img id="bgE4" src="E4.png" class="bg-img hidden">
+        <img id="bgE5" src="E5.png" class="bg-img hidden">
+        <img id="bgE6" src="E6.png" class="bg-img hidden">
+        <img id="bgE7" src="E7.png" class="bg-img hidden">
+        <img id="bgE8" src="E8.png" class="bg-img hidden">
+        <img id="bgE9" src="E9.png" class="bg-img hidden">
+        <img id="bgE10" src="E10.png" class="bg-img hidden">
+        <img id="bgE11" src="E11.png" class="bg-img hidden">
+        <img id="bgE12" src="E12.png" class="bg-img hidden">
+        <img id="bgE13" src="E13.png" class="bg-img hidden">
+        <img id="bgE14" src="E14.png" class="bg-img hidden">
+        <img id="bgE15" src="E15.png" class="bg-img hidden">
+        <img id="bgF1" src="F1.png" class="bg-img hidden">
+        <img id="bgF2" src="F2.png" class="bg-img hidden">
+        <img id="bgF3" src="F3.png" class="bg-img hidden">
+        <img id="bgF4" src="F4.png" class="bg-img hidden">
+        <img id="bgF5" src="F5.png" class="bg-img hidden">
+        <img id="bgF6" src="F6.png" class="bg-img hidden">
+        <img id="bgF7" src="F7.png" class="bg-img hidden">
+        <img id="bgF8" src="F8.png" class="bg-img hidden">
+        <img id="bgF9" src="F9.png" class="bg-img hidden">
+        <img id="bgF10" src="F10.png" class="bg-img hidden">
+        <img id="bgF11" src="F11.png" class="bg-img hidden">
+        <img id="bgF12" src="F12.png" class="bg-img hidden">
+        <img id="bgF13" src="F13.png" class="bg-img hidden">
+        <img id="bgF14" src="F14.png" class="bg-img hidden">
+        <img id="bgF15" src="F15.png" class="bg-img hidden">
+        <img id="bgG1" src="G1.png" class="bg-img hidden">
+        <img id="bgG2" src="G2.png" class="bg-img hidden">
+        <img id="bgG3" src="G3.png" class="bg-img hidden">
+        <img id="bgG4" src="G4.png" class="bg-img hidden">
+        <img id="bgG5" src="G5.png" class="bg-img hidden">
+        <img id="bgG6" src="G6.png" class="bg-img hidden">
+        <img id="bgG7" src="G7.png" class="bg-img hidden">
+        <img id="bgG8" src="G8.png" class="bg-img hidden">
+        <img id="bgG9" src="G9.png" class="bg-img hidden">
+        <img id="bgG10" src="G10.png" class="bg-img hidden">
+        <img id="bgG11" src="G11.png" class="bg-img hidden">
+        <img id="bgG12" src="G12.png" class="bg-img hidden">
+        <img id="bgG13" src="G13.png" class="bg-img hidden">
+        <img id="bgG14" src="G14.png" class="bg-img hidden">
+        <img id="bgG15" src="G15.png" class="bg-img hidden">
+        <img id="bgH1" src="H1.png" class="bg-img hidden">
+        <img id="bgH2" src="H2.png" class="bg-img hidden">
+        <img id="bgH3" src="H3.png" class="bg-img hidden">
+        <img id="bgH4" src="H4.png" class="bg-img hidden">
+        <img id="bgH5" src="H5.png" class="bg-img hidden">
+        <img id="bgH6" src="H6.png" class="bg-img hidden">
+        <img id="bgH7" src="H7.png" class="bg-img hidden">
+        <img id="bgH8" src="H8.png" class="bg-img hidden">
+        <img id="bgH9" src="H9.png" class="bg-img hidden">
+        <img id="bgH10" src="H10.png" class="bg-img hidden">
+        <img id="bgH11" src="H11.png" class="bg-img hidden">
+        <img id="bgH12" src="H12.png" class="bg-img hidden">
+        <img id="bgH13" src="H13.png" class="bg-img hidden">
+        <img id="bgH14" src="H14.png" class="bg-img hidden">
+        <img id="bgH15" src="H15.png" class="bg-img hidden">
+        <img id="bgI1" src="I1.png" class="bg-img hidden">
+        <img id="bgI2" src="I2.png" class="bg-img hidden">
+        <img id="bgI3" src="I3.png" class="bg-img hidden">
+        <img id="bgI4" src="I4.png" class="bg-img hidden">
+        <img id="bgI5" src="I5.png" class="bg-img hidden">
+        <img id="bgI6" src="I6.png" class="bg-img hidden">
+        <img id="bgI7" src="I7.png" class="bg-img hidden">
+        <img id="bgI8" src="I8.png" class="bg-img hidden">
+        <img id="bgI9" src="I9.png" class="bg-img hidden">
+        <img id="bgI10" src="I10.png" class="bg-img hidden">
+        <img id="bgI11" src="I11.png" class="bg-img hidden">
+        <img id="bgI12" src="I12.png" class="bg-img hidden">
+        <img id="bgI13" src="I13.png" class="bg-img hidden">
+        <img id="bgI14" src="I14.png" class="bg-img hidden">
+        <img id="bgI15" src="I15.png" class="bg-img hidden">
+        <img id="bgJ1" src="J1.png" class="bg-img hidden">
+        <img id="bgJ2" src="J2.png" class="bg-img hidden">
+        <img id="bgJ3" src="J3.png" class="bg-img hidden">
+        <img id="bgJ4" src="J4.png" class="bg-img hidden">
+        <img id="bgJ5" src="J5.png" class="bg-img hidden">
+        <img id="bgJ6" src="J6.png" class="bg-img hidden">
+        <img id="bgJ7" src="J7.png" class="bg-img hidden">
+        <img id="bgJ8" src="J8.png" class="bg-img hidden">
+        <img id="bgJ9" src="J9.png" class="bg-img hidden">
+        <img id="bgJ10" src="J10.png" class="bg-img hidden">
+        <img id="bgJ11" src="J11.png" class="bg-img hidden">
+        <img id="bgJ12" src="J12.png" class="bg-img hidden">
+        <img id="bgJ13" src="J13.png" class="bg-img hidden">
+        <img id="bgJ14" src="J14.png" class="bg-img hidden">
+        <img id="bgJ15" src="J15.png" class="bg-img hidden">
+        <img id="bgK1" src="K1.png" class="bg-img hidden">
+        <img id="bgK2" src="K2.png" class="bg-img hidden">
+        <img id="bgK3" src="K3.png" class="bg-img hidden">
+        <img id="bgK4" src="K4.png" class="bg-img hidden">
+        <img id="bgK5" src="K5.png" class="bg-img hidden">
+        <img id="bgK6" src="K6.png" class="bg-img hidden">
+        <img id="bgK7" src="K7.png" class="bg-img hidden">
+        <img id="bgK8" src="K8.png" class="bg-img hidden">
+        <img id="bgK9" src="K9.png" class="bg-img hidden">
+        <img id="bgK10" src="K10.png" class="bg-img hidden">
+        <img id="bgK11" src="K11.png" class="bg-img hidden">
+        <img id="bgK12" src="K12.png" class="bg-img hidden">
+        <img id="bgK13" src="K13.png" class="bg-img hidden">
+        <img id="bgK14" src="K14.png" class="bg-img hidden">
+        <img id="bgK15" src="K15.png" class="bg-img hidden">
+        <img id="bgL1" src="L1.png" class="bg-img hidden">
+        <img id="bgL2" src="L2.png" class="bg-img hidden">
+        <img id="bgL3" src="L3.png" class="bg-img hidden">
+        <img id="bgL4" src="L4.png" class="bg-img hidden">
+        <img id="bgL5" src="L5.png" class="bg-img hidden">
+        <img id="bgL6" src="L6.png" class="bg-img hidden">
+        <img id="bgL7" src="L7.png" class="bg-img hidden">
+        <img id="bgL8" src="L8.png" class="bg-img hidden">
+        <img id="bgL9" src="L9.png" class="bg-img hidden">
+        <img id="bgL10" src="L10.png" class="bg-img hidden">
+        <img id="bgL11" src="L11.png" class="bg-img hidden">
+        <img id="bgL12" src="L12.png" class="bg-img hidden">
+        <img id="bgL13" src="L13.png" class="bg-img hidden">
+        <img id="bgL14" src="L14.png" class="bg-img hidden">
+        <img id="bgL15" src="L15.png" class="bg-img hidden">
+        <img id="bgM1" src="M1.png" class="bg-img hidden">
+        <img id="bgM2" src="M2.png" class="bg-img hidden">
+        <img id="bgM3" src="M3.png" class="bg-img hidden">
+        <img id="bgM4" src="M4.png" class="bg-img hidden">
+        <img id="bgM5" src="M5.png" class="bg-img hidden">
+        <img id="bgM6" src="M6.png" class="bg-img hidden">
+        <img id="bgM7" src="M7.png" class="bg-img hidden">
+        <img id="bgM8" src="M8.png" class="bg-img hidden">
+        <img id="bgM9" src="M9.png" class="bg-img hidden">
+        <img id="bgM10" src="M10.png" class="bg-img hidden">
+        <img id="bgM11" src="M11.png" class="bg-img hidden">
+        <img id="bgM12" src="M12.png" class="bg-img hidden">
+        <img id="bgM13" src="M13.png" class="bg-img hidden">
+        <img id="bgM14" src="M14.png" class="bg-img hidden">
+        <img id="bgM15" src="M15.png" class="bg-img hidden">
+        <img id="bgN1" src="N1.png" class="bg-img hidden">
+        <img id="bgN2" src="N2.png" class="bg-img hidden">
+        <img id="bgN3" src="N3.png" class="bg-img hidden">
+        <img id="bgN4" src="N4.png" class="bg-img hidden">
+        <img id="bgN5" src="N5.png" class="bg-img hidden">
+        <img id="bgN6" src="N6.png" class="bg-img hidden">
+        <img id="bgN7" src="N7.png" class="bg-img hidden">
+        <img id="bgN8" src="N8.png" class="bg-img hidden">
+        <img id="bgN9" src="N9.png" class="bg-img hidden">
+        <img id="bgN10" src="N10.png" class="bg-img hidden">
+        <img id="bgN11" src="N11.png" class="bg-img hidden">
+        <img id="bgN12" src="N12.png" class="bg-img hidden">
+        <img id="bgN13" src="N13.png" class="bg-img hidden">
+        <img id="bgN14" src="N14.png" class="bg-img hidden">
+        <img id="bgN15" src="N15.png" class="bg-img hidden">
+        <img id="bgO1" src="O1.png" class="bg-img hidden">
+        <img id="bgO2" src="O2.png" class="bg-img hidden">
+        <img id="bgO3" src="O3.png" class="bg-img hidden">
+        <img id="bgO4" src="O4.png" class="bg-img hidden">
+        <img id="bgO5" src="O5.png" class="bg-img hidden">
+        <img id="bgO6" src="O6.png" class="bg-img hidden">
+        <img id="bgO7" src="O7.png" class="bg-img hidden">
+        <img id="bgO8" src="O8.png" class="bg-img hidden">
+        <img id="bgO9" src="O9.png" class="bg-img hidden">
+        <img id="bgO10" src="O10.png" class="bg-img hidden">
+        <img id="bgO11" src="O11.png" class="bg-img hidden">
+        <img id="bgO12" src="O12.png" class="bg-img hidden">
+        <img id="bgO13" src="O13.png" class="bg-img hidden">
+        <img id="bgO14" src="O14.png" class="bg-img hidden">
+        <img id="bgO15" src="O15.png" class="bg-img hidden">
+        <img id="bgP1" src="P1.png" class="bg-img hidden">
+        <img id="bgP2" src="P2.png" class="bg-img hidden">
+        <img id="bgP3" src="P3.png" class="bg-img hidden">
+        <img id="bgP4" src="P4.png" class="bg-img hidden">
+        <img id="bgP5" src="P5.png" class="bg-img hidden">
+        <img id="bgP6" src="P6.png" class="bg-img hidden">
+        <img id="bgP7" src="P7.png" class="bg-img hidden">
+        <img id="bgP8" src="P8.png" class="bg-img hidden">
+        <img id="bgP9" src="P9.png" class="bg-img hidden">
+        <img id="bgP10" src="P10.png" class="bg-img hidden">
+        <img id="bgP11" src="P11.png" class="bg-img hidden">
+        <img id="bgP12" src="P12.png" class="bg-img hidden">
+        <img id="bgP13" src="P13.png" class="bg-img hidden">
+        <img id="bgP14" src="P14.png" class="bg-img hidden">
+        <img id="bgP15" src="P15.png" class="bg-img hidden">
+        <img id="bgQ1" src="Q1.png" class="bg-img hidden">
+        <img id="bgQ2" src="Q2.png" class="bg-img hidden">
+        <img id="bgQ3" src="Q3.png" class="bg-img hidden">
+        <img id="bgQ4" src="Q4.png" class="bg-img hidden">
+        <img id="bgQ5" src="Q5.png" class="bg-img hidden">
+        <img id="bgQ6" src="Q6.png" class="bg-img hidden">
+        <img id="bgQ7" src="Q7.png" class="bg-img hidden">
+        <img id="bgQ8" src="Q8.png" class="bg-img hidden">
+        <img id="bgQ9" src="Q9.png" class="bg-img hidden">
+        <img id="bgQ10" src="Q10.png" class="bg-img hidden">
+        <img id="bgQ11" src="Q11.png" class="bg-img hidden">
+        <img id="bgQ12" src="Q12.png" class="bg-img hidden">
+        <img id="bgQ13" src="Q13.png" class="bg-img hidden">
+        <img id="bgQ14" src="Q14.png" class="bg-img hidden">
+        <img id="bgQ15" src="Q15.png" class="bg-img hidden">
+        <img id="bgR1" src="R1.png" class="bg-img hidden">
+        <img id="bgR2" src="R2.png" class="bg-img hidden">
+        <img id="bgR3" src="R3.png" class="bg-img hidden">
+        <img id="bgR4" src="R4.png" class="bg-img hidden">
+        <img id="bgR5" src="R5.png" class="bg-img hidden">
+        <img id="bgR6" src="R6.png" class="bg-img hidden">
+        <img id="bgR7" src="R7.png" class="bg-img hidden">
+        <img id="bgR8" src="R8.png" class="bg-img hidden">
+        <img id="bgR9" src="R9.png" class="bg-img hidden">
+        <img id="bgR10" src="R10.png" class="bg-img hidden">
+        <img id="bgR11" src="R11.png" class="bg-img hidden">
+        <img id="bgR12" src="R12.png" class="bg-img hidden">
+        <img id="bgR13" src="R13.png" class="bg-img hidden">
+        <img id="bgR14" src="R14.png" class="bg-img hidden">
+        <img id="bgR15" src="R15.png" class="bg-img hidden">
+        <img id="bgS1" src="S1.png" class="bg-img hidden">
+        <img id="bgS2" src="S2.png" class="bg-img hidden">
+        <img id="bgS3" src="S3.png" class="bg-img hidden">
+        <img id="bgS4" src="S4.png" class="bg-img hidden">
+        <img id="bgS5" src="S5.png" class="bg-img hidden">
+        <img id="bgS6" src="S6.png" class="bg-img hidden">
+        <img id="bgS7" src="S7.png" class="bg-img hidden">
+        <img id="bgS8" src="S8.png" class="bg-img hidden">
+        <img id="bgS9" src="S9.png" class="bg-img hidden">
+        <img id="bgS10" src="S10.png" class="bg-img hidden">
+        <img id="bgS11" src="S11.png" class="bg-img hidden">
+        <img id="bgS12" src="S12.png" class="bg-img hidden">
+        <img id="bgS13" src="S13.png" class="bg-img hidden">
+        <img id="bgS14" src="S14.png" class="bg-img hidden">
+        <img id="bgS15" src="S15.png" class="bg-img hidden">
+        <img id="bgT1" src="T1.png" class="bg-img hidden">
+        <img id="bgT2" src="T2.png" class="bg-img hidden">
+        <img id="bgT3" src="T3.png" class="bg-img hidden">
+        <img id="bgT4" src="T4.png" class="bg-img hidden">
+        <img id="bgT5" src="T5.png" class="bg-img hidden">
+        <img id="bgT6" src="T6.png" class="bg-img hidden">
+        <img id="bgT7" src="T7.png" class="bg-img hidden">
+        <img id="bgT8" src="T8.png" class="bg-img hidden">
+        <img id="bgT9" src="T9.png" class="bg-img hidden">
+        <img id="bgT10" src="T10.png" class="bg-img hidden">
+        <img id="bgT11" src="T11.png" class="bg-img hidden">
+        <img id="bgT12" src="T12.png" class="bg-img hidden">
+        <img id="bgT13" src="T13.png" class="bg-img hidden">
+        <img id="bgT14" src="T14.png" class="bg-img hidden">
+        <img id="bgT15" src="T15.png" class="bg-img hidden">
+        <img id="bgU1" src="U1.png" class="bg-img hidden">
+        <img id="bgU2" src="U2.png" class="bg-img hidden">
+        <img id="bgU3" src="U3.png" class="bg-img hidden">
+        <img id="bgU4" src="U4.png" class="bg-img hidden">
+        <img id="bgU5" src="U5.png" class="bg-img hidden">
+        <img id="bgU6" src="U6.png" class="bg-img hidden">
+        <img id="bgU7" src="U7.png" class="bg-img hidden">
+        <img id="bgU8" src="U8.png" class="bg-img hidden">
+        <img id="bgU9" src="U9.png" class="bg-img hidden">
+        <img id="bgU10" src="U10.png" class="bg-img hidden">
+        <img id="bgU11" src="U11.png" class="bg-img hidden">
+        <img id="bgU12" src="U12.png" class="bg-img hidden">
+        <img id="bgU13" src="U13.png" class="bg-img hidden">
+        <img id="bgU14" src="U14.png" class="bg-img hidden">
+        <img id="bgU15" src="U15.png" class="bg-img hidden">
+        <img id="bgV1" src="V1.png" class="bg-img hidden">
+        <img id="bgV2" src="V2.png" class="bg-img hidden">
+        <img id="bgV3" src="V3.png" class="bg-img hidden">
+        <img id="bgV4" src="V4.png" class="bg-img hidden">
+        <img id="bgV5" src="V5.png" class="bg-img hidden">
+        <img id="bgV6" src="V6.png" class="bg-img hidden">
+        <img id="bgV7" src="V7.png" class="bg-img hidden">
+        <img id="bgV8" src="V8.png" class="bg-img hidden">
+        <img id="bgV9" src="V9.png" class="bg-img hidden">
+        <img id="bgV10" src="V10.png" class="bg-img hidden">
+        <img id="bgV11" src="V11.png" class="bg-img hidden">
+        <img id="bgV12" src="V12.png" class="bg-img hidden">
+        <img id="bgV13" src="V13.png" class="bg-img hidden">
+        <img id="bgV14" src="V14.png" class="bg-img hidden">
+        <img id="bgV15" src="V15.png" class="bg-img hidden">
+        <img id="bgW1" src="W1.png" class="bg-img hidden">
+        <img id="bgW2" src="W2.png" class="bg-img hidden">
+        <img id="bgW3" src="W3.png" class="bg-img hidden">
+        <img id="bgW4" src="W4.png" class="bg-img hidden">
+        <img id="bgW5" src="W5.png" class="bg-img hidden">
+        <img id="bgW6" src="W6.png" class="bg-img hidden">
+        <img id="bgW7" src="W7.png" class="bg-img hidden">
+        <img id="bgW8" src="W8.png" class="bg-img hidden">
+        <img id="bgW9" src="W9.png" class="bg-img hidden">
+        <img id="bgW10" src="W10.png" class="bg-img hidden">
+        <img id="bgW11" src="W11.png" class="bg-img hidden">
+        <img id="bgW12" src="W12.png" class="bg-img hidden">
+        <img id="bgW13" src="W13.png" class="bg-img hidden">
+        <img id="bgW14" src="W14.png" class="bg-img hidden">
+        <img id="bgW15" src="W15.png" class="bg-img hidden">
+        <img id="bgX1" src="X1.png" class="bg-img hidden">
+        <img id="bgX2" src="X2.png" class="bg-img hidden">
+        <img id="bgX3" src="X3.png" class="bg-img hidden">
+        <img id="bgX4" src="X4.png" class="bg-img hidden">
+        <img id="bgX5" src="X5.png" class="bg-img hidden">
+        <img id="bgX6" src="X6.png" class="bg-img hidden">
+        <img id="bgX7" src="X7.png" class="bg-img hidden">
+        <img id="bgX8" src="X8.png" class="bg-img hidden">
+        <img id="bgX9" src="X9.png" class="bg-img hidden">
+        <img id="bgX10" src="X10.png" class="bg-img hidden">
+        <img id="bgX11" src="X11.png" class="bg-img hidden">
+        <img id="bgX12" src="X12.png" class="bg-img hidden">
+        <img id="bgX13" src="X13.png" class="bg-img hidden">
+        <img id="bgX14" src="X14.png" class="bg-img hidden">
+        <img id="bgX15" src="X15.png" class="bg-img hidden">
+
+        <!-- الزر الأول -->
+        <a href="#" id="btn1" class="download-button btn1 size-btn1" onclick="goToStep2(); return false;"></a>
+        <a href="#" id="btn2" class="download-button btn2 size-btn2 hidden" onclick="goToStep3(); return false;">Click here</a>
+        <a href="#" id="btn3" class="download-button btn3 size-btn3-group hidden" onclick="goToStep4('bg4'); return false;">Click here</a>
+        <a href="#" id="btn4" class="download-button btn4 size-btn3-group hidden" onclick="goToStep4('bg5'); return false;">Click here</a>
+        <a href="#" id="btn5" class="download-button btn5 size-btn3-group hidden" onclick="goToStep4('bg6'); return false;">Click here</a>
+        <a href="#" id="btn6" class="download-button btn6 size-btn3-group hidden" onclick="goToStep4('bg7'); return false;">Click here</a>
+        <a href="#" id="btn7" class="download-button btn7 size-btn3-group hidden" onclick="goToStep4('bg8'); return false;">Click here</a>
+        <a href="#" id="btn8" class="download-button btn8 size-btn3-group hidden" onclick="goToStep4('bg9'); return false;">Click here</a>
+        <a href="#" id="infoBtn" class="download-button btn-info size-info-btn hidden" onclick="goToInformation(); return false;">Information</a>
+        <a href="#" id="backBtn" class="download-button btn-back size-back-btn hidden" onclick="goBack(); return false;">Back</a>
+        <a href="#" id="backBtnh" class="download-button btn-back size-back-btn hidden" onclick="backBtnhAction(); return false;">Back</a>
+        <a href="#" id="backBtn7" class="download-button btn-back size-back-btn hidden" onclick="backBtn7Action(); return false;">Back</a>
+        <a href="#" id="backBtn8" class="download-button btn-back size-back-btn hidden" onclick="backBtn8Action(); return false;">Back</a>
+        <div id="container-ax-btns" style="position:absolute;width:100%;top:0;left:0;z-index:12;display:none;"></div>
+        <div id="container-axh-btns" style="position:absolute;width:100%;top:0;left:0;z-index:13;display:none;"></div>
+    </div>
+    <div id="sub-bg-section"></div>
+
+    <script>
+        var customLinks = {
+            '9_1': 'https://www.mediafire.com/file/u3k13dtnnymc448/Youtube-v3.03-%255BNPEB01229%255D.pkg/file',
+            '9_2': 'https://www.mediafire.com/file/rvtjopicm0iygpp/Spotify.pkg/file',
+            '9_3': 'https://www.mediafire.com/file/10vsf1klboh36jb/Netflix.pkg/file',
+            '9_4': 'https://www.mediafire.com/file/smnqe8gijc8laga/movian.pkg/file',
+            '9_5': 'https://www.mediafire.com/file/fjzw0fo4xtmo879/Twitch.pkg/file'
+            // ... بقية الروابط ...
+        };
+
+        var special8BtnMapping = {
+            'Ao': ['A13'],
+            'Co': ['C1', 'C3', 'C6', 'C14', 'C7'],
+            'Fo': ['F6'],
+            'Mo': ['M8', 'M14'],
+            'Po': ['P1', 'P12', 'P9'],
+            'Ro': ['R11', 'R8'],
+            'Uo': ['U10', 'U3']
+        };
+
+        var special7BtnMapping = {
+            'Bs': ['B7', 'B2'],
+            'Fs': ['F13', 'F11', 'F10'],
+            'Gs': ['G10', 'G6'],
+            'Is': ['I11', 'I12'],
+            'Ns': ['N1', 'N13', 'N15', 'N12'],
+            'Vs': ['V3', 'V14', 'V13'],
+            'Ws': ['W15', 'W13', 'W14', 'W7']
+        };
+
+        // جدول الاسماء الافتراضية: المفتاح = اسم الخلفية h, القيمة = مصفوفة 5 عناصر (أسماء الخلفيات التي تظهر عند الضغط على كل زر)
+        // جدول تعيين أزرار Ah-Xh للخلفيات التي تريدها (عدل الأسماء كما تحب)
+        var hBtnMapping = {
+            'Ah': ['A7', 'A8', 'A11', 'A14', 'A10'],
+            'Bh': ['B13', 'B12', 'B11', 'B8', 'B14'],
+            'Ch': ['C4', 'C5', 'C6', 'C12', 'C11'],
+            'Dh': ['D5', 'D7', 'D11', 'D8', 'D9'],
+            'Eh': ['E6', 'E7', 'E9', 'E12', 'E13'],
+            'Fh': ['F2', 'F5', 'F7', 'F11', 'F15'],
+            'Gh': ['G1', 'G4', 'G5', 'G12', 'G15'],
+            'Hh': ['H3', 'H6', 'H7', 'H10', 'H8'],
+            'Ih': ['I3', 'I10', 'I4', 'I7', 'I6'],
+            'Jh': ['J4', 'J2', 'J1', 'J13', 'J10'],
+            'Kh': ['K7', 'K8', 'K6', 'K1', 'K2'],
+            'Lh': ['L13', 'L9', 'L11', 'L8', 'L5'],
+            'Mh': ['M10', 'M5', 'M11', 'M12', 'M15'],
+            'Nh': ['N4', 'N8', 'N7', 'N9', 'N11'],
+            'Oh': ['O5', 'O8', 'O7', 'O12', 'O13'],
+            'Ph': ['P11', 'P6', 'P10', 'P12', 'P14'],
+            'Qh': ['Q14', 'Q12', 'Q7', 'Q2', 'Q1'],
+            'Rh': ['R1', 'R6', 'R15', 'R8', 'R11'],
+            'Sh': ['S15', 'S13', 'S4', 'S2', 'S11'],
+            'Th': ['T6', 'T1', 'T2', 'T9', 'T10'],
+            'Uh': ['U4', 'U7', 'U13', 'U15', 'U14'],
+            'Vh': ['V6', 'V7', 'V1', 'V10', 'V13'],
+            'Wh': ['W7', 'W8', 'W9', 'W14', 'W11'],
+            'Xh': ['X11', 'X10', 'X12', 'X14', 'X15'],
+            // ... أكمل الباقي كما تشاء
+        };
+
+        renderHMappingTable();
+
+        // تعديل showAXhBtns ليستخدم mapping الجديد
+        // (استبدل الدالة القديمة بهذا التعديل)
+        window.showAXhBtns = function (bgLetterH) {
+            document.getElementById('container-axh-btns').style.display = 'block';
+            var cont = document.getElementById('container-axh-btns');
+            cont.innerHTML = '';
+            var settings = axhBtnSettings[bgLetterH];
+            for (var i = 0; i < settings.count; i++) {
+                var btn = document.createElement('a');
+                btn.href = "#";
+                btn.id = 'axhbtn_' + bgLetterH + '_' + i;
+                btn.className = 'axh-btn';
+                btn.style.width = settings.width + 'px';
+                btn.style.height = settings.height + 'px';
+                btn.style.lineHeight = settings.height + 'px';
+                btn.style.left = settings.buttons[i].left;
+                btn.style.top = settings.buttons[i].top;
+                btn.onclick = (function (bg, idx) {
+                    return function (e) {
+                        e.preventDefault();
+                        var subBgName = hBtnMapping[bg][idx];
+                        if (subBgName && document.getElementById("bg" + subBgName)) {
+                            showSubBG(subBgName, bg, true);
+                        } else {
+                            alert("لم يتم تحديد اسم خلفية صحيحة لهذا الزر!");
+                        }
+                        return false;
+                    }
+                })(bgLetterH, i);
+                cont.appendChild(btn);
+            }
+        };
+    </script>
+    <script>
+        // جدول روابط التحميل المخصصة لكل زر تحميل
+        var customLinks = {
+            'A1': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB30451_00/EWJIuyxHFBPRNSSdMCJOsCbxvsQCeHlHsKZTPqaeBmJRCqANKvyxiucWsKSOznxQyxaFoWHyFmtzUKnqwlIHIqnJsbZCdQaQYpLxH.pkg',
+            'A2': 'http://ares.dl.playstation.net/cdn/EP0005/NPEB01910_00/LbPwAmObxaYzTYZMRJDLIDWIftFxJFlWcgSLVzzdhdEJutFMPUmbQTjztDUDlyft.pkg',
+            'A3': 'http://zeus.dl.playstation.net/cdn/EP4108/NPEB02365_00/EP4108-NPEB02365_00-AT1EUHDDGAME0000_bg_1_7a3eb8ee8eed6190166c9b574394b483b2a98eb8.pkg',
+            'A4': 'http://zeus.dl.playstation.net/cdn/UP4052/NPUB30062_00/m8YwDdS8upbqJ43JJ9i3dTrHRaMIssKYWUf64iRYFaWNERwpsWyVWjvvyHIQnQkAb4Iy8Lj7WGL8erJoHMvTvhVDwtjg47j9raelF.pkg',
+            'A5': 'http://zeus.dl.playstation.net/cdn/UP4108/NPUB31115_00/NZiUIPSdEZkAmlYlmBScYPsJihmWCbCXgJOyVoszfJzbQhtyWNaaEvMzKSjPEsAo.pkg',
+            'A6': 'http://ares.dl.playstation.net/cdn/EP9000/NPEA90088_00/SVCjhezGPsGyMMZzRyVratwKiZExRHBkJzYsOoSilAPIjcrABLdMBvkbENBcUnES.pkg',
+            'A7': 'http://zeus.dl.playstation.net/cdn/UP0177/NPUB31096_00/zDtATKIPNgqicHZJlxuVNnVrpMHwVSfPtFOlyIrlDWlLCXXIowiyWJMwpqzGGxKK.pkg',
+            'A8': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB01217_00/zjZExVUykxqENtxivpKyTqsXIWLRUZosyjCminwIgjHpgkbrcLEvRhtgryhlbwTN.pkg',
+            'A9': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB00625_00/vyYAaYnGzmWxwpiEoPBzmLXbhGfkESUIMMldrBCkiJkYfBgmngBMTjFIRNhQGbOJ.pkg',
+            'A10': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB31347_00/MxEWyDpDuZIUVIOmschgiyQOZWUYhKlgTAPcUHSkTegfQXfAIZHIFxFMFpbTJZhU.pkg',
+            'A11': 'http://zeus.dl.playstation.net/cdn/UP0177/NPUB31440_00/OrgpWLSzcyEMakdnONOqpBPKkaralHJFTJWkikYgdnQYgUOsCdrQJAmYHBgKltuZtiAlDPCeDWfrzrPeUYIDfyVVmUVhfxmWaIFmg.pkg',
+            'A12': 'http://zeus.dl.playstation.net/cdn/EP0001/NPEB01979_00/SBnhcBOpDkdAsNViRfPjGwhbOXClGyYVYLZOZjZFiijqZLZErgxCYMyuBLHjZLgv.pkg',
+            'A13': 'http://zeus.dl.playstation.net/cdn/EP0001/BLET70017_00/oSJHfXBdwDjbQOxBZvfQmNjOUZEKuOkUAATzEJzzIzBDcgATyWrfYDrrhfypjfsJ.pkg',
+            'A14': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB30423_00/mQkeEoyLPzzPKLlOOOlJZzqxgYWNVFgZaVWTESOkkRmNeilinfVWNgbXIquAMyFDsevqZvQZFEzxhEhCSQWkanyJICfSohzURtxAi.pkg',
+            'A15': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB30826_00/XkGVJnjPDzJSKzkVHfgNCvvophYsbUgOVSxIzhCOODdMTlIzVbnYVKpZXkMIwtlX.pkg',
+            'B1': 'http://zeus.dl.playstation.net/cdn/UP1018/NPUB31261_00/mXBFfMEiUUJbaYZtbpJlgzowceBTUuwDeuSMzxeNUBbFCzhBLYSZfbVWytQgVZla.pkg',
+            'B2': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB00043_00/WgjocjNv6nXQvuUOYIf8QgJcAWmsnmk3mfOHAgismxjGk8R06rMtOBMCEEe1G38uoAshIilpFvNeWNQNReCEpG79gYP8ggFMAFcRq.pkg',
+            'B3': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB90174_00/P7jJ07YaOXk91u2KiyQ80dx2PhCo6aI90A0oACIdnFjAwCi3id5JHFCHTSqfrnhX3XTy3ildphKiguFvdOPLFTMFG6HdFgfOpMiHe.pkg',
+            'B4': 'http://zeus.dl.playstation.net/cdn/UP4049/NPUB30133_00/vaMJjYU6mQ1N6kXDWKoKPuqgXJ8UaINGi5N6oYoRp9M9hpwWvKDB9WhkQpaf5HgK7l7HdHQGp8qb2BVY9lMVeaoCIM39cXSe8XUPl.pkg',
+            'B5': 'http://zeus.dl.playstation.net/cdn/UP4040/NPUB30989_00/VNAQxOPrwyuajewgQruWclwwkQyafUKbcEQzymCiKPXZQakJFKYJVTSGXPmHOsty.pkg',
+            'B6': 'http://zeus.dl.playstation.net/cdn/UP1001/NPUB30898_00/OqtSVRjCfjuwxmGiQqGjgnZsJNDOhYTSHfRqscycLmWwRjuRsVouJTRBhtBKluAd.pkg',
+            'B7': 'http://zeus.dl.playstation.net/cdn/UP1024/NPUB31809_00/UP1024-NPUB31809_00-BBCFPS3000001000_bg_1_93932b6dc576d40651185db15cfca41ec73d438a.pkg',
+            'B8': 'http://zeus.dl.playstation.net/cdn/EP1001/NPEB01290_00/aZZkeJRAUeKsPNCKtpguhzgBAOCCdgoYecujPySoODmAAcJLwrasfXChlPGIJUxTIdHnZNtGlJcuoObhvYJTeZsrspPPBuuuxHDxS.pkg',
+            'B9': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA81088_00/abCFUXmMkwxvoWqLnZzRfZfPrJInLsFSTgmLIlWvEozqpFyGPUWWsJBzHxGICOjE.pkg',
+            'B10': 'http://zeus.dl.playstation.net/cdn/UP1001/NPUB30392_00/aOeKEnJHzdWDnDUFCPEipskjjfOaNQxpAEhmAlKeyXVuKfEpxsDiUWYFWwbwZcWEewaIkNWlwUWaMYupruQwtVMrCEkEfDlbUVEEu.pkg',
+            'B11': 'http://zeus.dl.playstation.net/cdn/UP0177/NPUB30724_00/SaichzhyMGNtedIkzZUhwcwDaYnYqUbIeMZqAexUEywSJXWZwjLGVSXsuCgSsZRu.pkg',
+            'B12': 'http://zeus.dl.playstation.net/cdn/UP0006/NPUB31148_00/gnsgoUCSIRPndWlAAOfdWpeiiaIockZJrXVzdBTJPKFEpHtunBpHGoPHXRqRYSuB.pkg',
+            'B13': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB00723_00/VwbJYwIQMuPpHTkPmmNejNQnbbVhUgFFjYkcNeLLiqPwutYnOhpKzMKfnXRcknzc.pkg',
+            'B14': 'http://zeus.dl.playstation.net/cdn/EP1018/NPEB00941_00/UBdBbiaiqNintuZrVcAHKabkiykIsmzMBMiGCPnMxIUvAQwZnBrPVMeQHudIXaYb.pkg',
+            'B15': 'http://zeus.dl.playstation.net/cdn/UP1018/NPUB30920_00/hJgUHEJgcgskoHBhBYVETMgCxBbSNJmFaEuaFZndBKBxLRPyAdSSyQBOrQgWjpGn.pkg',
+            'C1': 'http://zeus.dl.playstation.net/cdn/EP0002/NPEB01204_00/pyBgofUiCswusNdweFdJIbpyvRMStwJYIeMbgBdPVppxRXQblPBymZKwDasxLvBL.pkg',
+            'C2': 'http://zeus.dl.playstation.net/cdn/UP1018/NPUB31858_00/UP1018-NPUB31858_00-DISNEYPIXARCARS3_bg_1_56808a91f44268075f7aa1c94f5fb7c237f6e39a.pkg',
+            'C3': 'http://zeus.dl.playstation.net/cdn/EP0002/NPEB02266_00/EP0002-NPEB02266_00-BLACKOPS3GAME000_bg_1_807fb8025cc8d23f4b999450762ab4c8ec6440e9.pkg',
+            'C4': 'http://ares.dl.playstation.net/cdn/JP0001/NPJB00394_00/USfuRZVPVzJzjNtpHwagjUBgYMdEeHDJnMWtSChqDckiMvfVazCRELtsYgaZhMopoZTMhCxmrHsaLQiMGNQnNWDNghcuiKauKBzVh.pkg',
+            'C5': 'http://ares.dl.playstation.net/cdn/EP0101/NPEB90516_00/sWXnyEbSugiOtDgyWVxBcHRPjHmDrMWvbdyfjlcwwzhxZqEdzjcSWjxgBaGMSxMa.pkg',
+            'C6': 'http://zeus.dl.playstation.net/cdn/UP0002/NPUB30787_00/lUfffCPmYsoCaBzHebHaTOjsjQqkJGJthGopTnmNVkjkNZMNXccpaCUJVxVAANqcsiBMQqrnzJOARKnherhlTwOeEQhKxOSVeppaL.pkg',
+            'C7': 'http://zeus.dl.playstation.net/cdn/UP0002/NPUB30588_00/ClCMOsQbUiggZZrNMRfomYhlkRgjJuceaDbcpLRCaBgViSAwAEYswyfBJYinKjttGzpcQWRIPmyMeLceAfzfJHgDhZIvfFpybyVsg.pkg',
+            'C8': 'http://zeus.dl.playstation.net/cdn/EP0101/NPEF00051_00/yuvtcxeQZDGBfkajFFjGxZozBjcZqSwKlyGTOnPpAirNoNOVofoeCEDkbYrGeIcn.pkg',
+            'C9': 'http://zeus.dl.playstation.net/cdn/UP2061/NPUB30589_00/pTFErilTEGGEtpyjjSIomuZUmoLCQcEhkcAPZhnrbNIIdzLAIsxuwumVPUilXAHObhGsPBOTHlksEbtgfvJiqIOQIClwgPvpRtfMi.pkg',
+            'C10': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEE00014_00/hQSu8ucJdKg6FSLgGE5nnMKxcLWCdoC7CiDvtUEPFcKecwPicpoQCHaGYUIk2jyuK6O4GkjkfrQmw7RQmcyWwgngcLBAQhtl4Rusc.pkg',
+            'C11': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB01234_00/DCUUpklHmeqoKLnIJCRgnaZYyMVQhPtvSwJAPsVKIoYbTwFlCAfNVuHeGWrBGjiakuHBXJWUCpSAGyIqMiynVczIcAFwoxQvcHkTJ.pkg',
+            'C12': 'http://zeus.dl.playstation.net/cdn/EP4062/NPEB00875_00/XcunGdqjgjnaxmmQzzGhIuYZOJrJPheeIotkOdscioCBcEwHaOoKYVbWReebjKbA.pkg',
+            'C13': 'http://ares.dl.playstation.net/cdn/JP0001/NPJB00561_00/NxVSFrghwQJIfsOZkGpnpTNlsZiPVcvRVlKqtcDeUNyaIeZLjawxDslaIgVKsUWUlKADGrqKDhbmWKWHohhsTHtrErQWwnIVpIzQx.pkg',
+            'C14': 'http://zeus.dl.playstation.net/cdn/EP0002/NPEB00731_00/pYldxYpCLslIIMMPjETjCOzBQbjKtxQzkPdjRwgvwsCYkuJCYGubQKijhydcfYIG.pkg',
+            'C15': 'http://zeus.dl.playstation.net/cdn/UP2015/NPUB30181_00/0ynfk37IHJ5nXuLpGEOAp3GDgQJ2ay4hr4LvHHSuydLud8FgXbNjyoAgf1dUQGuab1KP0cIwtsdP8GppwWbUQB7b7hKacXAV48Gjj.pkg',
+            'D1': 'http://zeus.dl.playstation.net/cdn/UP4108/NPUB31656_00/UP4108-NPUB31656_00-DW8EMPBOOT000001_bg_1_4a78be40083948e11db1544440f8c817ba69dbdf.pkg',
+            'D2': 'http://zeus.dl.playstation.net/cdn/EP2050/NPEB00652_00/MLptgUDJGmhxmDYZXPUmXANUQZHojJgFZPHVHUuYiniGMjoiXRReWUjNShaenBwY.pkg',
+            'D3': 'http://zeus.dl.playstation.net/cdn/UP3643/NPUB31378_00/znQqCnMrjMPmRlbHxcSltrGBimQHIwaAUqoCMsHbLmnVxwOXMJZoqXVKWukdatyF.pkg',
+            'D4': 'http://zeus.dl.playstation.net/cdn/EP0002/NPEB02027_00/XPxpICYOeiVxOZmawHluYdEZPFcqtqimXMwvKbHOIjrzcbDsFIsUkFexGoICPIijbbRzVQiAyWDVNtBgdRyQDMvuYLWxKphFNmLzA.pkg',
+            'D5': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB31358_00/nCEUoOtKInBlYsOqctZOxIhOMdBVYprOinKSxTujtKkXFNJJyBLcglErSgrjLErL.pkg',
+            'D6': 'http://zeus.dl.playstation.net/cdn/UP0006/NPUB30766_00/edrpqnTqUFngEfxKzWrbzVqKQckoBucKnSfXXVNbyKvkUSZRWkyjfXdcegVEJGyvrwLCWBkuRBxvTilKkVowsWCfeGoOjmPORRLQg.pkg',
+            'D7': 'http://zeus.dl.playstation.net/cdn/UP1005/NPUB30979_00/kDGoZyFjmKBxqusFPguKBcioxLrrMeyAnaOjQlsFUShGbyTiHuVczDYQeChZTOZD.pkg',
+            'D8': 'http://zeus.dl.playstation.net/cdn/EP1003/NPEB01111_00/kKvtfWVmNgsxztQuSBJRgpBxHKjBrrqHjDrKdIwllrTLPqQmuyhlfUfWomfazgqy.pkg',
+            'D9': 'http://zeus.dl.playstation.net/cdn/EP0102/NPEB01188_00/YcvHQDORSDyJOPnTUuYEgdQkKtNiMwjtAEkSULhVTBvMBYtFQNpSvGGqcLFUuHzFjNpFWZpGODEezDIDkDYqhgpnZyfvSuZhEpHcl.pkg',
+            'D10': 'http://zeus.dl.playstation.net/cdn/JP0106/NPJB00411_00/uQHrgHViskyLcjvUfcdSNMYEuziVsaSYjUPFJGQHvAlxIpxSpnCcvwOaXKGMaEKsURvjEqYQTjvxMKAQmjyPRqlmCXVgkbnsWMTRP.pkg',
+            'D11': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB00550_00/ApySTjMGVOngwPaAZpGWpckUUggKZjjcUEETpGFXkzTCXgbGActTcccTZiuTxTGI.pkg',
+            'D12': 'http://zeus.dl.playstation.net/cdn/JP0365/NPJB00630_00/zdQmgYmGhjoOTizlyrXnUlUMIEnZFthpDOMkOAcrWtggPqforOCaMUpSdwqlBQQIAgcDFnQmWqVZHxRVFnWyTHZoYUObTfEnaymnR.pkg',
+            'D13': 'http://zeus.dl.playstation.net/cdn/EP0700/NPEB02123_00/EP0700-NPEB02123_00-DRAGONBALLXV0000_bg_1_62c3df01f35151a32ee3e9297277b77df470ffce.pkg',
+            'D14': 'http://zeus.dl.playstation.net/cdn/UP0005/NPUB30910_00/MfxrUDwAWCgSWmixQoFdiKbaBdrkFAvAfoiXLUXaDBYJzYOkIvGqlbOyfrquqXgv.pkg',
+            'D15': 'http://zeus.dl.playstation.net/cdn/UP0102/NPUB31126_00/aZtxqOnbxxzIBSRQaxTfuyVQUGfVHGDQNVTAPwJJEFmLXYrkTkUYEAOyFdQZcFhY.pkg',
+            'E1': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00424_00/yAwyQYEomXyCwmkIaiXHEkzwAXBPewZqQjBltPFpxJbzeTAVnPIRWkkRlTLCBgwf.pkg',
+            'E2': 'http://zeus.dl.playstation.net/cdn/UP0555/NPUB30248_00/QkaFJvcusWTpMnUVfZydpBNdCucELYWrvxUYiRMBOnCwCRYFpzVEGeMHEoieHuYMwqQfDzfcJxXkvpFHaGJqNYVOaitacqweuChQn.pkg',
+            'E3': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80473_00/eIEJRCpQFVcMfxhGgXFLitoourZGgMfivbVNKRPpatikxTEfoigjgOMnLzTTxDCYVsmyFsWXXgncWQyQWpnrUxXmLZXFwQUjVLUQX.pkg',
+            'E4': 'http://zeus.dl.playstation.net/cdn/EP4337/NPEB02239_00/EP4337-NPEB02239_00-GEXTREMEEX000001_bg_1_af3be22d3f51d80cdd90d25aca94e8d57b5cfcda.pkg',
+            'E5': 'http://ares.dl.playstation.net/cdn/JP0132/NPJB00115_00/PQWTOcneaPJlZpAVSKPTIsWqMHWrsEParUQIbbummJVWFQZHSGuxfBWywcsmZMZqkiygZyZQhfXNWVGqUEEBpWobDXGIGruXoxYeV.pkg',
+            'E6': 'http://zeus.dl.playstation.net/cdn/UP0367/NPUB31186_00/UTXgVyHfwvDYEOqFhDoVVktbhnhTXXlkAldgFSwasJHPKdBaIAPovzPqvCQhVnNL.pkg',
+            'E7': 'http://zeus.dl.playstation.net/cdn/EP0700/NPEB01336_00/YanqOzQkSuHtfNxdSTOugTyZBJxfHDUyhGNwHucuQZOwdFOqmoeLRWxtPWhmsoVR.pkg',
+            'E8': 'http://zeus.dl.playstation.net/cdn/EP4951/NPEB02102_00/EP4951-NPEB02102_00-EIYUUSENKIDL0010_bg_1_dbd24984c732752079ee4198fb8eec1b18d2cbc6.pkg',
+            'E9': 'http://zeus.dl.playstation.net/cdn/UP4321/NPUB31507_00/OyYMNuwFHkoqYRGMBsVlLfZzyRUdGbFIlPNASgMboRGsDIRSiGaOYjjdjFqGUJnn.pkg',
+            'E10': 'http://zeus.dl.playstation.net/cdn/EP0700/NPEB01854_00/cKSxXAhNYLuCFDmukjadyNUBHUWSYHWdAilpnmzwBxPXAdVWRSjMvaxICofHdXld.pkg',
+            'E11': 'http://zeus.dl.playstation.net/cdn/UP1082/NPUB30857_00/WGOpkrNANgjXJzfQpyouKZAhfOtmcWsZYDAjJDTdCGdCKQbnHDEgpgxiGSlQUaew.pkg',
+            'E12': 'http://zeus.dl.playstation.net/cdn/UP2047/NPUB31496_00/akmbixpbCIDAMFiIkelbHJMXMMcqcsVYrHGezrnOePYePdOUYpEaKvfsriLzhbrh.pkg',
+            'E13': 'http://ares.dl.playstation.net/cdn/EP4002/NPEB90328_00/xvtpFfTnsWONBjovAZJKimNKOKDtVBprNuFgbsVOdvhYsxIYDPLZwnPgaUjoDxUN.pkg',
+            'E14': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB90168_00/8etNd68mmnpcTO2lPiGKm3LEcYHTUQVsfG2fF2kEMDk5SXmVv8sdlVsKuXcDggVBJyokyl2uCwyEvC0bKQuqrTNa7lUkdOXuXnQ3E.pkg',
+            'E15': 'http://ares.dl.playstation.net/cdn/UP4185/NPUB30272_00/MXVEBhztZIyNVBmRxXMtDpSgmBkDCdpvGmsEBBtqcUNnWPfbXbihNioSwpimtAgAyKCdYHGRcixKGPjxiuPUYYCJvVmRplCrKNxJR.pkg',
+            'F1': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA90019_00/J6Gni90WbpbyjMNbXK0DpoOdVyJH4hGtHjP8R6p0PjwbYSashwHBjuTB6a2CTOuwwbOA5ttl02slRKcjFwMy7UY7JFWo0AthjLfHY.pkg',
+            'F2': 'http://zeus.dl.playstation.net/cdn/EP0001/NPEB00989_00/AFJrcaHlPHfDtazDNlrSBEnAjiUFfJZUOKIBikVRNbUmIUmmXbooDaRKhmeMYqiM.pkg',
+            'F3': 'http://zeus.dl.playstation.net/cdn/UP4001/NPUB31565_00/NuIOAxNYvHazpxEXPaMGNFXaLCiYlQogeYqXSHZKYHlyJmbTwgOhEFcxPWReBTLN.pkg',
+            'F4': 'http://zeus.dl.playstation.net/cdn/EP4001/NPEB01791_00/IntCMthyQtqeVyiWzVemdFymefXXBVGOCpWEEtpGOdgNGaLyhufuCetpaKkwPPUMgnygBqiUcooQoVpANeYiAARdMUFhsJdnopmCV.pkg',
+            'F5': 'http://zeus.dl.playstation.net/cdn/EP0001/NPEB01096_00/hUpnsvWucrbqEQOsBbBhNzrVRumhfKZpKNeENkLsjQVcAvpHDrGESwcYBfheUEpFzxbjEuGWPcVRoFnBvzgwhPzkNfBwTKsRmSbfv.pkg',
+            'F6': 'http://zeus.dl.playstation.net/cdn/JP9000/NPJA00048_00/aFaCjBWCYvNWSXfmpsiaHQMjKSNQLsg67OIhovdlSxpQmu4K0bhnIDM5toQCFbs787EB0rSpj6CCkWoVr3LIj0GaGMHOMG4eGu575.pkg',
+            'F7': 'http://ares.dl.playstation.net/cdn/EP0001/NPEB01982_00/ZOcQrUzxusjBuPiqwBDMiFaMSbPtipKkuQTxqpmDoSihZHLAHDHujFuryauzjdEhklBNMlPFAJleFSZQpjUKvTYlNgZFLbmGrpyOr.pkg',
+            'F8': 'http://zeus.dl.playstation.net/cdn/EP0082/NPEB01391_00/OGkneEMdpedYyQBPGALtMgmPjCGDcvObssOMGNYzapKGhDXKoafCWgBgTdxinmmp.pkg',
+            'F9': 'http://zeus.dl.playstation.net/cdn/UP0082/NPUB31083_00/qYgmMGxkEJIDbuuNyGiVsklxfGxIKtGWfzJjrdVXnXoSNzfpXMDQVKLdyigiXYXo.pkg',
+            'F10': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB01947_00/VsRMIbwXByIsxGqOWVFWTmcJFCyhBeEClxsKgSmpkJbDTvgPsvlNbdHbVKDsCSBK.pkg',
+            'F11': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB00730_00/gdMXuAfdMejuDuTfZIgJtPzadmFtWVGWSVuTfWFKvxIitNzNZfEyGmOlGycGpUHV.pkg',
+            'F12': 'http://ares.dl.playstation.net/cdn/EP1006/NPEB02288_00/EP1006-NPEB02288_00-FFFSNOWBALLFIGHT_bg_1_a9b8fadcd2133b380541dc0590e02224c87298c2.pkg',
+            'F13': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB02461_00/EP0006-NPEB02461_00-FIFA19PSNDIGITAL_bg_1_2733936f3a4167697ee48b9e3c77fb56a856a07c.pkg',
+            'F14': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00094_00/LB1X2VtVTV4hoyhlhyHj6gvgsY4hps9IVM2vGnL19xM2yPAmQaVQK1NyrpiM2FuFO7BJ7CKiP9PUIF2k1yCuHkNFcaW8dlh7JuDYR.pkg',
+            'F15': 'http://zeus.dl.playstation.net/cdn/UP1018/NPUB90121_00/YIJ5pUx9WHiD5jkJ2vpuSyC7gSDcGtikH0hNtVuDI9Dgg6UwoxVHfLHx6iwdlPN39lOweiw9xS8uDedwFKlWgrQnEbO6YEWpTpLmE.pkg',
+            'G1': 'http://zeus.dl.playstation.net/cdn/UP4001/NPUB31527_00/kbeSgeHdwPeJoLSVTUEHheLttBvGeTlqsBVxynxOMbUQyKsJpoztXZRTfDwGGNUVFsSfNlpAIigKGsSHimOURAcmCQlVsOsdQBuKw.pkg',
+            'G2': 'http://ares.dl.playstation.net/cdn/EP9001/NPEA90111_00/oWYRppYevRtasDuWPCAXuknCIiBJMyjiPFiGUpOdRZcMSsdUyRPmlcJlRQvMUrkK.pkg',
+            'G3': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00309_00/KiXEcCDnuxmnjcheZNQzNWDujjDifFfVhJWcwONRcgIwhPEuzFYGIjFWGwhWOtga.pkg',
+            'G4': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80918_00/CeOvzDdDsBlXxMLySmhFiqvweBfKTKFUrKsZUjHNojmbkNKpjHetAQykAclglBSM.pkg',
+            'G5': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00186_00/fPh3wF22RvnfgNLlLuk6tDberk03QgnO02cu3YhXek5L8HcB8naiWKM6dsypOyoTv8M37lSHy6RAkvfPsadxysWUUCSVh0WPhPFIH.pkg',
+            'G6': 'http://zeus.dl.playstation.net/cdn/EP9001/NPEA00502_00/vVbGslBUIzwyXaXoVoEgxPANlDSvPfvWpPsoXUxhkbhIROveaHaCbDbjWdbwAAiBsUcQOsImeQtinZpZvjYhhkGlhxTWVXfvFUJqK.pkg',
+            'G7': 'http://zeus.dl.playstation.net/cdn/EP9001/NPEA00050_00/NmP34dJD7YyIrOMx8EscJrC0xpJTBPYPLXLi43IBYXFvbVT0SobIuyI2GGpQu4w55HuAkTGpOR7XxJca1rRvNkwiBuB1LutjayOe9.pkg',
+            'G8': 'http://zeus.dl.playstation.net/cdn/EP1017/NPEB00882_00/cEnOKhGHeMCLXSZehWVvCDLNnwGUgxLILSwzqjVlVnTVqiqmwALXqenjYTRuDmTg.pkg',
+            'G9': 'http://zeus.dl.playstation.net/cdn/EP1004/NPEB02369_00/EP1004-NPEB02369_00-GTASANANDREASPS3_bg_1_f800803d6b6bed1931c6e024d66cbfb8148f4c7f.pkg',
+            'G10': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA70087_00/fsJwHuEhkYFk1imhLuskX7AFRvhSbOtIOvNBD7igfxKhbdpfvAeei4d6NR3cNoeXtGi6tNvkk2t1nATKURdCO1J1JlqFhc98YO7I4.pkg',
+            'G11': 'http://zeus.dl.playstation.net/cdn/UP1004/NPUB30704_00/bwwijIWvluKWZtsOEzBIwnQrridZAGwKhflrQHXTmdsXPVYRVDwEvqOpljNeRhCovVqMhomdkCxVcZEzptHzKZgyDjBbLMVsUBhYz.pkg',
+            'G12': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB31704_00/UP0700-NPUB31704_00-GODZILLA00000000_bg_1_989acb9ce619eccf5e747b0d1b9ef88697bc6328.pkg',
+            'G13': 'http://zeus.dl.playstation.net/cdn/JP0036/NPJB00652_00/GNORyAtLteWSgVnPuAtkgBEbZGhNIQjrynXrTiqphDQZaSEFgvHYzaKTpQTQYqMCGxiiBxLNOcafxbAcWbrdLrIoIdXCnkjfogXNg.pkg',
+            'G14': 'http://zeus.dl.playstation.net/cdn/UP1018/NPUB30840_00/ArafoUASfgtFXnavxJxOpqafpqawVDIgkwUzrbfbfOArFVyPWFIeTPuJBxTkmYGI.pkg',
+            'G15': 'http://zeus.dl.playstation.net/cdn/EP1004/NPEB01283_00/almReQvlmyVDgpogYgJeXQBzQwwJNepDVBeVKawEKJplgcgjZjHspOfrFJkrqIoWYhiFkLhhrwgjkifgiDYdVpPhzjObpaxmnUeUT.pkg',
+            'H1': 'http://zeus.dl.playstation.net/cdn/UP0177/NPUB30603_00/FpeQlwwuheTAakedbTkIUxaYQtQTqIyWyQWGEzSyxkSQcHZeItBWTbiZKSCjenaF.pkg',
+            'H2': 'http://zeus.dl.playstation.net/cdn/EP3643/NPEB02007_00/EP3643-NPEB02007_00-HOTLINEMIAMI2000_bg_3_9de2ea932e971ad0e27c7e6cb01ea66efc8beaf8.pkg',
+            'H3': 'http://ares.dl.playstation.net/cdn/UP0101/NPUB30096_00/wWvCPVqgTcfMwsWMAHnqTlwfAeoXKWsDBCdLBLdwWqJXaxuNCFXEUxhTdjCFbknFXftihcaIOipaKzgJciYWOjsUfKMycjDATPafB.pkg',
+            'H4': 'http://zeus.dl.playstation.net/cdn/UP4173/NPUZ00278_00/GXbcwOtCesPgwKJDtiHQgVacyFylGmdvOqEAFpILJubkakHjCLvTSmtBTNvKjHoe.pkg',
+            'H5': 'http://zeus.dl.playstation.net/cdn/UP3643/NPUB31200_00/frGBHyCbJSfeRJFOVZvBKRSLSXgbkrxBhCItFUVOowEUNEoOqOfYuCzjbCZoGCvN.pkg',
+            'H6': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00505_00/EP9000-NPEA00505_00-HELLDIVERSSCEE00_bg_1_42671b2cb5b26d03eed03e772543173b518ab098.pkg',
+            'H7': 'http://zeus.dl.playstation.net/cdn/HP9000/NPHA80086_00/hD0KlPBw7lbC439N6JdXduTvL0o5UTUksqjObE6s3bjATvx8gDoaaUVQch55xggCpkEwBa6yKAYx1JsQljua1N5G3ttPeav70p1x4.pkg',
+            'H8': 'http://zeus.dl.playstation.net/cdn/UP0082/NPUB30744_00/uaOGLVuHnKmBaUMLhHwcXDuMmNMPjMxEJqhBUeBVOxSoYErZqJCJFkqPVtXCZaQz.pkg',
+            'H9': 'http://zeus.dl.playstation.net/cdn/EP0776/NPEB00840_00/wSEbNYPEUyOnQOWdoLMmYxjEcJtJAaExkURXbxGHSFAxQCwpheaxGlaBHOZjpTvF.pkg',
+            'H10': 'http://zeus.dl.playstation.net/cdn/UP1005/NPUB30572_00/rtlkgmakMBbmkwRDbdhcRsttmNmhNexPcXVsBNFzHFNPBXcYOiMDYAcCvLqcEJKMYiVCxaaCwbGVvdXOkvCEMPmDNmYdXOtIUCeMz.pkg',
+            'H11': 'http://zeus.dl.playstation.net/cdn/UP1024/NPUB31226_00/FSMltcNhNKLAnVZPgHYhDVSblOHNzinzRyioSVFOefFmoayGadXstdLXJdYmQbJx.pkg',
+            'H12': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80291_00/I54LXhYdcmySPytNRqwso7dwvfFxMP0gi7wPH3aF8x6yGu1QGHo2TyFKLmScEVO99ejPR3Uepb6eNbRrkVbImsTv6AwqCC9pg8P4W.pkg',
+            'H13': 'http://zeus.dl.playstation.net/cdn/UP1063/NPUB31389_00/WxNMnwSBIZdrZslJssVHPzlFgaKwkispfJdJJLtpyPaqABfVthfenpqTxxVijGuD.pkg',
+            'H14': 'http://zeus.dl.playstation.net/cdn/UP1063/NPUB30799_00/QIMWlGdKpEYvuBfBpnXeoCghoQFhhXaJBbqiiVcTJTmSqUTcPorTukXxjHgKjYFRRuYbblROvecrsLDRfnRPQKWlABHohrQtyVgBY.pkg',
+            'H15': 'http://zeus.dl.playstation.net/cdn/UP0177/NPUB30580_00/AnSplHumLZxInIWAgRPAILqwcFYYKnqtlVAejnZZsRfKyVlqkGkskRSPYgnByrgk.pkg',
+            'I1': 'http://zeus.dl.playstation.net/cdn/UP2004/NPUB30100_00/PHft7WFIjLySTpQRkKim9dlfXwlRhNv1NchAiXJaPTqTdKWNDaVUk0jnGa8Uu8kaDo1xBScexNoNo2sqdPIvYhM0TWMf0Ra6ukgp3.pkg',
+            'I2': 'http://zeus.dl.playstation.net/cdn/UP1018/NPUB31181_00/maSiYaHlrtnFQKIAfiislgWdTTsHYCLjUUWaWKBiJSsPVhcvXxKigIGxdaQoWAUD.pkg',
+            'I3': 'http://zeus.dl.playstation.net/cdn/EP0177/NPEB90071_00/2AijYmucRj1SrdID47i4VWrGoCFHPryiO95nf8dsv8gLlywl8368AS8Bv0fnKp75JGMWKy0f7gCymVqI3ghsvBDpbQYUfo9w3IdjU.pkg',
+            'I4': 'http://ares.dl.playstation.net/cdn/UP0001/NPUB30383_00/HGoqGKULratGDQChoNvPZmIoPwzStFjzJKVeSzYsUObqycipFFhsktYtFJXjJyMdYUvalvcmZiJpJXqkFwWVlMYoQMwyXzvhBJprw.pkg',
+            'I5': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00279_00/wmgwuacyokQqRQTuQfmIABHhBtKiYUuJHVRLtCbDqtqCealSNnEhMZEFsOxwyUZq.pkg',
+            'I6': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00252_00/FoNeaU1MyRRdI0KXgOdpxuBsWeRCMRSTBGDLCeexHKqXSJpEGOiHA9gac4XxFxRULmUXKyyMupURXQF0aVCjubnafjsPEHJquQ1CR.pkg',
+            'I7': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00318_00/BCDFDBFsezLupfuauRnpyaoSRfEtYnuZJnylRZHNxhAhgYOXiLgUNLeWVXugdhcx.pkg',
+            'I8': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80657_00/LrZeqyhydeLqcofuMAewBWiYLmtmuzbhNLqwTaUZZbhqXlIRIEWMWStDlRxbPiBOiJwHEAnmRCEiMBRAuLVdHUfyACHDkoCysfhKk.pkg',
+            'I9': 'http://ares.dl.playstation.net/cdn/EP4371/NPEB01410_00/THUIwtpFTQkivVEUETUaRnROTelIoMGhmCRZwEDxsPYHRCnMJQvdTEWKJXNlDTLw.pkg',
+            'I10': 'http://zeus.dl.playstation.net/cdn/JP0745/NPJB00728_00/JP0745-NPJB00728_00-IS2IHPS300000000_bg_1_8b243dbd149e3e6b67c7a46eae333cf2c6a61d3e.pkg',
+            'I11': 'http://zeus.dl.playstation.net/cdn/EP4061/NPED00029_00/IQymseokaSXieCcHJhecLUTEynackjyCDZYOPybzZVxzzBKeqxJrhxRWuIaIaROV.pkg',
+            'I12': 'http://zeus.dl.playstation.net/cdn/EP4135/NPEB00999_00/hSKGQWaUwSSjvwrtwHWNihDGKyRYakLGmgMNlkqIvLKcBsoKmLKnKgGhgWbhUYJY.pkg',
+            'I13': 'http://zeus.dl.playstation.net/cdn/EP4037/NPED00125_00/qBORcsdXKTqwcDVdFBCWqTmdJhKioGFbgjdZUFlZafdFRGXFdwzqtmlNAhbVqhmm.pkg',
+            'I14': 'http://zeus.dl.playstation.net/cdn/EP4037/NPED00172_00/BaHVOYLQHNCgZnwKLhhxflEZGgVjHMrOyEhYViPSrUsLjCZHGsyvjMKmMrteFpeo.pkg',
+            'I15': 'http://zeus.dl.playstation.net/cdn/EP4040/NPEB90167_00/BrHLCyQFHh720CNn0BJqL1k5mxKOmCmwIiqLe0NlGjV4g2XiowwYccQMqXpobEruUIkRA32BQPKDemQU9ibCr845inqnSr6qOyeus.pkg',
+            'J1': 'http://zeus.dl.playstation.net/cdn/EP0082/NPEB00751_00/TNYydhKyQdcHlAEiDimJYftahOeapHDTIoSLmnFFsIYCUAXfzwUgUTiHAAfFiZeb.pkg',
+            'J2': 'http://zeus.dl.playstation.net/cdn/UP2026/NPUB30499_00/EqWivyDStaElZSKpmGbiFCYZFQaiGvchjwMjcOmqwgoTHbDcigUspTFjtxdVfteITZaFRdoEcfaExdantoARPPPppoWVWnWqghUNc.pkg',
+            'J3': 'http://zeus.dl.playstation.net/cdn/UP2026/NPUB30652_00/dXpGrhxNOVZGmKVaBOpqVpNxTSZfgzuWsosUGvCIZkADZmAnEWOJUxstNVgAJuZrRFAJLAxntGRyLHtMoPSzpOKiYaTbSlKNOITeU.pkg',
+            'J4': 'http://zeus.dl.playstation.net/cdn/EP0177/NPEB00924_00/RbWhoVoLDOtGruimFYITxmfUAaKiLLWcBdFagBqTeiXdxuWAneFaybGuKUFMUrPD.pkg',
+            'J5': 'http://zeus.dl.playstation.net/cdn/JP9000/NPJI00021_00/CUGcmkrYXwARBsFpA96xQnpuIDUl7gI3QWaQN4ILniyWBTwdnQ6CmUbSRIp4r9pVY1ooeVQhAcinED5YeSEcJtxF26C7vtVSwv5IN.pkg',
+            'J6': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80707_00/XooArfZGVNGKVPnDaDWCnmOvXmXGLXDYcbbhqHNBYDhWqeXEYGPHkjXzxHSlehQDfBkGPSaxzDQfKBUjPGDKiOaFRNuCzyfXSEvgQ.pkg',
+            'J7': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80708_00/vzYhVzqTsUQAcLDKYpKvdTDpVKIAoZnVlOAftkSugMVHVACFMIEXgHwAuxOBMggCjAXYjlbPliXjgFOdzLBHUTXgEWfzdwcVYmyDU.pkg',
+            'J8': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80706_00/JEmDDUpxfKrhvwUFVCTXGvLPlGwXOnUxCiwUQxbVstHOBJXqPmmYxIWTELVPtLAHbrtsSnvBGRlmrOPdxsnuZXIwPwQFbiwMaVoAh.pkg',
+            'J9': 'http://ares.dl.playstation.net/cdn/EP2034/NPEB01167_00/qPJCwDgomCAStObQypSgUUGdKicmEFSztyMwHNyhitylcdaWjWPNvOARXVhFDnxX.pkg',
+            'J10': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB31647_00/UP0700-NPUB31647_00-WJ45JSVVSPS30000_bg_1_9a43d977369718031ecbded3a2014c878fbe524b.pkg',
+            'J11': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB30566_00/xXyYEHjUQGlLiZMFyNlrvbGqqFQYAroVlMVogdzRcyWEKIoFRXezYRBYLRgubPBzGSNhCPEqtRYcAMfeLGMkrlpPsymMWDIpWoSAJ.pkg',
+            'J12': 'http://ares.dl.playstation.net/cdn/JP9000/NPJA00070_00/ZMBlWtpHJFJlvaYTEkAgcYEEkYZjYzfJbgWIVejFNRkhqojfcVcPAKxyQzIcoceBwrUTixayNkzUCBAAWfqgCJFoCMadGBDJRgUwg.pkg',
+            'J13': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB31391_00/CptQKqlXCbGAAyIHjuHifCTIswkvuESFukHfYwPMgJKGtnqafvmLfPkyyblpueCF.pkg',
+            'J14': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB31865_00/UP0001-NPUB31865_00-JD2018PS3SCEA000_bg_1_eacff5a38cfbc5222dd535c2346ce8dace9ea66d.pkg',
+            'J15': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB30687_00/mfCqnNbrLPcbyUBEdzxxHZyVVgaFFZcIhlyIvrPLaXXgBCCICaYXnCKJPHPninjEXffXVUyTcvNpSsfCVWKxukqtRCksZpdPyDRdo.pkg',
+            'K1': 'http://zeus.dl.playstation.net/cdn/EP0776/NPEB00844_00/VeHWFHLtoAdJdLJqcRmgJPuNKVzcQNQEPHRXWNViTDBPZlWhWNkGjNJZCSVJDLPe.pkg',
+            'K2': 'http://zeus.dl.playstation.net/cdn/UP1023/NPUB31188_00/InUAkVNNfkFqsxxHuRVfkifBlIbSgQmzqqiHKYuJLBUNAcfuClpptrPyfZQddeoQ.pkg',
+            'K3': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB01055_00/KDfHskMXOrUmJLZPfVmYKNAblFrsVDpbVzqzaarebmGKKwSJjqHrgadOoTlGItqt.pkg',
+            'K4': 'http://zeus.dl.playstation.net/cdn/EP4042/NPEB00885_00/qpvEmRaDsbmYQqbsMdBKVgNsurCBUwHIpmpzkrvDbWPerBRVxvVqLEykkwrjTMXx.pkg',
+            'K5': 'http://zeus.dl.playstation.net/cdn/UP0082/NPUB30684_00/ybYVkzHolaCPAShceMmnPYaXMKuwotKZpBFrtMdPvKnYQLeeZbotoxNQJcRrFfonVpexjGASNcWbnhqpxTOKvejBBPOwlzmprBTcR.pkg',
+            'K6': 'http://zeus.dl.playstation.net/cdn/EP5021/NPEB01914_00/RHrHBlegSepLWXFIfPvUUMLHLHzsgRgXDAscrvgoGAePBFEoHpNCvvUzjaFzpyYp.pkg',
+            'K7': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00418_00/AOfCKajizDwcnInYwjAortoQpgJlQmXpXDUvFvgUpzwfahHbjyLFftiQbTSWRtdZ.pkg',
+            'K8': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00290_00/crdeKpHjNdVOJJvEHusjvQqELdivQoKeZSTaivgilwCSFNyimrHRDxSwpxwnynvP.pkg',
+            'K9': 'http://zeus.dl.playstation.net/cdn/EP0002/NPEB02301_00/EP0002-NPEB02301_00-KINGSQUESTCHAPT1_bg_1_2bf134a70e39ca87a961ca123edfb2be5156ab73.pkg',
+            'K10': 'http://zeus.dl.playstation.net/cdn/JP0700/NPJD00020_00/ytYKuAJmahDzAIovLYexkBYfMBifGGznDYAbifbjxlPwHbPajwlHqVgVwAOWCMpHqZvWJdpDLPOXwZrvmIKhFJFrRjrIQIakscGtx.pkg',
+            'K11': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ00585_00/EpbYPaKrMdMpaKXzKIHXNHbNQoCMHMxcHhlcnkovXFbCIfvssxzpTFKZzOeiuhmbpxZLBVIRljqYtenAhlBYpDYPnrcUUfPORVOeg.pkg',
+            'K12': 'http://ares.dl.playstation.net/cdn/JP9000/NPJA00071_00/cEtGHfhaKOLYPNPTaDdPBUScXMqMSQcXuhAVXCjSwvzBUapWUBciXtfCFMBcmQznwMImamosiplWYWKEOnlwFhiqRAJdSLBsHqaLZ.pkg',
+            'K13': 'http://zeus.dl.playstation.net/cdn/UP2070/NPUB30820_00/wjDqigCuJRlBRvCAwHUPvxCvVLTUousZYvGxjitkIJRMRSWcuNZvIpqbZgNQPPdg.pkg',
+            'K14': 'http://zeus.dl.playstation.net/cdn/JP0576/NPJD00085_00/CGQZqTFHWmpSgKQVMIcjNWYOBcBEQreBCtVcmyOxZghzklSGuFxAnXUJRENhgbvtqkpoEaZJTqwbLSXXqAaUMomDDFTVGLuXnjcMm.pkg',
+            'K15': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUD21119_00/MqvHexiuXWSyLwKziTqTsDvyCWkfzkyJLtgcOxzOPiDIdpUBfEciAxaPAbBpJCTN.pkg',
+            'L1': 'http://ares.dl.playstation.net/cdn/UP2054/NPUB30373_00/GiUrIooWcueOdoRXJVdKUGHvGSGStHinlGUqDYZdoAukvrWOwfhukwTehThOlLnKHMyAOLPtdOkvIOIheQdfFQcgglVJnmSsTBeWy.pkg',
+            'L2': 'http://zeus.dl.playstation.net/cdn/EP1018/NPEB01032_00/VxGedVinRnApAqiMFHrUkxuNftQhuAQKCipAOyHLrLnkXfBleTHwFmnQiBnYdrca.pkg',
+            'L3': 'http://zeus.dl.playstation.net/cdn/EP1006/NPEB00655_00/FrQzWlkSAmSTeYXdeNdJgdsVaYsmkTeXtNOCVnadvneSwwSuSeZoVvDzZoJAqFXg.pkg',
+            'L4': 'http://zeus.dl.playstation.net/cdn/EP1018/NPEB01179_00/DtjUOZLsbJJwDpsVwVGZufdOHXkmwbVqOGNSefrSbJveKvEqPoSCbYmfTWYRiTeU.pkg',
+            'L5': 'http://zeus.dl.playstation.net/cdn/UP1018/NPUB31236_00/ZXTDJbyYKcOLdlqnzsgtqawzWdouxgvtQTuRzcgONgdDcLydeBVUahfjUiJooMan.pkg',
+            'L6': 'http://zeus.dl.playstation.net/cdn/EP0776/NPEF00115_00/feTJcosQQwykXJRmihLLUlGsURuDrXZADQLSwyjqzapDCLTZNoFUZYKubDnqsfnS.pkg',
+            'L7': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80848_00/INTvKaLuhpnWvBIaXeOhxVFYaAgElelJgPorzDuOPZemFDYfRlayiEwJNUVByZQcXviOHuwNhzocwGatOFrbnPjjhCDapaOeMQbnI.pkg',
+            'L8': 'http://zeus.dl.playstation.net/cdn/UP1004/NPUB30679_00/xECBHLEzJJAwhAYNirPlPRkCNvCPptpNOrVASqNZeyvLkLGDmhFVjwnUNPObYevMNMYZPAqBQiptiJIkWxKaMxEkDsqMLpGxLNyGK.pkg',
+            'L9': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA81116_00/aKFlQguFjIQtodJibSefHesXqMsbnyNxJDxiaScFMbGpcvVUrkBOlAymJJNOQMpphWBlyrwyVzMzdnjZDqfMvbqcTsYRuzuDpYAaK.pkg',
+            'L10': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80472_00/qFcxgxEXqEWYODYHhjub4YI3Km5QY1iayRkkO6QXk6bFsTiwn7QW3l1r9rviiaqtGce9VRgWLrNpmYmDr1kC1VjBEsgocCb5HSRh5.pkg',
+            'L11': 'http://zeus.dl.playstation.net/cdn/UP0082/NPUB30225_00/uJaVMxNprEydSbonXRukWuUFiPLwxxaadxRatcgrYxwkzELFgsBzGnHOAGYUByaQOCCqYClfVNWBwciwycgUelyqlrllJapqxCees.pkg',
+            'L12': 'http://zeus.dl.playstation.net/cdn/UP1018/NPUB31778_00/UP1018-NPUB31778_00-LEGOFORCEAWAKENS_bg_1_35d546c96644f09488c66d36fafea48e63c5a74c.pkg',
+            'L13': 'http://zeus.dl.playstation.net/cdn/UP0082/NPUB31173_00/dMGUKIjlyRVhyiAyQTIEigVlIIsZwHnJNfmfwgByheUOfMFVLmPPEAdOgSfFRzYh.pkg',
+            'L14': 'http://zeus.dl.playstation.net/cdn/JP9000/NPJI00047_00/NQdjSfiSvmflKlZLqsZqaBpjhbTRhtySPgOqaVSRLZvhKRnOuyGTbEniCMRsnlbBuexIRofcgXpsXrQQaSGdOysPWcpMCHwsjSnLn.pkg',
+            'L15': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01013_00/NMvEKZiePqYTHXbUseJoqkXzawbLsbIhYGLyQnurbZFlKQpyGEHWQXvmUNqRcnoGeJyYQUYazEqNmulyytVWwIvTHscZsgfIIcDIo.pkg',
+            'M1': 'http://zeus.dl.playstation.net/cdn/EP0017/NPEB00002_00/2gyMxJpJ0kpfTTeovRq8VUySJfgbrcxOKucfEKIUa5YvySG7AMkMNWXXNmkVJ2hQB4jNmF4KS9jyWTWMKIhJR9Rymn62qbIiSyOFd.pkg',
+            'M2': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01140_00/UP9000-NPUJ01140_00-0000000000000001_bg_2_f1b34ec314c11326c6cbb3175816ae44e3c6a0e9.pkg',
+            'M3': 'http://zeus.dl.playstation.net/cdn/UP0576/NPUB31698_00/UP0576-NPUB31698_00-METALSLUG3000000_bg_1_b17c6d7fa06d168e8ad292e944f86a8251a40334.pkg',
+            'M4': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB00052_00/zPcTbgkNTXleJqiVpIrXLuUfMOQOiNqSQzBPKIKmVdXexIWdHzWxWbxGBDllgXfk.pkg',
+            'M5': 'http://ares.dl.playstation.net/cdn/HP9000/NPHA80128_00/tpczhltJaURTGLFTQVWHICXNGAYIEzDUupgdZvwEfKWkZzFmrfLfIAZDTkRQDjPEoiaYbkfmlZvExFEcPNSNFUYGlWaBUAHIXElCk.pkg',
+            'M6': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUI94227_00/Psidl1HsWitDCPT3RLYJUyrwhMEru2DvrDnsPUqcwXOb7tiv7UhV9jEDBMYVo7dI3waAYfxRBsxHgwb8hMxpECbgnEayo83caxgGu.pkg',
+            'M7': 'http://ares.dl.playstation.net/cdn/EP2037/NPEB00819_00/zpvLGCAzTBgVVyTcanjmOPaMHtHiciSSVzJKjBpNSRbmTgAxpVGxrLzgCcvUnmSg.pkg',
+            'M8': 'http://zeus.dl.playstation.net/cdn/UP0006/NPUB30710_00/aBnCqnYYsAUFXhhTTPNgUwoVUtyaDVJcTzgFKZBmpfqArjUIMYtNbRPaUPcjdznizmSVMIBwnguClquJripUECYTwlhpuJXDFwWjg.pkg',
+            'M9': 'http://zeus.dl.playstation.net/cdn/EP1001/NPEB00829_00/YuNPQYUNLhTsoSxgNuZpBPAOvFcPZVAFaYcUdviStPmkrItUKhwpBQBXyvQYSdxF.pkg',
+            'M10': 'http://zeus.dl.playstation.net/cdn/UP1004/NPUB30902_00/AeIzHFJcAlBBFsuslkCbynrDSHEySvEvQjnPvquafsTFSUzujPGQMhNOpNYrbAPqRzyXkHlzkcHmZlyOllEROtQMDoUKoZWsDhOoa.pkg',
+            'M11': 'http://zeus.dl.playstation.net/cdn/UP0101/NPUB31594_00/UP0101-NPUB31594_00-MAINGAME00000000_bg_1_8ef80bdeb67d443a5022111b38d367db19acbce2.pkg',
+            'M12': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB01193_00/qWshqiwLTZqfANieqHtWniipTbNzGZpHhzDMYndPheoughXcELICgUuxkNbiqbRE.pkg',
+            'M13': 'http://zeus.dl.playstation.net/cdn/UP0101/NPUB30610_00/xZqUFEBQCjoSQqjdUHdTRobnOnFrGMapXkjHHPFjYvuFDACpiNKlKfaGHbVPLFIKfpDVpknvrtOqAKMORigDnsyMMjQxNfLjkCJBn.pkg',
+            'M14': 'http://ares.dl.playstation.net/cdn/JP0127/NPJB00549_00/ginCvCFrsQnAzOhabHRhiZWvlenDnmodXviTHYDYeYnXFdZYUXqYpqPfQGSsxnrVHguNWxMueVEEVXmZxJVHWAOIvuQTzZvepOAXc.pkg',
+            'M15': 'http://zeus.dl.playstation.net/cdn/UP2047/NPUB31219_00/UIGNOuntsBpflVCUoaGiNrqayLHcgGdwzjeRoKqkGtARbNezpsBAyssioiTSuGRJ.pkg',
+            'N1': 'http://zeus.dl.playstation.net/cdn/UP0777/NPUB31730_00/UP0777-NPUB31730_00-NASCAR2015HDD001_bg_1_46814f96944fd864a9a982ab6ef1a8683a343584.pkg',
+            'N2': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB30932_00/dHPqDdrjEEzaIbFvSScSltWzTsOsgNkBpmkoHFbTMJVkMVWPFBzipDGnSfbpkLdc.pkg',
+            'N3': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB30932_00/AaOqRBZNNMQtqSBBWyRKCfpAIbOjigmGgEzUnjCKyXMrimqnwotzBIgEtmnBUkae.pkg',
+            'N4': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ00518_00/DWC4L5Iv4J5QWyhqpQyxKVBPop2J2cYSuIe21epF7lLnRee1gXq0m9I00xVU7fRYujVOcsQMd1N4fRFnWwJRojeWbeyy0o7yH3qHd.pkg',
+            'N5': 'http://zeus.dl.playstation.net/cdn/JP0177/NPJB00226_00/caNiawBfIuHcLFYCJdHPehVHhUKpmyCAfpdjnQAOUSHGAZCUJMvXEcirUXpEpgYUmQBXOfJobJyukdAnBDnYKHLQhVIktDcVaRoMs.pkg',
+            'N6': 'http://zeus.dl.playstation.net/cdn/UP4108/NPUB30852_00/TuFJlqrhRtjMTmFMLfzaBBxHjlhKnjklbJFpLFJBlvaxpKrvXYJsWzWQwcxwpOyK.pkg',
+            'N7': 'http://ares.dl.playstation.net/cdn/UP0101/NPUB90603_00/sHSRiSbJPCEdlkrUEZJvXzmHLAhyKKcueenmYxECkfSBzSXzAkcphIETCgWrVsHjdeAhDBDtDlnzRiLgkZyynjNweTHHAsQCDWROl.pkg',
+            'N8': 'http://ares.dl.playstation.net/cdn/EP0006/NPEB90293_00/5j1lRiWVSR1HOk3BdmyfGaDt62nXLorhFiQasqaTsO9skNOTrOKx0QvmxBfMV7uR.pkg',
+            'N9': 'http://zeus.dl.playstation.net/cdn/EP0700/NPEB01986_00/YsUncktxqybefotbczEcypnXhEjsoaVjPBUzjhpsIeBhKTjwmJJcNyGOZNYWDreG.pkg',
+            'N10': 'http://zeus.dl.playstation.net/cdn/UP0006/NPUB30789_00/XqnJgyXFSXKDDHBTZDPogOEsbQQEBuFJysyPqJtNReRwSEhUSYcdVZpLZFmallvR.pkg',
+            'N11': 'http://zeus.dl.playstation.net/cdn/EP4108/NPEB01327_00/MXUfdxRjBQVLjAaoIJIiwNlKVXNWxSCAffpGSaWEBonJIdvYGVzNVPfyjfrmUjFd.pkg',
+            'N12': 'http://zeus.dl.playstation.net/cdn/EP1001/NPEB02313_00/EP1001-NPEB02313_00-NBA2K16000000000_bg_1_3ada0e2ac3708ccc91c0617d2b2480501bf6bb28.pkg',
+            'N13': 'http://zeus.dl.playstation.net/cdn/EP1001/NPEB01801_00/ufcnCsTMlSQpizZacUZzGyqalPfDxuEyiUDNmZLFxiArjpxApDlNwkefuGBoOXbH.pkg',
+            'N14': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB30086_00/jb3MLAjiE5fB0ajuT58X54fmhwXhyJqVQT8g0PfeY9w2RoqMksfYi596GRvc66AGXHaUxplhXg3RxsuMkVQiU6OQSB2HxbQrlOhfE.pkg',
+            'N15': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB02030_00/ebPGUfHXbOoLcucVZgHcTYMntWonxLyAWWBHxVNEaMPKUNAQRVgUtkNyrkEeYKNL.pkg',
+            'O1': 'http://zeus.dl.playstation.net/cdn/EP4358/NPEB00949_00/pdVnrexRGbyoAkWWYIVcdbuJxTXbVoVZvRCqcpKjdrsvbHyDdfxFmoQQfFGWROXi.pkg',
+            'O2': 'http://zeus.dl.playstation.net/cdn/EP4134/NPEB01929_00/EP4134-NPEB01929_00-ONNTGAME00000001_bg_1_157fbc424448b2304c09be68fbcd1785da19dfcd.pkg',
+            'O3': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ00190_00/x5wvwhxg1q3d7hGVPOHKW8xR3hn9G70UCQnR3fSOlsbgIV72hfyvku0CL0aqK1F8T6hsaowWmNl6vN6aCOCkDywbPyUFO0VnD4hQK.pkg',
+            'O4': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ00710_00/jIlns5FqsgNERwsTuxqgU4IdgWKK7T90DYxPBXkT9xwACqiBeSuKxAXLADFCqbewolmiIRTDIK2uu03C4uhlPPNrCgMaAnU3LYDAM.pkg',
+            'O5': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00007_00/IcJ11hGYHg9553CgbV2Or30wbduRT8SQbSdt5JXEF2WbKQvGIKLIrPmSBCo5jKA2iWrqlGIIrpimTyL6tkoemU8HYRQBytmqhMF5f.pkg',
+            'O6': 'http://zeus.dl.playstation.net/cdn/UP0576/NPUZ00143_00/MVexgtrlvzHOOStNuMQFTivXmYWMrdngayMyxOAkqsUwtgDyKpgNBylQkSnnAHFDfEvzMKYdxucWHnZXMeUZKrpwJHdXnnkcIAslH.pkg',
+            'O7': 'http://zeus.dl.playstation.net/cdn/EP4134/NPEB00645_00/BNFdlLjfCVIWAdKeOTSwIGveQxfnEfoHjqlZWqOhMUyARQHsPpGPUpjWAiXZSWaK.pkg',
+            'O8': 'http://zeus.dl.playstation.net/cdn/EP4001/NPEB90148_00/YxOxSfQQIMVvfFXGnw9SPDGstBNfmD8Po4HbJsIELiPhtiMEphx0ouFavTTqtOs8rpJr10u7nafk3PDmdws2pvYkk9hQNjUjLlc8x.pkg',
+            'O9': 'http://zeus.dl.playstation.net/cdn/UP0177/NPUB31840_00/UP0177-NPUB31840_00-ODINSPHEREDL0000_bg_1_135007820c3a0fafa74a331d48246fdb211e5f75.pkg',
+            'O10': 'http://zeus.dl.playstation.net/cdn/EP0102/NPEB00900_00/ZnbJdXEVaazSHEIPUFNZzIalsyyDinyRzPIRTePlKPpLupuwPeyLYKvvCOHPNPcm.pkg',
+            'O11': 'http://zeus.dl.playstation.net/cdn/EP0700/NPEB01795_00/vujSJOpeIFqruABXmDjUdPfitfxyeXghUscFPRIBUsIJcsTcGsxyZwrSrYUKlWzZ.pkg',
+            'O12': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB31676_00/UP0700-NPUB31676_00-PROJECTOP3NA0000_bg_1_70423163a8e27716f5eb73a277f30053fc7a1803.pkg',
+            'O13': 'http://ares.dl.playstation.net/cdn/EP0001/NPEB00463_00/bbWQzSGngnnVynIFkLnGfWWdAeZBdBlOnkzNEFLIPHftVdOEDrcfwsiolosdPzZo.pkg',
+            'O14': 'http://zeus.dl.playstation.net/cdn/EP0177/NPEB00073_00/1NQA8yuOBgbWq2awuEq5ceAa0puMmq02HmKF36pstuE8pV7TjDQaucXJNvHq6WywGxTqmShw9tuJhv6cc2stYvFVpcKPnj62ovCQ7.pkg',
+            'P1': 'http://zeus.dl.playstation.net/cdn/UP0005/NPUB31563_00/YsUNLMTgnMswKBTCDDWeApuYspzOOqjwCQBQcgljUdkxlpEZahbOZdxajdwGEDlDKAvICLzlULUmgPOPbbhIZbMmlsKKYGRgUwweA.pkg',
+            'P2': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01158_00/gPEqVpBZaCUJJCBWvyQVAPtzGBHJLHoHrCuwfgGIttiOAxKfjtnMlAYyvknkUxSa.pkg',
+            'P3': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB30304_00/kr3NoQWKw28DeUOBPdFPc2hs3h90s6JP7OaJDWaA2RIVYwiBWLEDmFthv9OE2BALg6PK7D2kkpVqxJqeiW3fegsoMkFLM3fAL6GpA.pkg',
+            'P4': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB30387_00/aoPLwYrtYtsrXeCVDEaXfOOiYRwkUwhvRiyEbfgmgeiOgrphjXqUoMzvQzRegIloOjMCLoQCwqXPwHljZnEicqfSdSDVbRZXYeuRS.pkg',
+            'P5': 'http://ares.dl.playstation.net/cdn/EP0017/NPEA00331_00/IHsqsTFALomBtUQswEVqxXUvDviFkOzuiAPzQAElkuZTsjPGozvrfhQmEuSrUlHI.pkg',
+            'P6': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB30388_00/YeYIeSpoJKqPMMrikAUvYuKHRWgOKBavrUbxAhNFTLCdPaPLdIGhTpZqWfFMAudbUjWdejRPvyvyEoKGqLEYVNgtERLctvMtpysPb.pkg',
+            'P7': 'http://ares.dl.playstation.net/cdn/EP0101/NPEB02366_00/EP0101-NPEB02366_00-PES2016F2P000000_bg_1_ece98537f4addf74c3e43357100e54cd9d043e72.pkg',
+            'P8': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00439_00/wbnVKrxyWruerfeSHFdDbOPxJPEFVVgOimXsfkUEyITQvaWDIqLVKqPLEShpNkFCgwBaiQyEnzzlmiZQGxokcxobilwZpBvKAldYJ.pkg',
+            'P9': 'http://ares.dl.playstation.net/cdn/UP0017/NPUA30059_00/iKsdyDdBEejDuZrONoLZlLskLksEFthWjGRYMGunzVEyOPKsXrGRZbWyHAAmLoHANOvnUfqeaOttBvsJEjPVyPSjuRMkbkcGLxEPm.pkg',
+            'P10': 'http://zeus.dl.playstation.net/cdn/UP2061/NPUB31077_00/YclfXKgjxkHmGZRNjOwchCukzEuynvzrfQDqoXaWzUHIuhzpnnmkkKdgWIcDoFip.pkg',
+            'P11': 'http://zeus.dl.playstation.net/cdn/UP2611/NPUB31848_00/UP2611-NPUB31848_00-HDDBOOTPERSONA05_bg_1_c122979e59ce5776a3ce4418c242e51a5e7a81bc.pkg',
+            'P12': 'http://zeus.dl.playstation.net/cdn/EP4040/NPEB01784_00/rvOFzIWjFUBqVwnUqlMSzUZUgVMcFyVKfDawJkZQSfKPtJjhnPwnmjVywqyVlrRzHgiJvApGZRKlVpMRiqamxXyvgGgOTnXONsdvY.pkg',
+            'P13': 'http://zeus.dl.playstation.net/cdn/EP0101/NPEB01809_00/aIdSwIKogWXGaPCvTzhIZBzphpdmVksfyIxYPTMSYdtRXpPOXHOOuczIbBiOfnAw.pkg',
+            'P14': 'http://zeus.dl.playstation.net/cdn/EP0002/NPEB00920_00/wzNjNlqTXhjNCKhYSJBAPppNerAfmrGvRExocBNWAGnuOctgctjvpzjlCeWEKcvb.pkg',
+            'P15': 'http://zeus.dl.playstation.net/cdn/EP0001/NPEB00774_00/CvlatigaXJmdFxsmEpIWUyOmKbrqfXzWnMGajTzMKPmxrOFnsLXZxFCDDlkGJghK.pkg',
+            'Q1': 'http://zeus.dl.playstation.net/cdn/EP4108/NPEB01259_00/XbAXvmlTVtWKtLqDojaWgjYLAyvGVIFGfYQZUEJkUaksAmdOFHqugwZTOlbcakSE.pkg',
+            'Q2': 'http://zeus.dl.playstation.net/cdn/UP2139/NPUB31723_00/UP2139-NPUB31723_00-QUIPLASHJBGPS301_bg_1_8ec63eb9596890c8f400e854a815f68099a33b81.pkg',
+            'Q3': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80191_00/TtScrOucoppkNHkosspBaHqVGaPXPjRoJdQzbsipNDPwSnjBuPOAlquGzlEMXLldLOgSEwcLWtppIzKDvRzSbyiYdSLYxUjWCaexR.pkg',
+            'Q4': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80191_00/FQajUiYRBhOcZZrFBJzKgsKRpOjtgEjVKKlGkmzXMbzFyADGvhGUAuwJuzZPTaXmUaEPffhiXcaXLWiQVCiatQGNiBBFoFRglNdPq.pkg',
+            'Q5': 'http://zeus.dl.playstation.net/cdn/UP0082/NPUB30601_00/YzYdAlhFwJdRERvVwEJOxXTkYCwndanHQBNVtmPcxspkpOJmYHJBqTRfBLYxxpkMwzLlZDyDBhmFnLPtzcxzNDOZoCDomJfbgMine.pkg',
+            'Q6': 'http://zeus.dl.playstation.net/cdn/JP0571/NPJD00017_00/kBqiHhQKZGLXsKOBmNEMklTycjvBwVCNymtGSKOpIsYferQIDlYfqlLjumZqIalxDDZsCBloPcHTaqeeKoezKahGzhwXpIXmHjMAT.pkg',
+            'Q7': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUX80436_00/lP7m5LrHWu7oBB3KvIP3Fi2euPwPjuGAVjNNvAsMLboboPk47oLQs0Q6b6LSek3iOYSdNRpIuAKKhVFjkr069IVoCA1kSoQu3vtGC.pkg',
+            'Q8': 'http://zeus.dl.playstation.net/cdn/UP2135/NPUB31624_00/UP2135-NPUB31624_00-QBERTREBOOTEDPS3_bg_1_500f2bbc38a0a9352f891f3c0437d6decd102b6f.pkg',
+            'Q9': 'http://zeus.dl.playstation.net/cdn/JP0571/NPJJ00452_00/C3PCNVoqSg0UujUmkLyp137c5Mxfk8EQyKodnYHGNDtO8IbtVDsT6HhQ9xUrkhO1517qB1nLxxj3nc7YlSwXVh5OmDGdxCuMJmc8B.pkg',
+            'Q10': 'http://zeus.dl.playstation.net/cdn/JP0571/NPJJ00438_00/iDcbmy9h6JC3hcQfpmU8x5ETnE9CH5E8Je7esnn7jtdbgA9qAh2GkqwQorGUeK0F81xKAQdSKMFCKSrlkicjMvB7gRA3bUTF6hQnp.pkg',
+            'Q11': 'http://zeus.dl.playstation.net/cdn/JP0571/NPJJ00461_00/RJ4kS6TvsMHplOgVYw6DKyWS0oGTWoPEQogCShAciQwTMc7WeY3SfRDdGB9Swbf2T3q95voKYIJOjaneAX8gFVYEuF5858WDP3BhB.pkg',
+            'Q12': 'http://zeus.dl.playstation.net/cdn/JP0102/NPJJ00591_00/hrqjZEfBnkrTlhNkjsDjNqXiWnkbkYcjIuoVMbWfllsXLBUmDXqRqerrJGVqqGqvtAYJRVUAozFerSwEyFJcUXZmQmkeHOHISzQTy.pkg',
+            'Q13': 'http://zeus.dl.playstation.net/cdn/JP0571/NPJJ00530_00/MfYFnsNcQkwcdGSijDFtDvgPjncAdIWgBVQSSuzafdutbkpHeWigtDKfaIIyEyKoaYLiAmKzHJlizxeVqdAcTqnRGONakeAMLMsaN.pkg',
+            'Q14': 'http://zeus.dl.playstation.net/cdn/EP4151/NPEB01306_00/EP4151-NPEB01306_00-QUBEDIRECTORSCUT_bg_1_5b3c5372aca49cfc4cf92fcf30f50ff42ed56b47.pkg',
+            'R1': 'http://zeus.dl.playstation.net/cdn/UP0102/NPUB30984_00/bSKEPPJKwsiXkEyJRLzOHSdmsPRsmaMuzTGuywgIcYZRejZgkQLujUakWdmAbAke.pkg',
+            'R2': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00356_00/KTncMZPFOvjKEZyttGXkcOsRmscgxaVRzqxlvWYeioiCQtmuQkvGFCBTXplNhuQJ.pkg',
+            'R3': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80966_00/phbiyMKQbUdwqUUzKfUmmvDirvcfuQhXDBXBgJGAKMDKILXFUskIWtMKMzsBAfhXtopGIKPbWCulXfYfRXFeCwdXQHyXmexCJsfZy.pkg',
+            'R4': 'http://ares.dl.playstation.net/cdn/JP9000/NPJA00089_00/RwKbSGzDcZtxiaOTazWFvSqHQOnHYkyxfADPpSmnaKnOFmMOrRnuNewxTmKjwYDzRPnCbIHKPbgFezYUbogGLedGEGFUfzsSyvUNP.pkg',
+            'R5': 'http://ares.dl.playstation.net/cdn/EP0747/NPEB90525_00/DlZpttLkTHgmnresMpCpCiiEwthGaKuFMAymwzZChpfbIMVGxLXXAzInvPzhZXLR.pkg',
+            'R6': 'http://ares.dl.playstation.net/cdn/EP9000/NPEA90102_00/DMFyDlYezBhyFeYsocQeWynsagkuiLUpblpvyMSgVkGllygRYDICeGbtdQuewBmQ.pkg222',
+            'R7': 'http://zeus.dl.playstation.net/cdn/UP8802/NPUB30749_00/MaWfAFLGMFkHyKKMiIjZoIwHXdpxUTwdZMapxeYiSIrYUxHHchZgxfqShfUZHhcmsaEUhmwFcUzGsufweuBMjBxOyeRpRtWuqSvnf.pkg',
+            'R8': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB30457_00/HMNgUwAnjFJPNEPcYdNkMUgGIQOSyvnrARNKmqQrUdJIOUjEuxjRBFEJRLJqaWlDElEjdJVDvuSyWwBSvUHtIPzScTykCoRIGAqOE.pkg',
+            'R9': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00431_00/HhdEUXLDpGsADDGSYJySCzjwxGWzjlpmHYxXKUWHVxxtmsXpRABcdoUYRFVxrhVZ.pkg',
+            'R10': 'http://zeus.dl.playstation.net/cdn/EP1004/NPEB00832_00/BpVkmTVUpVqWIFJkLAydoMgAUWgbntfvZgsTTHbiSwssMxHgIdSwHlwzNMkDQbTE.pkg',
+            'R11': 'http://zeus.dl.playstation.net/cdn/EP1004/NPEB00833_00/fpPGEHMvrwEWmMSsHikoasIkWcRekiByJJVRBtqjSQuHRZgJwoasOcynJssjlOWL.pkg',
+            'R12': 'http://zeus.dl.playstation.net/cdn/EP0001/NPEB01356_00/hTNZRtrbcNYPZlQCeNxsyiltHGfXkBoutyxBDLDATDLCWAgoOZPtmptgvqKxuzre.pkg',
+            'R13': 'http://zeus.dl.playstation.net/cdn/JP0001/NPJB00172_00/OAIXvsTQIZLcXbNPPTauoIsaMVJfVzoprjPQgQjkBmtzDGPQbsMaGBTGmZpsOJrEEDDvaSCRlXXBAeDTOaKmmSpwhWXvofhdVaQmU.pkg',
+            'R14': 'http://zeus.dl.playstation.net/cdn/EP0102/NPEB00687_00/vvkNFqGFLbJmogMTMDiRozLUIUSgmZTGPGHMttfvOFHrfVPCQHnxBzFmIxXrSyrp.pkg',
+            'R15': 'http://zeus.dl.playstation.net/cdn/UP4488/NPUB31512_00/EFkJlBrLhSKvFUEdZPvEebMfyMulQKkrBILkmLNxPzODCjXVvNPYTxMycbdCRWAMLUwSHAfMPMSzxuPDqbheyHRnFhBoBqqlLQcLn.pkg',
+            'S1': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB31195_00/psTujItCGWWnJFdsdxSSCMNriWFNkzGfLXoWIxfJZfmOMVKkgaEFdxmrUoJqmcfd.pkg',
+            'S2': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00280_00/YTZbOdpXiMGghqqMupjxvFYsumHBuhDjrwLJDMxxhOzQuQdRnNOFdwfLsXeMcgmG.pkg',
+            'S3': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00429_00/XBJLCRjheRQoXbPkJEFBPhAWETxHiQPXJxBwWCXDjxfuyHmThXWBeyzehXCYOcJzmUmSyTAeYtqHJlVWuEuaENNtdBcHQvOlCuxXW.pkg',
+            'S4': 'http://ares.dl.playstation.net/cdn/UP9000/NPUA70135_00/NcrIZQBXwYflplAWWRdwSCNsXwiuHrTmtoKzhAXmHMClXazjDWfIfkdLtDUJwuTkemYqChvUGWInGFyEHrWfmDcnAFZGOCTvWiJCs.pkg',
+            'S5': 'http://zeus.dl.playstation.net/cdn/JP0101/NPJD00022_00/RMJQiAzrcEUkPyzawnQANmDXJCxaADEhauNvkYjJaabFdxKKGouZZLgPxaZNBZAgnrmseOMtDCQTPWllIApAZKdJfyVekVNgZoDvO.pkg',
+            'S6': 'http://zeus.dl.playstation.net/cdn/UP4108/NPUB31751_00/UP4108-NPUB31751_00-HGEXEC0000000000_bg_1_d0783a06934e74de0eba0104c542e20d4b7fd7db.pkg',
+            'S7': 'http://zeus.dl.playstation.net/cdn/EP1005/NPEB00637_00/ZjCEHTlhDYGmndCxnjreWdlmPNpwsZdoKTdUMEkHhhNbIRuMVdvMPaLQRfziMsiN.pkg',
+            'S8': 'http://zeus.dl.playstation.net/cdn/EP0006/NPEB90226_00/9qeTpr05Xb5wdoMMK34DR7PsWehr805osav76ddVIQXVTdxR73A66nTq3y5JvDO6XA8cLN9QGvrFRjBE8PCJLqS0Of1c1oBNOGjjT.pkg',
+            'S9': 'http://zeus.dl.playstation.net/cdn/EP1005/NPEB00888_00/PGdeMZgNjDhaoYHEJnpstDFAUMfjykBfkTEgXjnzUTluFeFjzraFgOXWjxgoCIUG.pkg',
+            'S10': 'http://zeus.dl.playstation.net/cdn/EP4062/NPEB02121_00/EP4062-NPEB02121_00-SAINTSROWGATHELL_bg_1_044f6339035978e5765f31560e568354d6d54f05.pkg',
+            'S11': 'http://zeus.dl.playstation.net/cdn/EP4062/NPEB01404_00/zpAdqdZCuLNBFQDIRRUfmEzyNhTxDgMYWJLVMZmeWApSooFouxgocWoIrsfyiOGiqfiDGzsfWYaQUGiTHqEvntMHXcDxbDTRBRuMj.pkg',
+            'S12': 'http://ares.dl.playstation.net/cdn/EP2059/NPEB01374_00/TQRHITaYvWfRJFOxaAKfUORGEMIDoeQJeCUJKUKsboKsxuCuZirieNFtlYaimzXn.pkg',
+            'S13': 'http://zeus.dl.playstation.net/cdn/EP0082/NPEB01046_00/kIIwEKzNsjzoLOeOqdTtebgolMequJkVFZoqRNJDbbTEbUoxdhOObRZKoTwZCDaX.pkg',
+            'S14': 'http://zeus.dl.playstation.net/cdn/UP0177/NPUB31090_00/qkbrGARJFMwZwBOeeslnouAhdXznbfaSajODMMlTrEEhBmNLmPdhlkAPUyELXNyw.pkg',
+            'S15': 'http://zeus.dl.playstation.net/cdn/UP4040/NPUB31446_00/qdIaFaPKmslcOxUTxdZFLTDVMcdBdWfnJtYcKhfRxXzRWEkCcjMpzyIwAzTWGwmxmwCThDdDxBwEkLrkVMQOtwRghggZPBHxCTrpP.pkg',
+            'T1': 'http://zeus.dl.playstation.net/cdn/EP0002/NPEB02335_00/EP0002-NPEB02335_00-TRANSFORMERSP315_bg_1_e2d24aa68c24725693255b5cd75cfd8e4e4be371.pkg',
+            'T2': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80960_00/kXLfyOhGFLCBFKeHDopmqkCrYKbIQIAVEBkdtiNpzIyBRebMQCkGigjAGbdyAzNCHjKITHlMLKjOZHLzNebUYyOkJkQMhFMttvVuO.pkg',
+            'T3': 'http://zeus.dl.playstation.net/cdn/UP1063/NPUB31422_00/jMotFlPXEjgyGXmXGpAVqbgdSDUwpYQkpQofgSrwuUVLHKDJAwNWYbWsafGFDUFC.pkg',
+            'T4': 'http://zeus.dl.playstation.net/cdn/UP0700/NPUB31136_00/cVZfhQcaGJHQPtrAelXqTXbzshFYfawwlrimfNxzGEVQZBZRoynXsyQYTBtsflVu.pkg',
+            'T5': 'http://zeus.dl.playstation.net/cdn/JP0700/NPJB00416_00/wqLwEPeVmCAIFarHiZvlZMtSjqiRpKhHwXFDuKZHPRYcnncuoVZWExxFRrdfAyZEWCNEzfoVKdyMJECcFgFkuECTcROpvtThvGxUL.pkg',
+            'T6': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00362_00/pUQmoSKNDhugBrdxOWPjGPkRtkuNSzOivLlalxvuTKoZOELZruLoALZsAOmDaRyT.pkg',
+            'T7': 'http://zeus.dl.playstation.net/cdn/UP0002/NPUB31053_00/rIYEFkGRiOEcXKIqveaPFtOBPfmEcSaRURbSLlyeWGEdGRrOwPEFZQXcTeiSmIop.pkg',
+            'T8': 'http://zeus.dl.playstation.net/cdn/UP2045/NPUB31380_00/BBLTEyrHQlTJKsKFaFJMttXKEEVaTszfbotsYNGIkJcEFIihLBxenQIHdcjaNMHj.pkg',
+            'T9': 'http://zeus.dl.playstation.net/cdn/EP0776/NPEB00366_00/lF0Kx9cU4cP9I35jSfBKmj9X0JtNQl35Cye1A5AB37wrXOmkmttGF400vjN4oo0M.pkg',
+            'T10': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00019_00/cT05PgjcRQi2AgNsF2qOe2EQidAye0khjsKXBJ0wxjYCPKRVFktwjsXa32RHLojuHGusyVMSJ2jmJQukMPlHbGCS74RM0bwliacbs.pkg',
+            'T11': 'http://zeus.dl.playstation.net/cdn/EP0700/NPEB02235_00/EP0700-NPEB02235_00-TOZESTIRIAHDD001_bg_1_73692fd7181e83cc85d3fe410ad808903ed213b7.pkg',
+            'T12': 'http://ares.dl.playstation.net/cdn/EP4040/NPEB01270_00/myxYxeOrnuuhchvpDCoDYRVDiyBGRryDuPOcdLiQgPcDrBCPfiiYkTQTcWAFLPnP.pkg',
+            'T13': 'http://zeus.dl.playstation.net/cdn/UP0002/NPUB30732_00/VScfrILpCxBSjvxjhEPdNleJARIijaULmzDIxRRioScwKHsrWvZQKrqzOYKymKkBnDMoeRIAFyrEGlFKBoifrhWnuDGfbeJASlcKg.pkg',
+            'T14': 'http://zeus.dl.playstation.net/cdn/JP0576/NPJB00229_00/ewPoKYminDyndzEVKqvErYVddTFfpAQvwyGMGatIMooTgJiJgSQQLJaDohfrhGBEUpnJwAUOziSjqhVoUfgHeIuowZNwVJfZRepNJ.pkg',
+            'T15': 'http://zeus.dl.playstation.net/cdn/EP0700/NPEB01288_00/XjVqfENMeGlgFAKwtDrzrtnKJcOEpJnvDGLMupMeDUThtoVhhILnhaWajDWpszAJ.pkg',
+            'U1': 'http://zeus.dl.playstation.net/cdn/JP0106/NPJB00060_00/B7ubjsxSsh6IC9K3i9xTMPptCUST07Gc9A9wmRvJ1M0xSld8WPsyp4DkA7eDCxLEuR7wckgduAiLb041ChuQrTlsGurSYgwTlr23V.pkg',
+            'U2': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUD21366_00/vLbopepUPsIcTXrjdEEjfSkXQAzByxTYTzUvfIYxuhxXFeBCscKmgpAoOFGSbxvS.pkg',
+            'U3': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80698_00/ftZMEmWLrGqjEHKXIBnGMKwRkyjImyQwgNPVfMZYIJluNTMNcpWdxjOGJaMInMxcXylNjdBBslPvQhbHyCdxAYfphddDuAZJBAaye.pkg',
+            'U4': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00330_00/HOGeIzyJOQtCdkAZXOvSDyNoFsKteixuFCpBYubyqiEHRUmIgdTNCuGxnHfYbFEp.pkg',
+            'U5': 'http://zeus.dl.playstation.net/cdn/EP1063/NPEB02178_00/EP1063-NPEB02178_00-UNIPS30000001000_bg_1_ca5bc6d14c5b58690f6b887c53003a9ab618815d.pkg',
+            'U6': 'http://zeus.dl.playstation.net/cdn/UP2041/NPUB30491_00/TVDjlOtIOTqmoNwKZmiXzJcJwMVzZQRoteGOELtGJuyXItArSSNyewQJoBTljdDQCyawLMQkOuiyNgOLxsFdqMszhZaZqjuhyyAtf.pkg',
+            'U7': 'http://zeus.dl.playstation.net/cdn/UP4151/NPUB31605_00/UP4151-NPUB31605_00-UNMECHANICALPS3A_bg_1_43d60c4eabf9e970bb4b51668bb059278a20133d.pkg',
+            'U8': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80697_00/VKXNEcVcJVciABhzEgxkrzMNYIjhoCXRmlkZwJSKmlrStcTohdkjtHKiFDHUhvfIegnJHrmmfbTNkdQLwHSSYOwokcHoHBiVUaSoU.pkg',
+            'U9': 'http://zeus.dl.playstation.net/cdn/EP2006/NPEB00105_00/dq0mOa4V2jIkX939aw31x2Xd64J1SSKbJlEejijoQaWn9CqxtLUG5MkHiciLm1LX1J37g0cQM1mJeggyvOpUYw8LCrxTgESuihrOm.pkg',
+            'U10': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00422_00/CveacCtBsFqRfYlaLecIHBnJnIdpuLyDXuudVGQkkLGXiCghMnOoGUuFEquCfImP.pkg',
+            'U11': 'http://zeus.dl.playstation.net/cdn/UP0102/NPUB31292_00/nzTTqiXVIEPoNDRPJdHqGuEpsSFmtFEUVGvjbZlrepdVguNvzocQYrIPMKgXwFAG.pkg',
+            'U12': 'http://zeus.dl.playstation.net/cdn/EP1005/NPEB90235_00/CHyFuJ8A2uA0cComHoaWq8YG0qPRMM9cqD9xgccDcCKllMSxYiWrXQnDEGtKU3wjG6pfFxW2aXHBlFa3fRoCVl929NfE8wtyrAKeq.pkg',
+            'U13': 'http://ares.dl.playstation.net/cdn/EP1005/NPEB90397_00/vkyKQZsGjqpoGzvZNsnAaGWffpkclkYabVtHsbCUBTABseUrvThGwUDbeSbciYnN.pkg',
+            'U14': 'http://zeus.dl.playstation.net/cdn/UP4034/NPUB31062_00/yumdksxWctLPWUluPTnMQGhoAqZxPWAfkSQwSivfLvDiJWiKyeJpJfqFwpMrBVjg.pkg',
+            'U15': 'http://ares.dl.playstation.net/cdn/EP4385/NPEB01238_00/WynSrrcgGlXRBnHWljgejZfBQZodhiSKBYSdMAcExmrMBanvozzZkFPryFuglFVK.pkg',
+            'V1': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB31400_00/FdHHJTEwpMYdQVMBNEmfxwNFUJVCfsDDFyudxBKnFIQCgpDkiDxAyylccSExreQq.pkg',
+            'V2': 'http://ares.dl.playstation.net/cdn/HP0646/NPHB00433_00/toStkawkRPmgwvRHgOAXSmhEpLIszDkQaqvQJzkFyNVeIWKMHpiigUbSnFAVKhWskdrDHqHChPQWahWxYZFjbIpCuwsFVgCYaPyoY.pkg',
+            'V3': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01374_00/QcqoB0Rj6yBb3jEuRKF6wDlSXFiyRvW7PaTk2oNhmFRQfflvjMOKBhfWjguSa2tHPX8PRID9UbWBnPV3rAvt8yxubU6UnxKdA4xqh.pkg',
+            'V4': 'http://zeus.dl.playstation.net/cdn/JP0102/NPJJ00509_00/eCfMciDthPiYXHCUeTIhsbXcdyZMQwWEquySjAZDtDukYeboujOifGoUBqkDLRTwWLETzsuaQbjwOyOKOQGHOVKMdXGOoGFzsQXaT.pkg',
+            'V5': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUI00571_00/AohAnvUWgMaMsmeiuQmNvPnBNCjZGpERqFrwPfTeOnrTULmiLzXWBtrXbYEECcGR.pkg',
+            'V6': 'http://zeus.dl.playstation.net/cdn/EP0177/NPEB90106_00/TCtwkiq3QJ8leQSHMoq27pHBy1Fn1Veq9OKIUOUxUb85LFNAA441Uima7WRF23dJUmP24EC44i8g6qRUpKIDkv6WWMfgfbd9Xp8R5.pkg',
+            'V7': 'http://zeus.dl.playstation.net/cdn/UP0177/NPUB30725_00/hoWtKuEDHUSOSjTrndFTGFSyySRoZakBKtTEVbviaMkJeJSVBTcJjRVOSFoYciiE.pkg',
+            'V8': 'http://zeus.dl.playstation.net/cdn/EP0101/NPEB00148_00/mJahB9aGKmOTjs9SWpvR8EIVeyyQ1wcO64ehTWVI1R1JOqFMg2DBSAGH1Nb9HcKhBnVJuuT2Q0J0sk8ERn9tc9uvotO4Pf81QTyHX.pkg',
+            'V9': 'http://zeus.dl.playstation.net/cdn/EP0177/NPED00033_00/jrejyUcWTzmIrCPcxhWJTgeufoJTMeDxKmaXhOUtfrMEduoHGsGgPiXSDyNiSpgr.pkg',
+            'V10': 'http://zeus.dl.playstation.net/cdn/UP4395/NPUB31396_00/WvdwgzsniWNrQdVBPXutLzoCDsVzAbKhGoqSiPNhKNRAxYtkpVegsbZiDdrGftgb.pkg',
+            'V11': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01040_00/SzLQGCdChbyHiTqFrkDmAMACbswnDlMVcgczyVczwcFtyyoHYKmfSiakGiXvYLoXHHaPlhgoYalWDedqckLSNoVsXNIsFcIZqGsMp.pkg',
+            'V12': 'http://zeus.dl.playstation.net/cdn/EP0177/NPEB01163_00/UZjSCbtiSeGVYxJGMhnHvWcpNQLTWoHgDgZZmLdmMNjfEwodikwLlOrEfkYOqAJv.pkg',
+            'V13': 'http://zeus.dl.playstation.net/cdn/EP0177/NPEB00913_00/ZEYTrmPlRKULmsPjujbjxKEWyISjwFSpBDZFqRJZoMfARgeLxkFpBsIYydurFLwC.pkg',
+            'V14': 'http://ares.dl.playstation.net/cdn/EP0177/NPEB90325_00/ZhXKUiKLVioxFoUDhgjPnplXouWtXkLQXyTIZrcamdUPuXDTjBryVBOKQhYKUIdb.pkg',
+            'V15': 'http://zeus.dl.playstation.net/cdn/JP0555/NPJJ30026_00/mTLuexYjpfETiU3yYOBicQlgujIBUVGgVhfovG57UXhBLSwbtCew0mPiMnhIcgowcLTfALP1QAxGtqw8I4RRtlAh7iqx3tHikjP2k.pkg',
+            'W1': 'http://zeus.dl.playstation.net/cdn/EP1005/NPEB00648_00/eNlLwLotRSWpCCHKarTEkirEjYZXMtehgPdYeJeRWaeHGGWMTVYCXJGRSbBImmzs.pkg',
+            'W2': 'http://zeus.dl.playstation.net/cdn/JP9000/NPJI00009_00/n7aouKyQx1Ig5VwspbI2htI1jXXbOrTYfqU9AlisYUI0yqEcEv6FChBnGn6d0nO5sT76BGQ5eWAdKeRmKFUpjf0o4ec8kYbUYmlkH.pkg',
+            'W3': 'http://zeus.dl.playstation.net/cdn/UP1023/NPUB30755_00/TXZzfTsROESigPcKJvApkZmNbCulRQBVZEbigZrzvPLBlfgsyvjzTAwmeQsAcxdKUmHWheykpXdBywSOJSOIWkiQRWJPhtwaDZxPw.pkg',
+            'W4': 'http://zeus.dl.playstation.net/cdn/JP9000/NPJA00104_00/wzhwRwKebinCHvOxRmvATaHYuMeTDokliWioWHUylTNNFazDJikZShgBZvwKUoawZIIixneZFVeSCUBzpIXuRIwCwEQIpKBlCpaQC.pkg',
+            'W5': 'http://zeus.dl.playstation.net/cdn/UP2026/NPUB31376_00/IsrgIdszTHRSjtLohMKoyYXWPNTuvfDglDOSFNcBjgSLutZPWhttMDEZPCQndNRB.pkg',
+            'W6': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUA80105_00/rg8UH2OcLmrXYSkNGEaPIyWHMu0QxiU9xmEop8aTymvvUaby066N8iN6idmGNgFNWlFr7ImXsnSFnK8wDKduYTDgMe10btD0cPRXi.pkg',
+            'W7': 'http://zeus.dl.playstation.net/cdn/EP9000/NPEA00017_00/3fRG9Ggfma5hRiTldqJmkNRSrfSPmmyDGcvAtmTH4FRD1RaJWgyn0OLm6uskvW4y6Dqa4FeS6ui4XEXmJRlIQHnEh0P04EI6C77rV.pkg',
+            'W8': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB31254_00/imczMyqQkcLvXpyFXWUJeoeCMeKotdzBIYBplaqpsLTDYDpnXivAClxFSmqeojsh.pkg',
+            'W9': 'http://zeus.dl.playstation.net/cdn/UP4108/NPUB31505_00/iKChApWfRipwNENbrKSIqpGxBGFUTFoXVyAZygvivGmOQFECmJDvunAoGIhkCHnt.pkg',
+            'W10': 'http://zeus.dl.playstation.net/cdn/UP1023/NPUB30452_00/uIxiwswNgqcNLkAnmmDjpobqUTGMTYPxpLhZaKldAVLwRZnOrEiRFhvmijpWZvheebCpdJGRNrndZSWTyYwnCUxTRrPbxekyPvTMw.pkg',
+            'W11': 'http://zeus.dl.playstation.net/cdn/EP1003/NPEB01789_00/zPxICLpucrtIkdBMvaCxYFpzsYsjYqlwpZBfKCLThtNnpiCfAoDahDZaRivEEZlMFPvEbQCdcofxoBQgurunLnVqqfnlsrYapRjrB.pkg',
+            'W12': 'http://zeus.dl.playstation.net/cdn/EP4064/NPEB01044_00/gprrFJHTczRIwRsDWgItIzGSKQtxSOmogrCeJfnLDMtVwGbirMtjxKFXntLaFMBiJzYngVjZrofhvYvqxIfhBFGPZhOklEqNuyHmn.pkg',
+            'W13': 'http://zeus.dl.playstation.net/cdn/EP4008/NPEB02265_00/EP4008-NPEB02265_00-WRC5000000000000_bg_1_10217ef99a724a1c6ea02e59a9ba26481c1cb475.pkg',
+            'W14': 'http://zeus.dl.playstation.net/cdn/UP1001/NPUB31838_00/UP1001-NPUB31838_00-WWE2K17DIGITAL01_bg_1_8c3a989d574d03224a847732d492e0d612a801ea.pkg',
+            'W15': 'http://zeus.dl.playstation.net/cdn/UP1001/NPUB31743_00/UP1001-NPUB31743_00-WWE2K16DIGITAL01_bg_1_15c43fd361adf64a2b90a51c33aadaad80f861ba.pkg',
+            'X1': 'http://zeus.dl.playstation.net/cdn/UP1024/NPUB31661_00/UP1024-NPUB31661_00-XBLAZE2PS3USA000_bg_1_c30a5257295db286b4f38cba1d9d9ceb2ebb8efd.pkg',
+            'X2': 'http://ares.dl.playstation.net/cdn/EP4401/NPEB01392_00/MnwszRvkNMCGSfDMBgwwaTOBULtrMebSvXJmzuNaNcXRnLZNsaotGsAfhORqVCXh.pkg',
+            'X3': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01506_00/8AaUg3TNDbokcTI4mnplUb1ihcUU8UVSJ1ieLdN0OT90d7D9svVTlFpJPHi1rFXQn7cE1UfW4pWjFq0hObWuJgCGAuLOva6VDaE9S.pkg',
+            'X4': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01554_00/wHLfoanQTKJcPnVCqxqSTawgLIgPdCKzxFwgXubWRjddUEnCztFIpVIzUUJznDdxzVNyiwQLuRpfBHttvckKMkeJVtAsbYnRsNjlX.pkg',
+            'X5': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01520_00/d3DgIUDEneJanOLOcpCyX4mh7aKvMUEXGeiCCweu2gDElGkH1RBW8dO1k76Cr2aKE6JF2VmnQbn1Pw337ceICkCYaTBOWTCJLO3AB.pkg',
+            'X6': 'http://zeus.dl.playstation.net/cdn/JP9000/NPJI00019_00/LiB28VVYTRwIvIRYKpecm73FXF6JC7BOdRLlEah4w2YHUTmJGL3Vqs2BaBABkUofo702kO6sRDTmUdNw7htqeNCMhxsi2AlQpLCSt.pkg',
+            'X7': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01566_00/ixGvrsMDsslK8WCAiHi8Jiy60yE1p4klJDj762EqQkpYDr3V7ybDoFSsIEEUEvBbBa0yYyj4EvRUGWpN4Qnlm1nXYaTyaouWFvCQr.pkg',
+            'X8': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ01560_00/0YeMmQDgiBdjLhdGioRsmREwvUDFBcIaIQsrakBy0JRL6gESjHkShCMh7iT71BItjy5BMnAaYsqHB6J8OnWnQRLu6AR0Lbx26vvFv.pkg',
+            'X9': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ00461_00/JeMYoOTLIVtviTOFwGGddRUckKArsgZqgOZWRELqMRunXLVwatMgCvvCQMCBGkXsppZQBavYQYtBNInhHgugPFpyRhMWcvoDZXBkQ.pkg',
+            'X10': 'http://zeus.dl.playstation.net/cdn/UP9000/NPUJ00664_00/DHCpjzQQMiGvSOkjGCyyLURgooacUmkzWPmZSKjGjECYzlelvOmXLQybZXHjLSNSAUnahhvThEAjprxqKKioZxpXlxQgvVIwRseIO.pkg',
+            'X11': 'http://zeus.dl.playstation.net/cdn/EP1001/NPEB01241_00/GlkPZjGmFpINjEIisJjKKKWKzRVuZWTVWlOJcVSKzfWlyHqsmugSdIpNfNarCmis.pkg',
+            'X12': 'http://zeus.dl.playstation.net/cdn/EP0002/NPEB90154_00/kHpEqFd5HjETLJPQhwURcuXjSPX10ebr3MB2D8p6FTvNPJ4LA9q4iGhcoUN7CcOkngwcndfoELSLMC6deceAnKhMvIMESqDiptLye.pkg',
+            'X13': 'http://zeus.dl.playstation.net/cdn/UP0101/NPUB30320_00/CrXzeuWafGLEeyOLLMMrFgGtrqiUPtJnPNEAhPoineLvCyputfuuLHSdkaDaxoBaackUIAmLuxPeyVwjkdHpybMxATOMzkVOUdGEE.pkg',
+            'X14': 'http://zeus.dl.playstation.net/cdn/JP0036/NPJB00288_00/nCORuPtaQQXVdKDrVWfQYJHDHkqAPbYEfWXUzrBFGqTStoSsBKukcgphWNHLwBQPMvwpXMuMRSBGynemanGydjqfRZHHnDfqmTUSU.pkg',
+            'X15': 'http://zeus.dl.playstation.net/cdn/UP1001/NPUB31198_00/EjaEhaFdAUWLWxAkVdYUPRvTqzlndIzcuFIvBAHGrxfBcQPBbUxLhzRWcwaYhMRD.pkg',
+        };
+
+        // المتغيرات الرئيسية
+        var letterBGs = ['bgA', 'bgB', 'bgC', 'bgD', 'bgE', 'bgF', 'bgG', 'bgH', 'bgI', 'bgJ', 'bgK', 'bgL', 'bgM', 'bgN', 'bgO', 'bgP', 'bgQ', 'bgR', 'bgS', 'bgT', 'bgU', 'bgV', 'bgW', 'bgX'];
+        var letterBGsH = ['bgAh', 'bgBh', 'bgCh', 'bgDh', 'bgEh', 'bgFh', 'bgGh', 'bgHh', 'bgIh', 'bgJh', 'bgKh', 'bgLh', 'bgMh', 'bgNh', 'bgOh', 'bgPh', 'bgQh', 'bgRh', 'bgSh', 'bgTh', 'bgUh', 'bgVh', 'bgWh', 'bgXh'];
+        var bgHistory = [];
+        var isIn6 = false, isIn7 = false, isIn8 = false;
+
+        var subBgSection = document.getElementById('sub-bg-section');
+
+        // --- توليد 5 أزرار تحميل مخصصة لخلفية 9.png ---
+        // إعدادات أزرار التحميل الخاصة بخلفية 9.png (خمسة أزرار)
+        var BTN9_CONFIG = {
+            width: 160,    // عرض الزر
+            height: 45,    // ارتفاع الزر
+            top: 468,      // الموضع من الأعلى لجميع الأزرار
+            positions: [
+                50,  // left للزر الأول
+                262,  // left للزر الثاني
+                476,  // left للزر الثالث
+                694,  // left للزر الرابع
+                900  // left للزر الخامس
+            ]
+        };
+        // يمكنك تعديل القيم بالأعلى كما يناسبك
+
+        // --- توليد 5 أزرار تحميل مخصصة لخلفية 9.png ---
+        var download9Btns = [];
+        for (var i = 1; i <= 5; i++) {
+            var btn = document.createElement("a");
+            btn.href = "#";
+            btn.id = "dlbtn9_" + i;
+            btn.className = "download-button size-btn3-group hidden";
+            btn.style.left = BTN9_CONFIG.positions[i - 1] + "px";
+            btn.style.top = BTN9_CONFIG.top + "px";
+            btn.style.width = BTN9_CONFIG.width + "px";
+            btn.style.height = BTN9_CONFIG.height + "px";
+            btn.style.lineHeight = BTN9_CONFIG.height + "px";
+            btn.innerHTML = "Download " + i;
+            btn.onclick = (function (i) {
+                return function (e) {
+                    e.preventDefault();
+                    var key = "9_" + i;
+                    var link = customLinks[key] || ("download/9_" + i + ".ptf");
+                    window.location.href = link;
+                    return false;
+                }
+            })(i);
+            document.getElementById('main-bg-section').appendChild(btn);
+            download9Btns.push(btn);
+        }
+        // يمكنك تعديل القيم بالأعلى كما يناسبك
+        // إعدادات أزرار الخلفيات الرئيسية
+        // إعدادات موحدة لأزرار التحميل الفرعية (A1..A15 حتى X15)
+        var SUBBTN_OFFSET_TOP = 410;      // المسافة من الأعلى
+        var SUBBTN_OFFSET_LEFT = 220;     // المسافة من اليسار
+        var SUBBTN_SPACING_Y = 0;        // المسافة بين الأزرار عمودياً (زر تحت زر)
+        var SUBBTN_WIDTH = 180;            // عرض الزر
+        var SUBBTN_HEIGHT = 35;           // ارتفاع الزر
+        // إعدادات موحدة لأزرار A-X (غيّر القيم حسب ما تريد)
+        var AX_BTN_OFFSET_TOP = 250;      // المسافة من الأعلى
+        var AX_BTN_OFFSET_LEFT = 60;     // المسافة من اليسار
+        var AX_BTN_SPACING_X = 220;       // المسافة بين الأزرار أفقياً
+        var AX_BTN_SPACING_Y = 155;       // المسافة بين الأزرار عمودياً
+        var AX_BTN_WIDTH = 90;            // عرض الزر
+        var AX_BTN_HEIGHT = 30;           // ارتفاع الزر
+
+        // لا تغيّر هذا الكود، فقط غيّر القيم بالأعلى عند الحاجة
+        function getAXBtnPositions(bgLetter, count) {
+            var positions = [], rows = 3, cols = 5, idx = 0;
+            for (var r = 0; r < rows; r++) {
+                for (var c = 0; c < cols; c++) {
+                    if (idx >= count) break;
+                    positions.push({
+                        left: (AX_BTN_OFFSET_LEFT + c * AX_BTN_SPACING_X) + 'px',
+                        top: (AX_BTN_OFFSET_TOP + r * AX_BTN_SPACING_Y) + 'px'
+                    });
+                    idx++;
+                }
+            }
+            return positions;
+        }
+        var axBtnSettings = {};
+        var axLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        for (var i = 0; i < 24; i++) {
+            var l = axLetters.charAt(i);
+            var cnt = (l == "O" || l == "Q") ? 14 : 15;
+            axBtnSettings[l] = {
+                count: cnt,
+                width: AX_BTN_WIDTH,
+                height: AX_BTN_HEIGHT,
+                buttons: getAXBtnPositions(l, cnt)
+            };
+        }
+        // إعدادات أزرار الخلفيات h
+        // إعدادات موحدة لأزرار Ah-Xh (غيّر القيم حسب ما تريد)
+        var AXH_BTN_OFFSET_TOP = 433;      // المسافة من الأعلى
+        var AXH_BTN_OFFSET_LEFT = 48;     // المسافة من اليسار
+        var AXH_BTN_SPACING_X = 212;       // المسافة بين الأزرار أفقياً
+        var AXH_BTN_WIDTH = 170;            // عرض الزر
+        var AXH_BTN_HEIGHT = 50;           // ارتفاع الزر
+
+        var axhBtnSettings = {};
+        var lettersH = [
+            "Ah", "Bh", "Ch", "Dh", "Eh", "Fh", "Gh", "Hh", "Ih", "Jh", "Kh", "Lh", "Mh", "Nh", "Oh", "Ph", "Qh", "Rh", "Sh", "Th", "Uh", "Vh", "Wh", "Xh"
+        ];
+        for (var i = 0; i < lettersH.length; i++) {
+            axhBtnSettings[lettersH[i]] = { count: 5, width: AXH_BTN_WIDTH, height: AXH_BTN_HEIGHT, buttons: [] };
+            axhBtnSettings[lettersH[i]].buttons = [];
+            for (var j = 0; j < 5; j++) {
+                axhBtnSettings[lettersH[i]].buttons.push({
+                    left: (AXH_BTN_OFFSET_LEFT + j * AXH_BTN_SPACING_X) + 'px',
+                    top: AXH_BTN_OFFSET_TOP + 'px'
+                });
+            }
+        }
+        // أسماء الخلفيات الفرعية الرئيسية
+        var subBGs = {}, subBGsH = {};
+        var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        for (var ch = 0; ch < 24; ch++) {
+            var l = letters.charAt(ch); var cnt = (l == "O" || l == "Q") ? 14 : 15;
+            subBGs[l] = [];
+            for (var n = 1; n <= cnt; n++) { var subId = l + n; subBGs[l].push(subId); }
+        }
+        for (var ch = 0; ch < lettersH.length; ch++) {
+            var l = lettersH[ch];
+            subBGsH[l] = [];
+            var prefix = l.charAt(0) + l.charAt(1).toLowerCase();
+            for (var n = 1; n <= 5; n++) { var subId = prefix + n; subBGsH[l].push(subId); }
+        }
+
+        // إعدادات أماكن وأحجام أزرار التحميل بحسب عددها في الخلفية الخاصة (1-5)
+        var SPECIAL_BTN_CONFIG = {
+            1: { // زر واحد فقط
+                width: 160,
+                height: 50,
+                positions: [
+                    { left: 55, top: 435 }
+                ]
+            },
+            2: { // زران
+                width: 173,
+                height: 50,
+                positions: [
+                    { left: 48, top: 435 },
+                    { left: 258, top: 435 }
+                ]
+            },
+            3: { // ثلاثة أزرار
+                width: 173,
+                height: 50,
+                positions: [
+                    { left: 48, top: 435 },
+                    { left: 258, top: 435 },
+                    { left: 470, top: 435 }
+                ]
+            },
+            4: { // أربعة أزرار
+                width: 173,
+                height: 50,
+                positions: [
+                    { left: 48, top: 435 },
+                    { left: 258, top: 435 },
+                    { left: 470, top: 435 },
+                    { left: 687, top: 435 }
+                ]
+            },
+            5: { // خمسة أزرار
+                width: 173,
+                height: 50,
+                positions: [
+                    { left: 48, top: 435 },
+                    { left: 258, top: 435 },
+                    { left: 470, top: 435 },
+                    { left: 687, top: 435 },
+                    { left: 894, top: 435 }
+                ]
+            }
+        };
+        // يمكنك تعديل القيم حسب ما يناسب التصميم لديك (الموضع من اليسار، من الأعلى، والعرض والارتفاع)
+        // --- توليد عناصر خلفيات 7 (Bs, Fs, Gs, Is, Ns, Vs, Ws) ---
+        var special7 = ['Bs', 'Fs', 'Gs', 'Is', 'Ns', 'Vs', 'Ws'];
+        for (var i = 0; i < special7.length; i++) {
+            var subId = special7[i];
+            var img = document.createElement("img");
+            img.id = "bg" + subId; img.src = subId + ".png"; img.className = "bg-img hidden";
+            subBgSection.appendChild(img);
+            var btn = document.createElement("a");
+            btn.href = "#"; btn.id = "dlbtn-" + subId; btn.className = "sub-download-btn hidden"; btn.innerHTML = "Download";
+            btn.onclick = (function (subId) {
+                return function (e) {
+                    e.preventDefault();
+                    var link = customLinks[subId] || ("download/" + subId + ".ptf");
+                    window.location.href = link;
+                    return false;
+                }
+            })(subId);
+            subBgSection.appendChild(btn);
+            var back = document.createElement("a");
+            back.href = "#"; back.id = "backbtn-" + subId; back.className = "sub-back-btn hidden"; back.innerHTML = "Back";
+            back.onclick = (function () { return function (e) { e.preventDefault(); backTo7(); return false; }; })();
+            subBgSection.appendChild(back);
+        }
+
+        // --- توليد عناصر خلفيات 8 (Ao, Co, Fo, Mo, Po, Ro, Uo) ---
+        var special8 = ['Ao', 'Co', 'Fo', 'Mo', 'Po', 'Ro', 'Uo'];
+        // --- توليد زر التحميل وزر العودة لكل صورة فرعية من A1 حتى X15 ---
+        var mainLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        for (var ch = 0; ch < 24; ch++) { // A..X (24 حرف)
+            var l = mainLetters.charAt(ch);
+            var cnt = (l == "O" || l == "Q") ? 14 : 15;
+            for (var n = 1; n <= cnt; n++) {
+                var subId = l + n;
+                // توليد صورة الخلفية إذا لم تكن موجودة أصلاً (احتياطاً)
+                if (!document.getElementById("bg" + subId)) {
+                    var img = document.createElement("img");
+                    img.id = "bg" + subId;
+                    img.src = subId + ".png";
+                    img.className = "bg-img hidden";
+                    subBgSection.appendChild(img);
+                }
+                // زر التحميل
+                if (!document.getElementById("dlbtn-" + subId)) {
+                    var btn = document.createElement("a");
+                    btn.href = "#";
+                    btn.id = "dlbtn-" + subId;
+                    btn.className = "sub-download-btn hidden";
+                    // تخصيص مكان وحجم زر التحميل الفرعي
+                    btn.style.left = SUBBTN_OFFSET_LEFT + "px";
+                    btn.style.top = (SUBBTN_OFFSET_TOP + (n - 1) * SUBBTN_SPACING_Y) + "px";
+                    btn.style.width = SUBBTN_WIDTH + "px";
+                    btn.style.height = SUBBTN_HEIGHT + "px";
+                    btn.style.lineHeight = SUBBTN_HEIGHT + "px";
+                    btn.innerHTML = "Download";
+                    btn.onclick = (function (subId) {
+                        return function (e) {
+                            e.preventDefault();
+                            var link = customLinks[subId] || ("download/" + subId + ".ptf");
+                            window.location.href = link;
+                            return false;
+                        }
+                    })(subId);
+                    subBgSection.appendChild(btn);
+                }
+                // زر العودة
+                if (!document.getElementById("backbtn-" + subId)) {
+                    var back = document.createElement("a");
+                    back.href = "#";
+                    back.id = "backbtn-" + subId;
+                    back.className = "sub-back-btn hidden";
+                    back.innerHTML = "Back";
+                    back.onclick = function (e) {
+                        e.preventDefault();
+                        var parent = this.getAttribute('data-parent');
+                        if (/^[A-Z]h$/.test(parent)) {
+                            showOnlyMainBG("bg" + parent);
+                            showAXhBtns(parent);
+                        }
+                        else if (/^[A-Z]s$/.test(parent)) {
+                            showOnlyMainBG("bg" + parent);
+                            showSpecial7Btns(parent);
+                        }
+                        else if (/^[A-Z]o$/.test(parent)) {
+                            showOnlyMainBG("bg" + parent);
+                            showSpecial8Btns(parent);
+                        }
+                        else {
+                            showOnlyMainBG("bg" + parent);
+                            showAXBtns(parent);
+                        }
+                        return false;
+                    };
+
+                    subBgSection.appendChild(back);
+                }
+            }
+        }
+        for (var i = 0; i < special8.length; i++) {
+            var subId = special8[i];
+            var img = document.createElement("img");
+            img.id = "bg" + subId; img.src = subId + ".png"; img.className = "bg-img hidden";
+            subBgSection.appendChild(img);
+            var btn = document.createElement("a");
+            btn.href = "#"; btn.id = "dlbtn-" + subId; btn.className = "sub-download-btn hidden"; btn.innerHTML = "Download";
+            btn.onclick = (function (subId) {
+                return function (e) {
+                    e.preventDefault();
+                    var link = customLinks[subId] || ("download/" + subId + ".ptf");
+                    window.location.href = link;
+                    return false;
+                }
+            })(subId);
+            subBgSection.appendChild(btn);
+            var back = document.createElement("a");
+            back.href = "#"; back.id = "backbtn-" + subId; back.className = "sub-back-btn hidden"; back.innerHTML = "Back";
+            back.onclick = (function () { return function (e) { e.preventDefault(); backTo8(); return false; }; })();
+            subBgSection.appendChild(back);
+        }
+        for (var l in subBGsH) {
+            for (var i = 0; i < subBGsH[l].length; i++) {
+                var subId = subBGsH[l][i];
+                var back = document.createElement("a");
+                back.href = "#"; back.id = "backbtn-" + subId; back.className = "sub-back-btn hidden"; back.innerHTML = "Back";
+                back.onclick = (function (parent, subId) {
+                    return function (e) {
+                        e.preventDefault();
+                        // إذا كانت الخلفية الرئيسية Ah..Xh
+                        if (/^[A-Z]h$/.test(parent)) {
+                            showOnlyMainBG("bg" + parent);
+                            showAXhBtns(parent);
+                        }
+                        // إذا كانت Bs..Ws (خلفيات 7)
+                        else if (/^[A-Z]s$/.test(parent)) {
+                            showOnlyMainBG("bg" + parent);
+                            showSpecial7Btns(parent);
+                        }
+                        // إذا كانت Ao..Uo (خلفيات 8)
+                        else if (/^[A-Z]o$/.test(parent)) {
+                            showOnlyMainBG("bg" + parent);
+                            showSpecial8Btns(parent);
+                        }
+                        // خلفيات A..X العادية
+                        else {
+                            showOnlyMainBG("bg" + parent);
+                            showAXBtns(parent);
+                        }
+                        return false;
+                    }
+                })(l, subId);
+                subBgSection.appendChild(back);
+            }
+        }
+
+        function showSpecial7Btns(bgS) {
+            var mapping = special7BtnMapping[bgS];
+            if (!mapping) return;
+            var contId = 'container-special7-btns';
+            var cont = document.getElementById(contId);
+            if (!cont) {
+                cont = document.createElement('div');
+                cont.id = contId;
+                cont.style.position = 'absolute';
+                cont.style.width = '100%';
+                cont.style.top = '0';
+                cont.style.left = '0';
+                cont.style.zIndex = '15';
+                document.getElementById('main-bg-section').appendChild(cont);
+            }
+            cont.innerHTML = '';
+            cont.style.display = 'block';
+            var total = mapping.length;
+            var btnWidth = 70, btnHeight = 70, spacing = 40;
+            var startX = (window.innerWidth - (total * btnWidth + (total - 1) * spacing)) / 2;
+            var topY = 270;
+            var config = SPECIAL_BTN_CONFIG[total];
+            for (var i = 0; i < total; i++) {
+                var btn = document.createElement('a');
+                btn.href = "#";
+                btn.className = 'axh-btn';
+                btn.style.width = config.width + 'px';
+                btn.style.height = config.height + 'px';
+                btn.style.lineHeight = config.height + 'px';
+                btn.style.left = config.positions[i].left + 'px';
+                btn.style.top = config.positions[i].top + 'px';
+                btn.onclick = (function (bgS, idx) {
+                    return function (e) {
+                        e.preventDefault();
+                        showSpecial7SubBG(mapping[idx], bgS);
+                        return false;
+                    }
+                })(bgS, i);
+                cont.appendChild(btn);
+            }
+        }
+
+        function showSpecial8Btns(bgO) {
+            var mapping = special8BtnMapping[bgO];
+            if (!mapping) return;
+            var contId = 'container-special8-btns';
+            var cont = document.getElementById(contId);
+            if (!cont) {
+                cont = document.createElement('div');
+                cont.id = contId;
+                cont.style.position = 'absolute';
+                cont.style.width = '100%';
+                cont.style.top = '0';
+                cont.style.left = '0';
+                cont.style.zIndex = '15';
+                document.getElementById('main-bg-section').appendChild(cont);
+            }
+            cont.innerHTML = '';
+            cont.style.display = 'block';
+            var total = mapping.length;
+            var btnWidth = 70, btnHeight = 70, spacing = 40;
+            var startX = (window.innerWidth - (total * btnWidth + (total - 1) * spacing)) / 2;
+            var topY = 270;
+            var config = SPECIAL_BTN_CONFIG[total];
+            for (var i = 0; i < total; i++) {
+                var btn = document.createElement('a');
+                btn.href = "#";
+                btn.className = 'axh-btn';
+                btn.style.width = config.width + 'px';
+                btn.style.height = config.height + 'px';
+                btn.style.lineHeight = config.height + 'px';
+                btn.style.left = config.positions[i].left + 'px';
+                btn.style.top = config.positions[i].top + 'px';
+                btn.onclick = (function (bgO, idx) {
+                    return function (e) {
+                        e.preventDefault();
+                        showSpecial8SubBG(mapping[idx], bgO);
+                        return false;
+                    }
+                })(bgO, i);
+                cont.appendChild(btn);
+            }
+        }
+
+        function hideSpecial8Btns() {
+            var cont = document.getElementById('container-special8-btns');
+            if (cont) {
+                cont.style.display = 'none';
+                cont.innerHTML = '';
+            }
+        }
+
+        function hideSpecial7Btns() {
+            var cont = document.getElementById('container-special7-btns');
+            if (cont) {
+                cont.style.display = 'none';
+                cont.innerHTML = '';
+            }
+        }
+        // إظهار خلفية رئيسية فقط
+        function showOnlyMainBG(id) {
+            // أخفِ أزرار تحميل 9 دائماً عند تغيير الخلفية الرئيسية
+            if (typeof download9Btns !== "undefined") {
+                for (var i = 0; i < download9Btns.length; i++) {
+                    download9Btns[i].className = "download-button size-btn3-group hidden";
+                }
+            }
+            var imgs = document.querySelectorAll("#main-bg-section .bg-img, #sub-bg-section .bg-img");
+            for (var i = 0; i < imgs.length; i++)imgs[i].className = "bg-img hidden";
+            document.getElementById(id).className = "bg-img";
+            var all = document.querySelectorAll(".sub-download-btn, .sub-back-btn");
+            for (var i = 0; i < all.length; i++)all[i].className = all[i].className.replace("sub-download-btn", "sub-download-btn hidden").replace("sub-back-btn", "sub-back-btn hidden");
+        }
+        // إظهار خلفية فرعية فقط
+        function showSubBG(subId, parent, isH) {
+            if (bgHistory.length === 0 || bgHistory[bgHistory.length - 1] !== "bg" + parent) {
+                bgHistory.push("bg" + parent);
+            }
+            var imgs = document.querySelectorAll("#main-bg-section .bg-img, #sub-bg-section .bg-img");
+            for (var i = 0; i < imgs.length; i++) imgs[i].className = "bg-img hidden";
+            var img = document.getElementById("bg" + subId);
+            if (img) img.className = "bg-img";
+            var all = document.querySelectorAll(".sub-download-btn, .sub-back-btn");
+            for (var i = 0; i < all.length; i++) all[i].className = all[i].className.replace("sub-download-btn", "sub-download-btn hidden").replace("sub-back-btn", "sub-back-btn hidden");
+            var dl = document.getElementById("dlbtn-" + subId);
+            var back = document.getElementById("backbtn-" + subId);
+            if (back) {
+                // أضف خاصية مخصصة لمعرفة الأب الحقيقي
+                back.setAttribute('data-parent', parent);
+                back.className = "sub-back-btn";
+            }
+            if (dl) dl.className = "sub-download-btn";
+            if (back) back.className = "sub-back-btn";
+            hideAXBtns(); hideAXhBtns();
+        }
+
+        function showSpecial7SubBG(subId, parent) {
+            if (bgHistory.length === 0 || bgHistory[bgHistory.length - 1] !== "bg" + parent) {
+                bgHistory.push("bg" + parent);
+            }
+            var imgs = document.querySelectorAll("#main-bg-section .bg-img, #sub-bg-section .bg-img");
+            for (var i = 0; i < imgs.length; i++) imgs[i].className = "bg-img hidden";
+            var img = document.getElementById("bg" + subId);
+            if (img) img.className = "bg-img";
+            var all = document.querySelectorAll(".sub-download-btn, .sub-back-btn");
+            for (var i = 0; i < all.length; i++) all[i].className = all[i].className.replace("sub-download-btn", "sub-download-btn hidden").replace("sub-back-btn", "sub-back-btn hidden");
+            var dl = document.getElementById("dlbtn-" + subId);
+            var back = document.getElementById("backbtn-" + subId);
+            if (back) {
+                back.setAttribute('data-parent', parent);
+                back.className = "sub-back-btn";
+            }
+            if (dl) dl.className = "sub-download-btn";
+            if (back) back.className = "sub-back-btn";
+            hideSpecial7Btns();
+        }
+        // --- أزرار A-X ---
+        function showAXBtns(bgLetter) {
+            document.getElementById('container-ax-btns').style.display = 'block';
+            var cont = document.getElementById('container-ax-btns');
+            cont.innerHTML = '';
+            var settings = axBtnSettings[bgLetter];
+            for (var i = 0; i < settings.count; i++) {
+                var btn = document.createElement('a');
+                btn.href = "#";
+                btn.id = 'axbtn_' + bgLetter + '_' + i;
+                btn.className = 'ax-btn';
+                btn.style.width = settings.width + 'px';
+                btn.style.height = settings.height + 'px';
+                btn.style.lineHeight = settings.height + 'px';
+                btn.style.left = settings.buttons[i].left;
+                btn.style.top = settings.buttons[i].top;
+                btn.onclick = (function (bg, idx) {
+                    return function (e) {
+                        e.preventDefault();
+                        showSubBG(bg + (idx + 1), bg, false);
+                        return false;
+                    }
+                })(bgLetter, i);
+                cont.appendChild(btn);
+            }
+        }
+        function showSpecial8SubBG(subId, parent) {
+            if (bgHistory.length === 0 || bgHistory[bgHistory.length - 1] !== "bg" + parent) {
+                bgHistory.push("bg" + parent);
+            }
+            var imgs = document.querySelectorAll("#main-bg-section .bg-img, #sub-bg-section .bg-img");
+            for (var i = 0; i < imgs.length; i++) imgs[i].className = "bg-img hidden";
+            var img = document.getElementById("bg" + subId);
+            if (img) img.className = "bg-img";
+            var all = document.querySelectorAll(".sub-download-btn, .sub-back-btn");
+            for (var i = 0; i < all.length; i++) all[i].className = all[i].className.replace("sub-download-btn", "sub-download-btn hidden").replace("sub-back-btn", "sub-back-btn hidden");
+            var dl = document.getElementById("dlbtn-" + subId);
+            var back = document.getElementById("backbtn-" + subId);
+            if (back) {
+                back.setAttribute('data-parent', parent);
+                back.className = "sub-back-btn";
+            }
+            if (dl) dl.className = "sub-download-btn";
+            if (back) back.className = "sub-back-btn";
+            hideSpecial8Btns();
+        }
+        function hideAXBtns() { document.getElementById('container-ax-btns').style.display = 'none'; document.getElementById('container-ax-btns').innerHTML = ''; }
+        // --- أزرار Ah-Xh ---
+        function showAXhBtns(bgLetterH) {
+            document.getElementById('container-axh-btns').style.display = 'block';
+            var cont = document.getElementById('container-axh-btns');
+            cont.innerHTML = '';
+            var settings = axhBtnSettings[bgLetterH];
+            for (var i = 0; i < settings.count; i++) {
+                var btn = document.createElement('a');
+                btn.href = "#";
+                btn.id = 'axhbtn_' + bgLetterH + '_' + i;
+                btn.className = 'axh-btn';
+                btn.style.width = settings.width + 'px';
+                btn.style.height = settings.height + 'px';
+                btn.style.lineHeight = settings.height + 'px';
+                btn.style.left = settings.buttons[i].left;
+                btn.style.top = settings.buttons[i].top;
+                btn.onclick = (function (bg, idx) {
+                    return function (e) {
+                        e.preventDefault();
+                        var subBgName = hBtnMapping[bg][idx];
+                        if (subBgName && document.getElementById("bg" + subBgName)) {
+                            showSubBG(subBgName, bg, true);
+                        } else {
+                            alert("لم يتم تحديد اسم خلفية صحيحة لهذا الزر!");
+                        }
+                        return false;
+                    }
+                })(bgLetterH, i);
+                cont.appendChild(btn);
+            }
+        }
+        function hideAXhBtns() { document.getElementById('container-axh-btns').style.display = 'none'; document.getElementById('container-axh-btns').innerHTML = ''; }
+        // باقي الدوال كما في كودك القديم
+        function currentBg() {
+            var imgs = document.getElementsByClassName('bg-img');
+            for (var i = 0; i < imgs.length; i++) {
+                if (imgs[i].className.indexOf('hidden') === -1) return imgs[i].id;
+            }
+            return null;
+        }
+        function showOnly(id) {
+            var allImgs = document.getElementsByClassName('bg-img');
+            for (var i = 0; i < allImgs.length; i++) allImgs[i].className = 'bg-img hidden';
+            document.getElementById(id).className = 'bg-img';
+            // إظهار أزرار تحميل 9 أو إخفاؤها حسب الخلفية المعروضة
+            if (id === 'bg9') {
+                for (var i = 0; i < download9Btns.length; i++) download9Btns[i].className = "download-button size-btn3-group";
+            } else {
+                for (var i = 0; i < download9Btns.length; i++) download9Btns[i].className = "download-button size-btn3-group hidden";
+            }
+        }
+        function goToStep2() {
+            bgHistory.push(currentBg());
+            showOnly('bg2');
+            document.getElementById('btn1').className = 'hidden';
+            document.getElementById('btn2').className = 'download-button btn2 size-btn2';
+        }
+        function goToStep3() {
+            bgHistory.push(currentBg());
+            showOnly('bg3');
+            document.getElementById('btn2').className = 'hidden';
+            for (var i = 3; i <= 8; i++) {
+                document.getElementById('btn' + i).className = 'download-button btn' + i + ' size-btn3-group';
+            }
+            document.getElementById('infoBtn').className = 'download-button btn-info size-info-btn';
+        }
+        function goToStep4(bgId) {
+            bgHistory.push(currentBg());
+            showOnly(bgId);
+            for (var i = 3; i <= 8; i++)document.getElementById('btn' + i).className = 'hidden';
+            document.getElementById('infoBtn').className = 'hidden';
+            if (bgId == 'bg5') {
+                document.getElementById('container-letters').style.display = 'block';
+                document.getElementById('container-letters-h').style.display = 'none';
+                document.getElementById('container-letters-7').style.display = 'none';
+                document.getElementById('container-letters-8').style.display = 'none';
+                document.getElementById('backBtn').className = 'download-button btn-back size-back-btn';
+                document.getElementById('backBtnh').className = 'hidden';
+                document.getElementById('backBtn7').className = 'hidden';
+                document.getElementById('backBtn8').className = 'hidden';
+            } else if (bgId == 'bg6') {
+                show6png();
+            } else if (bgId == 'bg7') {
+                show7png();
+            } else if (bgId == 'bg8') {
+                show8png();
+            } else {
+                document.getElementById('container-letters').style.display = 'none';
+                document.getElementById('container-letters-h').style.display = 'none';
+                document.getElementById('container-letters-7').style.display = 'none';
+                document.getElementById('container-letters-8').style.display = 'none';
+                document.getElementById('backBtn').className = 'download-button btn-back size-back-btn';
+                document.getElementById('backBtnh').className = 'hidden';
+                document.getElementById('backBtn7').className = 'hidden';
+                document.getElementById('backBtn8').className = 'hidden';
+            }
+            var axBGs = ['bgA', 'bgB', 'bgC', 'bgD', 'bgE', 'bgF', 'bgG', 'bgH', 'bgI', 'bgJ', 'bgK', 'bgL', 'bgM', 'bgN', 'bgO', 'bgP', 'bgQ', 'bgR', 'bgS', 'bgT', 'bgU', 'bgV', 'bgW', 'bgX'];
+            var axhBGs = ['bgAh', 'bgBh', 'bgCh', 'bgDh', 'bgEh', 'bgFh', 'bgGh', 'bgHh', 'bgIh', 'bgJh', 'bgKh', 'bgLh', 'bgMh', 'bgNh', 'bgOh', 'bgPh', 'bgQh', 'bgRh', 'bgSh', 'bgTh', 'bgUh', 'bgVh', 'bgWh', 'bgXh'];
+            if (axBGs.indexOf(bgId) == -1) hideAXBtns();
+            if (axhBGs.indexOf(bgId) == -1) hideAXhBtns();
+        }
+        function show6png() {
+            isIn6 = true; isIn7 = false; isIn8 = false;
+            showOnly('bg6');
+            document.getElementById('container-letters-h').style.display = 'block';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            document.getElementById('backBtnh').className = 'download-button btn-back size-back-btn';
+            document.getElementById('backBtn').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+            hideAXBtns(); hideAXhBtns();
+        }
+        function show7png() {
+            isIn7 = true; isIn6 = false; isIn8 = false;
+            showOnly('bg7');
+            document.getElementById('container-letters-7').style.display = 'block';
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('container-letters').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            document.getElementById('backBtn7').className = 'download-button btn-back size-back-btn';
+            document.getElementById('backBtn').className = 'hidden';
+            document.getElementById('backBtnh').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+            hideAXBtns(); hideAXhBtns();
+        }
+        function show8png() {
+            isIn8 = true; isIn6 = false; isIn7 = false;
+            showOnly('bg8');
+            document.getElementById('container-letters-8').style.display = 'block';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('container-letters').style.display = 'none';
+            document.getElementById('backBtn8').className = 'download-button btn-back size-back-btn';
+            document.getElementById('backBtn').className = 'hidden';
+            document.getElementById('backBtnh').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            hideAXBtns(); hideAXhBtns();
+        }
+        function goToInformation() {
+            bgHistory.push(currentBg());
+            showOnly('bg10');
+            for (var i = 3; i <= 8; i++)document.getElementById('btn' + i).className = 'hidden';
+            document.getElementById('infoBtn').className = 'hidden';
+            document.getElementById('backBtn').className = 'download-button btn-back size-back-btn';
+            document.getElementById('backBtnh').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+            document.getElementById('container-letters').style.display = 'none';
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            hideAXBtns(); hideAXhBtns();
+        }
+        function goBackToStep3() {
+            bgHistory.push(currentBg());
+            showOnly('bg3');
+            for (var i = 3; i <= 8; i++)document.getElementById('btn' + i).className = 'download-button btn' + i + ' size-btn3-group';
+            document.getElementById('infoBtn').className = 'download-button btn-info size-info-btn';
+            document.getElementById('backBtn').className = 'hidden';
+            document.getElementById('backBtnh').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+            document.getElementById('container-letters').style.display = 'none';
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            for (var i = 0; i < letterBGs.length; i++)document.getElementById(letterBGs[i]).className = 'bg-img hidden';
+            for (var i = 0; i < letterBGsH.length; i++)document.getElementById(letterBGsH[i]).className = 'bg-img hidden';
+            hideAXBtns(); hideAXhBtns();
+        }
+        function goBack() {
+            if (typeof download9Btns !== "undefined") {
+                for (var i = 0; i < download9Btns.length; i++) {
+                    download9Btns[i].className = "download-button size-btn3-group hidden";
+                }
+            }
+            hideAXBtns(); hideAXhBtns();
+            if (bgHistory.length > 0) {
+                var prev = bgHistory.pop();
+                var allImgs = document.getElementsByClassName('bg-img');
+                for (var i = 0; i < allImgs.length; i++)
+                    allImgs[i].className = 'bg-img hidden';
+
+                // أولاً: أظهر الخلفية المطلوبة فقط
+                if (prev) document.getElementById(prev).className = 'bg-img';
+
+                // ثم: أظهر أزرار الخلفيات الرئيسية إذا رجعت إلى واحدة منها
+                var axBGs = ['bgA', 'bgB', 'bgC', 'bgD', 'bgE', 'bgF', 'bgG', 'bgH', 'bgI', 'bgJ', 'bgK', 'bgL', 'bgM', 'bgN', 'bgO', 'bgP', 'bgQ', 'bgR', 'bgS', 'bgT', 'bgU', 'bgV', 'bgW', 'bgX'];
+                var axhBGs = ['bgAh', 'bgBh', 'bgCh', 'bgDh', 'bgEh', 'bgFh', 'bgGh', 'bgHh', 'bgIh', 'bgJh', 'bgKh', 'bgLh', 'bgMh', 'bgNh', 'bgOh', 'bgPh', 'bgQh', 'bgRh', 'bgSh', 'bgTh', 'bgUh', 'bgVh', 'bgWh', 'bgXh'];
+                if (prev && axBGs.indexOf(prev) !== -1) {
+                    showAXBtns(prev.substring(2));
+                    hideAXhBtns();
+                } else if (prev && axhBGs.indexOf(prev) !== -1) {
+                    showAXhBtns(prev.substring(2));
+                    hideAXBtns();
+                }
+
+                // ثم أكمل باقي الحالات كما هي (لـ bg3, bg5 ... إلخ)
+                if (prev == 'bg3') {
+                    for (var i = 3; i <= 8; i++)document.getElementById('btn' + i).className = 'download-button btn' + i + ' size-btn3-group';
+                    document.getElementById('infoBtn').className = 'download-button btn-info size-info-btn';
+                    document.getElementById('container-letters').style.display = 'none';
+                    document.getElementById('container-letters-h').style.display = 'none';
+                    document.getElementById('container-letters-7').style.display = 'none';
+                    document.getElementById('container-letters-8').style.display = 'none';
+                    document.getElementById('backBtn').className = 'hidden';
+                    document.getElementById('backBtnh').className = 'hidden';
+                    document.getElementById('backBtn7').className = 'hidden';
+                    document.getElementById('backBtn8').className = 'hidden';
+                } else if (prev == 'bg5') {
+                    document.getElementById('container-letters').style.display = 'block';
+                    document.getElementById('container-letters-h').style.display = 'none';
+                    document.getElementById('container-letters-7').style.display = 'none';
+                    document.getElementById('container-letters-8').style.display = 'none';
+                    document.getElementById('backBtn').className = 'download-button btn-back size-back-btn';
+                    document.getElementById('backBtnh').className = 'hidden';
+                    document.getElementById('backBtn7').className = 'hidden';
+                    document.getElementById('backBtn8').className = 'hidden';
+                } else if (prev == 'bg6') { show6png(); }
+                else if (prev == 'bg7') { show7png(); }
+                else if (prev == 'bg8') { show8png(); }
+                else {
+                    document.getElementById('container-letters').style.display = 'none';
+                    document.getElementById('container-letters-h').style.display = 'none';
+                    document.getElementById('container-letters-7').style.display = 'none';
+                    document.getElementById('container-letters-8').style.display = 'none';
+                    document.getElementById('backBtn').className = 'download-button btn-back size-back-btn';
+                    document.getElementById('backBtnh').className = 'hidden';
+                    document.getElementById('backBtn7').className = 'hidden';
+                    document.getElementById('backBtn8').className = 'hidden';
+                }
+            }
+        }
+        function showLetterBG(idx) {
+            bgHistory.push(currentBg());
+            var allImgs = document.getElementsByClassName('bg-img');
+            for (var i = 0; i < allImgs.length; i++)allImgs[i].className = 'bg-img hidden';
+            for (var i = 0; i < letterBGs.length; i++)document.getElementById(letterBGs[i]).className = 'bg-img hidden';
+            document.getElementById(letterBGs[idx]).className = 'bg-img';
+            var bgLetter = String.fromCharCode(65 + idx);
+            showAXBtns(bgLetter);
+            hideAXhBtns();
+            document.getElementById('container-letters').style.display = 'none';
+            document.getElementById('backBtn').className = 'download-button btn-back size-back-btn';
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            document.getElementById('backBtnh').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+        }
+        function showLetterBGh(idx) {
+            isIn6 = false; isIn7 = false; isIn8 = false;
+            bgHistory.push(currentBg());
+            var allImgs = document.getElementsByClassName('bg-img');
+            for (var i = 0; i < allImgs.length; i++)allImgs[i].className = 'bg-img hidden';
+            for (var i = 0; i < letterBGsH.length; i++)document.getElementById(letterBGsH[i]).className = 'bg-img hidden';
+            document.getElementById(letterBGsH[idx]).className = 'bg-img';
+            var bgLetterH = lettersH[idx];
+            showAXhBtns(bgLetterH);
+            hideAXBtns();
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('backBtnh').className = 'download-button btn-back size-back-btn';
+            document.getElementById('container-letters').style.display = 'none';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            document.getElementById('backBtn').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+        }
+        function showLetterBG7(letter) {
+            isIn7 = false; isIn6 = false; isIn8 = false; bgHistory.push(currentBg());
+            var letterBGs7S = { 'B': 'Bs', 'F': 'Fs', 'G': 'Gs', 'I': 'Is', 'N': 'Ns', 'V': 'Vs', 'W': 'Ws' };
+            var bgS = letterBGs7S[letter];
+            if (bgS) {
+                var imgs = document.querySelectorAll("#main-bg-section .bg-img, #sub-bg-section .bg-img");
+                for (var i = 0; i < imgs.length; i++) imgs[i].className = "bg-img hidden";
+                document.getElementById('bg' + bgS).className = "bg-img";
+                hideAXBtns(); hideAXhBtns();
+                showSpecial7Btns(bgS);
+                document.getElementById('container-letters-7').style.display = 'none';
+                document.getElementById('backBtn7').className = 'download-button btn-back size-back-btn';
+                document.getElementById('container-letters-h').style.display = 'none';
+                document.getElementById('container-letters').style.display = 'none';
+                document.getElementById('container-letters-8').style.display = 'none';
+                document.getElementById('backBtn').className = 'hidden';
+                document.getElementById('backBtnh').className = 'hidden';
+                document.getElementById('backBtn8').className = 'hidden';
+            }
+        }
+        function showLetterBG8(letter) {
+            isIn8 = false; isIn7 = false; isIn6 = false; bgHistory.push(currentBg());
+            var letterBGs8O = { 'A': 'Ao', 'C': 'Co', 'F': 'Fo', 'M': 'Mo', 'P': 'Po', 'R': 'Ro', 'U': 'Uo' };
+            var bgO = letterBGs8O[letter];
+            if (bgO) {
+                var imgs = document.querySelectorAll("#main-bg-section .bg-img, #sub-bg-section .bg-img");
+                for (var i = 0; i < imgs.length; i++) imgs[i].className = "bg-img hidden";
+                document.getElementById('bg' + bgO).className = "bg-img";
+                hideAXBtns(); hideAXhBtns();
+                showSpecial8Btns(bgO);
+                document.getElementById('container-letters-8').style.display = 'none';
+                document.getElementById('backBtn8').className = 'download-button btn-back size-back-btn';
+                document.getElementById('container-letters-7').style.display = 'none';
+                document.getElementById('container-letters-h').style.display = 'none';
+                document.getElementById('container-letters').style.display = 'none';
+                document.getElementById('backBtn').className = 'hidden';
+                document.getElementById('backBtnh').className = 'hidden';
+                document.getElementById('backBtn7').className = 'hidden';
+            }
+        }
+        function backBtnhAction() {
+            if (isIn6) { goBackToStep3(); } else { backTo6(); }
+        }
+        function backBtn7Action() {
+            if (isIn7) { goBackToStep3(); } else { backTo7(); }
+        }
+        function backBtn8Action() {
+            if (isIn8) { goBackToStep3(); } else { backTo8(); }
+        }
+        function backTo6() {
+            // أخفِ جميع الخلفيات أولاً
+            var allImgs = document.getElementsByClassName('bg-img');
+            for (var i = 0; i < allImgs.length; i++) allImgs[i].className = 'bg-img hidden';
+
+            isIn6 = true; isIn7 = false; isIn8 = false;
+            for (var i = 0; i < letterBGsH.length; i++) document.getElementById(letterBGsH[i]).className = 'hidden';
+            document.getElementById('bg6').className = 'bg-img';
+            document.getElementById('container-letters-h').style.display = 'block';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            document.getElementById('backBtnh').className = 'download-button btn-back size-back-btn';
+            document.getElementById('backBtn').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+            hideAXBtns(); hideAXhBtns();
+        }
+        function backTo7() {
+            // أخفِ جميع الخلفيات أولاً
+            var allImgs = document.getElementsByClassName('bg-img');
+            for (var i = 0; i < allImgs.length; i++) allImgs[i].className = 'bg-img hidden';
+
+            isIn7 = true; isIn6 = false; isIn8 = false;
+            var bg7s = ['bgB7', 'bgF7', 'bgG7', 'bgI7', 'bgN7', 'bgV7', 'bgW7'];
+            var bg7ss = ['bgBs', 'bgFs', 'bgGs', 'bgIs', 'bgNs', 'bgVs', 'bgWs'];
+            for (var i = 0; i < bg7s.length; i++) document.getElementById(bg7s[i]).className = 'hidden';
+            for (var i = 0; i < bg7ss.length; i++) document.getElementById(bg7ss[i]).className = 'hidden';
+            document.getElementById('bg7').className = 'bg-img';
+            document.getElementById('container-letters-7').style.display = 'block';
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('container-letters').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            document.getElementById('backBtn7').className = 'download-button btn-back size-back-btn';
+            document.getElementById('backBtn').className = 'hidden';
+            document.getElementById('backBtnh').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+            hideAXBtns(); hideAXhBtns();
+            hideSpecial7Btns();
+        }
+        function backTo8() {
+            // أخفِ جميع الخلفيات أولاً
+            var allImgs = document.getElementsByClassName('bg-img');
+            for (var i = 0; i < allImgs.length; i++) allImgs[i].className = 'bg-img hidden';
+
+            isIn8 = true; isIn7 = false; isIn6 = false;
+            var letterBGs8Letters = ['A', 'C', 'F', 'M', 'P', 'R', 'U'];
+            var letterBGs8O = { 'A': 'bgAo', 'C': 'bgCo', 'F': 'bgFo', 'M': 'bgMo', 'P': 'bgPo', 'R': 'bgRo', 'U': 'bgUo' };
+            for (var i = 0; i < letterBGs8Letters.length; i++) document.getElementById(letterBGs8O[letterBGs8Letters[i]]).className = 'hidden';
+            document.getElementById('bg8').className = 'bg-img';
+            document.getElementById('container-letters-8').style.display = 'block';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('container-letters').style.display = 'none';
+            document.getElementById('backBtn8').className = 'download-button btn-back size-back-btn';
+            document.getElementById('backBtn').className = 'hidden';
+            document.getElementById('backBtnh').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            hideAXBtns(); hideAXhBtns();
+            hideSpecial8Btns();
+        }
+        function backTo5() {
+            // أخفِ جميع الخلفيات أولاً
+            var allImgs = document.getElementsByClassName('bg-img');
+            for (var i = 0; i < allImgs.length; i++) allImgs[i].className = 'bg-img hidden';
+
+            for (var i = 0; i < letterBGs.length; i++) document.getElementById(letterBGs[i]).className = 'hidden';
+            document.getElementById('bg5').className = 'bg-img';
+            document.getElementById('container-letters').style.display = 'block';
+            document.getElementById('backBtn').className = 'download-button btn-back size-back-btn';
+            document.getElementById('container-letters-h').style.display = 'none';
+            document.getElementById('container-letters-7').style.display = 'none';
+            document.getElementById('container-letters-8').style.display = 'none';
+            document.getElementById('backBtnh').className = 'hidden';
+            document.getElementById('backBtn7').className = 'hidden';
+            document.getElementById('backBtn8').className = 'hidden';
+            hideAXBtns(); hideAXhBtns();
+        }
+    </script>
+</body>
+</html>
