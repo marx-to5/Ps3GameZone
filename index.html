@@ -829,98 +829,8 @@
             '9_2': 'https://www.mediafire.com/file/rvtjopicm0iygpp/Spotify.pkg/file',
             '9_3': 'https://www.mediafire.com/file/10vsf1klboh36jb/Netflix.pkg/file',
             '9_4': 'https://www.mediafire.com/file/smnqe8gijc8laga/movian.pkg/file',
-            '9_5': 'https://www.mediafire.com/file/fjzw0fo4xtmo879/Twitch.pkg/file'
+            '9_5': 'https://www.mediafire.com/file/fjzw0fo4xtmo879/Twitch.pkg/file',
             // ... بقية الروابط ...
-        };
-
-        var special8BtnMapping = {
-            'Ao': ['A13'],
-            'Co': ['C1', 'C3', 'C6', 'C14', 'C7'],
-            'Fo': ['F6'],
-            'Mo': ['M8', 'M14'],
-            'Po': ['P1', 'P12', 'P9'],
-            'Ro': ['R11', 'R8'],
-            'Uo': ['U10', 'U3']
-        };
-
-        var special7BtnMapping = {
-            'Bs': ['B7', 'B2'],
-            'Fs': ['F13', 'F11', 'F10'],
-            'Gs': ['G10', 'G6'],
-            'Is': ['I11', 'I12'],
-            'Ns': ['N1', 'N13', 'N15', 'N12'],
-            'Vs': ['V3', 'V14', 'V13'],
-            'Ws': ['W15', 'W13', 'W14', 'W7']
-        };
-
-        // جدول الاسماء الافتراضية: المفتاح = اسم الخلفية h, القيمة = مصفوفة 5 عناصر (أسماء الخلفيات التي تظهر عند الضغط على كل زر)
-        // جدول تعيين أزرار Ah-Xh للخلفيات التي تريدها (عدل الأسماء كما تحب)
-        var hBtnMapping = {
-            'Ah': ['A7', 'A8', 'A11', 'A14', 'A10'],
-            'Bh': ['B13', 'B12', 'B11', 'B8', 'B14'],
-            'Ch': ['C4', 'C5', 'C6', 'C12', 'C11'],
-            'Dh': ['D5', 'D7', 'D11', 'D8', 'D9'],
-            'Eh': ['E6', 'E7', 'E9', 'E12', 'E13'],
-            'Fh': ['F2', 'F5', 'F7', 'F11', 'F15'],
-            'Gh': ['G1', 'G4', 'G5', 'G12', 'G15'],
-            'Hh': ['H3', 'H6', 'H7', 'H10', 'H8'],
-            'Ih': ['I3', 'I10', 'I4', 'I7', 'I6'],
-            'Jh': ['J4', 'J2', 'J1', 'J13', 'J10'],
-            'Kh': ['K7', 'K8', 'K6', 'K1', 'K2'],
-            'Lh': ['L13', 'L9', 'L11', 'L8', 'L5'],
-            'Mh': ['M10', 'M5', 'M11', 'M12', 'M15'],
-            'Nh': ['N4', 'N8', 'N7', 'N9', 'N11'],
-            'Oh': ['O5', 'O8', 'O7', 'O12', 'O13'],
-            'Ph': ['P11', 'P6', 'P10', 'P12', 'P14'],
-            'Qh': ['Q14', 'Q12', 'Q7', 'Q2', 'Q1'],
-            'Rh': ['R1', 'R6', 'R15', 'R8', 'R11'],
-            'Sh': ['S15', 'S13', 'S4', 'S2', 'S11'],
-            'Th': ['T6', 'T1', 'T2', 'T9', 'T10'],
-            'Uh': ['U4', 'U7', 'U13', 'U15', 'U14'],
-            'Vh': ['V6', 'V7', 'V1', 'V10', 'V13'],
-            'Wh': ['W7', 'W8', 'W9', 'W14', 'W11'],
-            'Xh': ['X11', 'X10', 'X12', 'X14', 'X15'],
-            // ... أكمل الباقي كما تشاء
-        };
-
-        renderHMappingTable();
-
-        // تعديل showAXhBtns ليستخدم mapping الجديد
-        // (استبدل الدالة القديمة بهذا التعديل)
-        window.showAXhBtns = function (bgLetterH) {
-            document.getElementById('container-axh-btns').style.display = 'block';
-            var cont = document.getElementById('container-axh-btns');
-            cont.innerHTML = '';
-            var settings = axhBtnSettings[bgLetterH];
-            for (var i = 0; i < settings.count; i++) {
-                var btn = document.createElement('a');
-                btn.href = "#";
-                btn.id = 'axhbtn_' + bgLetterH + '_' + i;
-                btn.className = 'axh-btn';
-                btn.style.width = settings.width + 'px';
-                btn.style.height = settings.height + 'px';
-                btn.style.lineHeight = settings.height + 'px';
-                btn.style.left = settings.buttons[i].left;
-                btn.style.top = settings.buttons[i].top;
-                btn.onclick = (function (bg, idx) {
-                    return function (e) {
-                        e.preventDefault();
-                        var subBgName = hBtnMapping[bg][idx];
-                        if (subBgName && document.getElementById("bg" + subBgName)) {
-                            showSubBG(subBgName, bg, true);
-                        } else {
-                            alert("لم يتم تحديد اسم خلفية صحيحة لهذا الزر!");
-                        }
-                        return false;
-                    }
-                })(bgLetterH, i);
-                cont.appendChild(btn);
-            }
-        };
-    </script>
-    <script>
-        // جدول روابط التحميل المخصصة لكل زر تحميل
-        var customLinks = {
             'A1': 'http://zeus.dl.playstation.net/cdn/UP0001/NPUB30451_00/EWJIuyxHFBPRNSSdMCJOsCbxvsQCeHlHsKZTPqaeBmJRCqANKvyxiucWsKSOznxQyxaFoWHyFmtzUKnqwlIHIqnJsbZCdQaQYpLxH.pkg',
             'A2': 'http://ares.dl.playstation.net/cdn/EP0005/NPEB01910_00/LbPwAmObxaYzTYZMRJDLIDWIftFxJFlWcgSLVzzdhdEJutFMPUmbQTjztDUDlyft.pkg',
             'A3': 'http://zeus.dl.playstation.net/cdn/EP4108/NPEB02365_00/EP4108-NPEB02365_00-AT1EUHDDGAME0000_bg_1_7a3eb8ee8eed6190166c9b574394b483b2a98eb8.pkg',
@@ -1280,6 +1190,93 @@
             'X14': 'http://zeus.dl.playstation.net/cdn/JP0036/NPJB00288_00/nCORuPtaQQXVdKDrVWfQYJHDHkqAPbYEfWXUzrBFGqTStoSsBKukcgphWNHLwBQPMvwpXMuMRSBGynemanGydjqfRZHHnDfqmTUSU.pkg',
             'X15': 'http://zeus.dl.playstation.net/cdn/UP1001/NPUB31198_00/EjaEhaFdAUWLWxAkVdYUPRvTqzlndIzcuFIvBAHGrxfBcQPBbUxLhzRWcwaYhMRD.pkg',
         };
+
+        var special8BtnMapping = {
+            'Ao': ['A13'],
+            'Co': ['C1', 'C3', 'C6', 'C14', 'C7'],
+            'Fo': ['F6'],
+            'Mo': ['M8', 'M14'],
+            'Po': ['P1', 'P12', 'P9'],
+            'Ro': ['R11', 'R8'],
+            'Uo': ['U10', 'U3']
+        };
+
+        var special7BtnMapping = {
+            'Bs': ['B7', 'B2'],
+            'Fs': ['F13', 'F11', 'F10'],
+            'Gs': ['G10', 'G6'],
+            'Is': ['I11', 'I12'],
+            'Ns': ['N1', 'N13', 'N15', 'N12'],
+            'Vs': ['V3', 'V14', 'V13'],
+            'Ws': ['W15', 'W13', 'W14', 'W7']
+        };
+
+        // جدول الاسماء الافتراضية: المفتاح = اسم الخلفية h, القيمة = مصفوفة 5 عناصر (أسماء الخلفيات التي تظهر عند الضغط على كل زر)
+        // جدول تعيين أزرار Ah-Xh للخلفيات التي تريدها (عدل الأسماء كما تحب)
+        var hBtnMapping = {
+            'Ah': ['A7', 'A8', 'A11', 'A14', 'A10'],
+            'Bh': ['B13', 'B12', 'B11', 'B8', 'B14'],
+            'Ch': ['C4', 'C5', 'C6', 'C12', 'C11'],
+            'Dh': ['D5', 'D7', 'D11', 'D8', 'D9'],
+            'Eh': ['E6', 'E7', 'E9', 'E12', 'E13'],
+            'Fh': ['F2', 'F5', 'F7', 'F11', 'F15'],
+            'Gh': ['G1', 'G4', 'G5', 'G12', 'G15'],
+            'Hh': ['H3', 'H6', 'H7', 'H10', 'H8'],
+            'Ih': ['I3', 'I10', 'I4', 'I7', 'I6'],
+            'Jh': ['J4', 'J2', 'J1', 'J13', 'J10'],
+            'Kh': ['K7', 'K8', 'K6', 'K1', 'K2'],
+            'Lh': ['L13', 'L9', 'L11', 'L8', 'L5'],
+            'Mh': ['M10', 'M5', 'M11', 'M12', 'M15'],
+            'Nh': ['N4', 'N8', 'N7', 'N9', 'N11'],
+            'Oh': ['O5', 'O8', 'O7', 'O12', 'O13'],
+            'Ph': ['P11', 'P6', 'P10', 'P12', 'P14'],
+            'Qh': ['Q14', 'Q12', 'Q7', 'Q2', 'Q1'],
+            'Rh': ['R1', 'R6', 'R15', 'R8', 'R11'],
+            'Sh': ['S15', 'S13', 'S4', 'S2', 'S11'],
+            'Th': ['T6', 'T1', 'T2', 'T9', 'T10'],
+            'Uh': ['U4', 'U7', 'U13', 'U15', 'U14'],
+            'Vh': ['V6', 'V7', 'V1', 'V10', 'V13'],
+            'Wh': ['W7', 'W8', 'W9', 'W14', 'W11'],
+            'Xh': ['X11', 'X10', 'X12', 'X14', 'X15'],
+            // ... أكمل الباقي كما تشاء
+        };
+
+        renderHMappingTable();
+
+        // تعديل showAXhBtns ليستخدم mapping الجديد
+        // (استبدل الدالة القديمة بهذا التعديل)
+        window.showAXhBtns = function (bgLetterH) {
+            document.getElementById('container-axh-btns').style.display = 'block';
+            var cont = document.getElementById('container-axh-btns');
+            cont.innerHTML = '';
+            var settings = axhBtnSettings[bgLetterH];
+            for (var i = 0; i < settings.count; i++) {
+                var btn = document.createElement('a');
+                btn.href = "#";
+                btn.id = 'axhbtn_' + bgLetterH + '_' + i;
+                btn.className = 'axh-btn';
+                btn.style.width = settings.width + 'px';
+                btn.style.height = settings.height + 'px';
+                btn.style.lineHeight = settings.height + 'px';
+                btn.style.left = settings.buttons[i].left;
+                btn.style.top = settings.buttons[i].top;
+                btn.onclick = (function (bg, idx) {
+                    return function (e) {
+                        e.preventDefault();
+                        var subBgName = hBtnMapping[bg][idx];
+                        if (subBgName && document.getElementById("bg" + subBgName)) {
+                            showSubBG(subBgName, bg, true);
+                        } else {
+                            alert("لم يتم تحديد اسم خلفية صحيحة لهذا الزر!");
+                        }
+                        return false;
+                    }
+                })(bgLetterH, i);
+                cont.appendChild(btn);
+            }
+        };
+    </script>
+    <script>
 
         // المتغيرات الرئيسية
         var letterBGs = ['bgA', 'bgB', 'bgC', 'bgD', 'bgE', 'bgF', 'bgG', 'bgH', 'bgI', 'bgJ', 'bgK', 'bgL', 'bgM', 'bgN', 'bgO', 'bgP', 'bgQ', 'bgR', 'bgS', 'bgT', 'bgU', 'bgV', 'bgW', 'bgX'];
